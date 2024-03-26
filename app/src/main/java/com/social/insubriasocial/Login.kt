@@ -47,6 +47,15 @@ class Login : AppCompatActivity() {
     }
 
     private fun loginUser(email: String, password: String) {
+        if (!isValidEmail(email)) {
+            Toast.makeText(this, "Invalid email format", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (!isValidPassword(password)) {
+            Toast.makeText(this, "Password must be at least 8 characters long", Toast.LENGTH_SHORT).show()
+            return
+        }
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
@@ -58,5 +67,13 @@ class Login : AppCompatActivity() {
                     Toast.makeText(this, "Authentication failed", Toast.LENGTH_SHORT).show()
                 }
             }
+    }
+
+    private fun isValidEmail(email: String): Boolean {
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
+    }
+
+    private fun isValidPassword(password: String): Boolean {
+        return password.length >= 8
     }
 }
