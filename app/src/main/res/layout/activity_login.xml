@@ -10,7 +10,7 @@
     tools:context=".Login">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewL"
         android:layout_width="192dp"
         android:layout_height="70dp"
         android:gravity="center"
@@ -26,7 +26,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/mail"
+        android:id="@+id/mailL"
         android:layout_width="278dp"
         android:layout_height="45dp"
         android:hint="Email"
@@ -34,11 +34,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textViewL"
         app:layout_constraintVertical_bias="0.359" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/passwordL"
         android:layout_width="278dp"
         android:layout_height="45dp"
         android:hint="Password"
@@ -46,19 +46,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mail"
+        app:layout_constraintTop_toBottomOf="@+id/mailL"
         app:layout_constraintVertical_bias="0.096" />
 
     <Button
         android:id="@+id/LogButton"
         android:layout_width="220dp"
         android:layout_height="61dp"
-        android:text="Login"
+        android:text="Conferma"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password"
+        app:layout_constraintTop_toBottomOf="@+id/passwordL"
         app:layout_constraintVertical_bias="0.283" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
