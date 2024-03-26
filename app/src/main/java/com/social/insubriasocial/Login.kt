@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +15,11 @@ import com.google.firebase.auth.FirebaseAuth
 
 class Login : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
+    private lateinit var btnLogin: Button
+    private lateinit var Email:EditText
+    private lateinit var Password:EditText
+    private lateinit var btnback:Button
+    private lateinit var linkRec:TextView
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,10 +28,17 @@ class Login : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
-        val btnLogin = findViewById<Button>(R.id.LogButton)
-        val Email = findViewById<EditText>(R.id.mailL)
-        val Password = findViewById<EditText>(R.id.passwordL)
-        val btnback = findViewById<Button>(R.id.buttonBackL)
+        btnLogin = findViewById<Button>(R.id.LogButton)
+        Email = findViewById<EditText>(R.id.mailL)
+        Password = findViewById<EditText>(R.id.passwordL)
+        btnback = findViewById<Button>(R.id.buttonBackL)
+        linkRec = findViewById<TextView>(R.id.linkRec)
+
+        linkRec.setOnClickListener{
+            val intent = Intent(this, RecoveryPassword::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         btnback.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
