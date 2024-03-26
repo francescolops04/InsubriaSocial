@@ -41,14 +41,26 @@ class RecoveryPassword : AppCompatActivity() {
 
         resetbtn.setOnClickListener {
             val mailRecText = mailRec.text.toString()
-            auth.sendPasswordResetEmail(mailRecText)
-                .addOnCompleteListener(this) { task ->
-                    if (task.isSuccessful) {
-                        Toast.makeText(this, "Abbiamo mandato una mail di recupero password", Toast.LENGTH_SHORT).show()
-                    } else {
-                        Toast.makeText(this, "Indirizzo email non trovato", Toast.LENGTH_SHORT).show()
-                    }
-                }
+            recPassword(mailRecText)
         }
+    }
+
+    private fun recPassword(email:String){
+        if (!isValidEmail(email)) {
+            Toast.makeText(this, "Invalid email format", Toast.LENGTH_SHORT).show()
+            return
+        }
+        auth.sendPasswordResetEmail(email)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(this, "Abbiamo mandato una mail di recupero password", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "Indirizzo email non trovato", Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
+
+    private fun isValidEmail(email: String): Boolean {
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 }
