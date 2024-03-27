@@ -73,15 +73,6 @@
         app:layout_constraintVertical_bias="0.72"
         android:inputType="textPassword"/>
 
-    <EditText
-        android:id="@+id/userR"
-        android:layout_width="272dp"
-        android:layout_height="59dp"
-        android:hint="Username"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <Button
         android:id="@+id/RegButton"
         android:layout_width="220dp"
