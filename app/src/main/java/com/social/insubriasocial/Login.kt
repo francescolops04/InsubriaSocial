@@ -3,6 +3,8 @@ package com.social.insubriasocial
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -57,6 +59,11 @@ class Login : AppCompatActivity() {
                 Toast.makeText(this, "Please enter email and password", Toast.LENGTH_SHORT).show()
             }
         }
+
+        val showHidePasswordButton = findViewById<Button>(R.id.showHidePasswordButton)
+        showHidePasswordButton.setOnClickListener {
+            togglePasswordVisibility(Password)
+        }
     }
 
     private fun loginUser(email: String, password: String) {
@@ -89,4 +96,17 @@ class Login : AppCompatActivity() {
     private fun isValidPassword(password: String): Boolean {
         return password.length >= 8
     }
+
+    private fun togglePasswordVisibility(passwordEditText: EditText) {
+        if (passwordEditText.transformationMethod == PasswordTransformationMethod.getInstance()) {
+            // Se la password è nascosta, mostra la password
+            passwordEditText.transformationMethod = HideReturnsTransformationMethod.getInstance()
+        } else {
+            // Altrimenti, nascondi la password
+            passwordEditText.transformationMethod = PasswordTransformationMethod.getInstance()
+        }
+        // Assicurati che il cursore rimanga alla fine del testo della password dopo la trasformazione
+        passwordEditText.setSelection(passwordEditText.text.length)
+    }
+
 }
