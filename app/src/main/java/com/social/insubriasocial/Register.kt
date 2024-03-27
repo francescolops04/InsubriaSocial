@@ -21,6 +21,7 @@ private lateinit var btnRegister: Button
 private lateinit var Email: EditText
 private lateinit var Password: EditText
 private lateinit var User: EditText
+private lateinit var PasswordC: EditText
 
 class Register : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,6 +36,7 @@ class Register : AppCompatActivity() {
         Email = findViewById<EditText>(R.id.mailR)
         Password = findViewById<EditText>(R.id.passwordR)
         User = findViewById<EditText>(R.id.usernameR)
+        PasswordC = findViewById<EditText>(R.id.passwordR2)
 
 
         btnback.setOnClickListener {
@@ -47,11 +49,14 @@ class Register : AppCompatActivity() {
             val mail = Email.text.toString()
             val pass = Password.text.toString()
             val user = User.text.toString()
+            val pass2 = PasswordC.text.toString()
 
-            if (mail.isNotEmpty() && pass.isNotEmpty()) {
+            if (!mail.isNotEmpty() && !pass.isNotEmpty()) {
+                Toast.makeText(this, "Inserire email e password", Toast.LENGTH_SHORT).show()
+            } else if (samePassword(pass, pass2)){
+                Toast.makeText(this, "Le password non coincidono", Toast.LENGTH_SHORT).show()
+            }else{
                 registerUser(mail, pass, user)
-            } else {
-                Toast.makeText(this, "Please enter email and password", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -119,4 +124,9 @@ class Register : AppCompatActivity() {
     private fun isValidPassword(password: String): Boolean {
         return password.length >= 8
     }
+
+    private fun samePassword(pass1: String, pass2: String):Boolean{
+        return pass1 != pass2
+    }
+
 }
