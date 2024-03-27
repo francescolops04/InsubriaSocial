@@ -12,7 +12,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 
 private lateinit var auth: FirebaseAuth
 private lateinit var firestore: FirebaseFirestore
@@ -38,12 +39,21 @@ class Register : AppCompatActivity() {
         User = findViewById<EditText>(R.id.usernameR)
         PasswordC = findViewById<EditText>(R.id.passwordR2)
 
-
         btnback.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }
+
+        val spinner = findViewById<Spinner>(R.id.spinner)
+        val adapter = ArrayAdapter.createFromResource(
+            this,
+            R.array.opzioni_spinner,
+            android.R.layout.simple_spinner_item
+        )
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = adapter
+
 
         btnRegister.setOnClickListener{
             val mail = Email.text.toString()
@@ -61,11 +71,9 @@ class Register : AppCompatActivity() {
                 registerUser(mail, pass, user)
             }
         }
-
     }
 
     private fun registerUser(email: String, password: String, username: String) {
-
         if (!isValidEmail(email)) {
             Toast.makeText(this, "Inserire mail valida", Toast.LENGTH_SHORT).show()
             return

@@ -51,14 +51,13 @@
         android:id="@+id/spinner"
         android:layout_width="273dp"
         android:layout_height="42dp"
-        android:hint="Facoltà"
+        android:entries="@array/opzioni_spinner"
         app:layout_constraintBaseline_toBottomOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.537"
-        android:entries="@array/opzioni_spinner" />
+        app:layout_constraintVertical_bias="0.537" />
 
     <EditText
         android:id="@+id/passwordR"
