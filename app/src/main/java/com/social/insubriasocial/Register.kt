@@ -30,7 +30,7 @@ class Register : AppCompatActivity() {
 
 
         btnback.setOnClickListener {
-            val intent = Intent(this, CreazioneProfilo::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }
@@ -63,11 +63,11 @@ class Register : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     Toast.makeText(this, "Registration successful", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this, MainActivity::class.java)
+                    val intent = Intent(this, CreazioneProfilo::class.java)
                     startActivity(intent)
                     finish()
                 } else {
-                    Toast.makeText(this, "Registration failed", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Email already used", Toast.LENGTH_SHORT).show()
                 }
             }
     }
