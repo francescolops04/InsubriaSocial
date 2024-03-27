@@ -30,7 +30,7 @@ class Register : AppCompatActivity() {
 
 
         btnback.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, CreazioneProfilo::class.java)
             startActivity(intent)
             finish()
         }

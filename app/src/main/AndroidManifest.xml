@@ -13,6 +13,9 @@
         android:theme="@style/Theme.InsubriaSocial"
         tools:targetApi="31">
         <activity
+            android:name=".CreazioneProfilo"
+            android:exported="false" />
+        <activity
             android:name=".RecoveryPassword"
             android:exported="false" />
         <activity
