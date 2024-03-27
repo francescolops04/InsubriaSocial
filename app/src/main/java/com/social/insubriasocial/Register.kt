@@ -23,6 +23,7 @@ class Register : AppCompatActivity() {
         setContentView(R.layout.activity_register)
 
         auth = FirebaseAuth.getInstance()
+        firestore = FirebaseFirestore.getInstance()
 
         val btnback = findViewById<Button>(R.id.buttonBackR)
         val btnRegister = findViewById<Button>(R.id.RegButton)
@@ -53,8 +54,6 @@ class Register : AppCompatActivity() {
     }
 
     private fun registerUser(email: String, password: String, username: String) {
-        val auth = FirebaseAuth.getInstance()
-        val firestore = FirebaseFirestore.getInstance()
 
         if (!isValidEmail(email)) {
             Toast.makeText(this, "Inserire mail valida", Toast.LENGTH_SHORT).show()
