@@ -55,6 +55,8 @@ class Register : AppCompatActivity() {
                 Toast.makeText(this, "Inserire email e password", Toast.LENGTH_SHORT).show()
             } else if (samePassword(pass, pass2)){
                 Toast.makeText(this, "Le password non coincidono", Toast.LENGTH_SHORT).show()
+            }else if(!user.isNotEmpty()){
+                Toast.makeText(this, "Inserire username", Toast.LENGTH_SHORT).show()
             }else{
                 registerUser(mail, pass, user)
             }
