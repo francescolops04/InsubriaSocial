@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="opzioni_spinner">
+        <item>Informatica</item>
+        <item>Ingegneria informatica</item>
+        <item>Scienze della comunicazione</item>
+    </string-array>
+</resources>

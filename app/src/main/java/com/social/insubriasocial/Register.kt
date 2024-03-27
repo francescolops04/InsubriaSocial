@@ -37,7 +37,6 @@ class Register : AppCompatActivity() {
         User = findViewById<EditText>(R.id.usernameR)
 
 
-
         btnback.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
