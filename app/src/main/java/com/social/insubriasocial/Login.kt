@@ -22,7 +22,6 @@ class Login : AppCompatActivity() {
     private lateinit var Password:EditText
     private lateinit var btnback:Button
     private lateinit var linkRec:TextView
-    private lateinit var showHidePasswordButton:Button
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +35,6 @@ class Login : AppCompatActivity() {
         Password = findViewById<EditText>(R.id.passwordL)
         btnback = findViewById<Button>(R.id.buttonBackL)
         linkRec = findViewById<TextView>(R.id.linkRec)
-        showHidePasswordButton = findViewById<Button>(R.id.showHidePasswordButton)
 
         linkRec.setOnClickListener{
             val intent = Intent(this, RecoveryPassword::class.java)
@@ -59,10 +57,6 @@ class Login : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Please enter email and password", Toast.LENGTH_SHORT).show()
             }
-        }
-
-        showHidePasswordButton.setOnClickListener {
-            togglePasswordVisibility(Password)
         }
     }
 
@@ -106,16 +100,4 @@ class Login : AppCompatActivity() {
     private fun isValidPassword(password: String): Boolean {
         return password.length >= 8
     }
-
-
-
-    private fun togglePasswordVisibility(passwordEditText: EditText) {
-        if (passwordEditText.transformationMethod == PasswordTransformationMethod.getInstance()) {
-            passwordEditText.transformationMethod = HideReturnsTransformationMethod.getInstance()
-        } else {
-            passwordEditText.transformationMethod = PasswordTransformationMethod.getInstance()
-        }
-        passwordEditText.setSelection(passwordEditText.text.length)
-    }
-
 }

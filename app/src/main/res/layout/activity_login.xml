@@ -48,7 +48,8 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mailL"
-        app:layout_constraintVertical_bias="0.096" />
+        app:layout_constraintVertical_bias="0.096"
+        android:inputType="textPassword"/>
 
     <Button
         android:id="@+id/LogButton"
@@ -61,17 +62,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordL"
         app:layout_constraintVertical_bias="0.283"/>
-
-    <Button
-        android:id="@+id/showHidePasswordButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mostra Password"
-        app:layout_constraintTop_toBottomOf="@id/passwordL"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/LogButton"
-        app:layout_constraintHorizontal_bias="0.5"
-        />
 
     <Button
         android:id="@+id/buttonBackL"
