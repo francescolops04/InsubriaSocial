@@ -10,9 +10,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 
 private lateinit var auth: FirebaseAuth
+private lateinit var firestore: FirebaseFirestore
 
 
 class Register : AppCompatActivity() {
@@ -26,6 +28,7 @@ class Register : AppCompatActivity() {
         val btnRegister = findViewById<Button>(R.id.RegButton)
         val Email = findViewById<EditText>(R.id.mailR)
         val Password = findViewById<EditText>(R.id.passwordR)
+        val User = findViewById<EditText>(R.id.usernameR)
 
 
 
@@ -38,9 +41,10 @@ class Register : AppCompatActivity() {
         btnRegister.setOnClickListener{
             val mail = Email.text.toString()
             val pass = Password.text.toString()
+            val user = User.text.toString()
 
             if (mail.isNotEmpty() && pass.isNotEmpty()) {
-                registerUser(mail, pass)
+                registerUser(mail, pass, user)
             } else {
                 Toast.makeText(this, "Please enter email and password", Toast.LENGTH_SHORT).show()
             }
@@ -48,26 +52,48 @@ class Register : AppCompatActivity() {
 
     }
 
-    private fun registerUser(email: String, password: String) {
+    private fun registerUser(email: String, password: String, username: String) {
+        val auth = FirebaseAuth.getInstance()
+        val firestore = FirebaseFirestore.getInstance()
+
         if (!isValidEmail(email)) {
-            Toast.makeText(this, "Invalid email format", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Inserire mail valida", Toast.LENGTH_SHORT).show()
             return
         }
 
         if (!isValidPassword(password)) {
-            Toast.makeText(this, "Password must be at least 8 characters long", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "La password deve essere lunga almeno 8 caratteri", Toast.LENGTH_SHORT).show()
             return
         }
 
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    Toast.makeText(this, "Registration successful", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this, CreazioneProfilo::class.java)
-                    startActivity(intent)
-                    finish()
+                    // Registration successful
+                    Toast.makeText(this, "Registrazione completata", Toast.LENGTH_SHORT).show()
+
+                    // Save user data to Firestore
+                    val user = auth.currentUser
+                    if (user != null) {
+                        val userData = hashMapOf(
+                            "email" to email,
+                            "username" to username,
+                            "password" to password
+                        )
+                        firestore.collection("utenti").document(user.uid)
+                            .set(userData)
+                            .addOnSuccessListener {
+                                val intent = Intent(this, CreazioneProfilo::class.java)
+                                this.startActivity(intent)
+                                this.finish()
+                            }
+                            .addOnFailureListener { e ->
+                                Toast.makeText(this, "Failed to save user data: ${e.message}", Toast.LENGTH_SHORT).show()
+                            }
+                    }
+
                 } else {
-                    Toast.makeText(this, "Email already used", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Email già in uso", Toast.LENGTH_SHORT).show()
                 }
             }
     }
