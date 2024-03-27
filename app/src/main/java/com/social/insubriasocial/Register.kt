@@ -12,7 +12,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import android.widget.ArrayAdapter
 import android.widget.Spinner
 
 private lateinit var auth: FirebaseAuth
@@ -23,6 +22,7 @@ private lateinit var Email: EditText
 private lateinit var Password: EditText
 private lateinit var User: EditText
 private lateinit var PasswordC: EditText
+private lateinit var Faculty: Spinner
 
 class Register : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,6 +38,7 @@ class Register : AppCompatActivity() {
         Password = findViewById<EditText>(R.id.passwordR)
         User = findViewById<EditText>(R.id.usernameR)
         PasswordC = findViewById<EditText>(R.id.passwordR2)
+        Faculty = findViewById<Spinner>(R.id.spinner)
 
         btnback.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
@@ -45,21 +46,12 @@ class Register : AppCompatActivity() {
             finish()
         }
 
-        val spinner = findViewById<Spinner>(R.id.spinner)
-        val adapter = ArrayAdapter.createFromResource(
-            this,
-            R.array.opzioni_spinner,
-            android.R.layout.simple_spinner_item
-        )
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner.adapter = adapter
-
-
         btnRegister.setOnClickListener{
             val mail = Email.text.toString()
             val pass = Password.text.toString()
             val user = User.text.toString()
             val pass2 = PasswordC.text.toString()
+            val selectedFaculty = Faculty.selectedItem.toString()
 
             if (!mail.isNotEmpty() && !pass.isNotEmpty()) {
                 Toast.makeText(this, "Inserire email e password", Toast.LENGTH_SHORT).show()
@@ -67,7 +59,9 @@ class Register : AppCompatActivity() {
                 Toast.makeText(this, "Le password non coincidono", Toast.LENGTH_SHORT).show()
             }else if(!user.isNotEmpty()){
                 Toast.makeText(this, "Inserire username", Toast.LENGTH_SHORT).show()
-            }else{
+            } else if(!validateFacultySelection(selectedFaculty)){
+                Toast.makeText(this, "Non hai selezionato nessuna facoltà", Toast.LENGTH_SHORT).show()
+            } else{
                 registerUser(mail, pass, user)
             }
         }
@@ -139,4 +133,7 @@ class Register : AppCompatActivity() {
         return pass1 != pass2
     }
 
+    private fun validateFacultySelection(selectedFaculty: String): Boolean {
+        return selectedFaculty.isNotEmpty()
+    }
 }
