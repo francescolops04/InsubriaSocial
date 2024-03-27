@@ -66,37 +66,48 @@ class Register : AppCompatActivity() {
             return
         }
 
-        auth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    // Registration successful
-                    Toast.makeText(this, "Registrazione completata", Toast.LENGTH_SHORT).show()
-
-                    // Save user data to Firestore
-                    val user = auth.currentUser
-                    if (user != null) {
-                        val userData = hashMapOf(
-                            "email" to email,
-                            "username" to username,
-                            "password" to password
-                        )
-                        firestore.collection("utenti").document(user.uid)
-                            .set(userData)
-                            .addOnSuccessListener {
-                                val intent = Intent(this, CreazioneProfilo::class.java)
-                                this.startActivity(intent)
-                                this.finish()
-                            }
-                            .addOnFailureListener { e ->
-                                Toast.makeText(this, "Failed to save user data: ${e.message}", Toast.LENGTH_SHORT).show()
-                            }
-                    }
-
+        firestore.collection("utenti")
+            .whereEqualTo("username", username)
+            .get()
+            .addOnSuccessListener { documents ->
+                if (!documents.isEmpty) {
+                    Toast.makeText(this, "Username già in uso", Toast.LENGTH_SHORT).show()
                 } else {
-                    Toast.makeText(this, "Email già in uso", Toast.LENGTH_SHORT).show()
+                    auth.createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(this) { task ->
+                            if (task.isSuccessful) {
+                                Toast.makeText(this, "Registrazione completata", Toast.LENGTH_SHORT).show()
+
+                                val user = auth.currentUser
+                                if (user != null) {
+                                    val userData = hashMapOf(
+                                        "email" to email,
+                                        "username" to username,
+                                        "password" to password
+                                    )
+                                    firestore.collection("utenti").document(user.uid)
+                                        .set(userData)
+                                        .addOnSuccessListener {
+                                            val intent = Intent(this, CreazioneProfilo::class.java)
+                                            this.startActivity(intent)
+                                            this.finish()
+                                        }
+                                        .addOnFailureListener { e ->
+                                            Toast.makeText(this, "Failed to save user data: ${e.message}", Toast.LENGTH_SHORT).show()
+                                        }
+                                }
+
+                            } else {
+                                Toast.makeText(this, "Email già in uso", Toast.LENGTH_SHORT).show()
+                            }
+                        }
                 }
             }
+            .addOnFailureListener { e ->
+                Toast.makeText(this, "Errore durante il controllo dell'username: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
     }
+
 
     private fun isValidEmail(email: String): Boolean {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
