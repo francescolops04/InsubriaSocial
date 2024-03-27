@@ -7,6 +7,18 @@
     android:layout_height="match_parent"
     tools:context=".Register">
 
+    <EditText
+        android:id="@+id/usernameR"
+        android:layout_width="278dp"
+        android:layout_height="45dp"
+        android:hint="Username"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.516" />
+
     <TextView
         android:id="@+id/textViewR"
         android:layout_width="305dp"
@@ -62,14 +74,13 @@
         android:inputType="textPassword"/>
 
     <EditText
-        android:hint="Username"
         android:id="@+id/userR"
         android:layout_width="272dp"
         android:layout_height="59dp"
+        android:hint="Username"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/RegButton"
