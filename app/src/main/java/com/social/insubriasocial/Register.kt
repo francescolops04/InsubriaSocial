@@ -2,6 +2,7 @@ package com.social.insubriasocial
 
 import android.content.Intent
 import android.os.Bundle
+import android.provider.ContactsContract.CommonDataKinds.Email
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -15,7 +16,11 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 private lateinit var auth: FirebaseAuth
 private lateinit var firestore: FirebaseFirestore
-
+private lateinit var btnback: Button
+private lateinit var btnRegister: Button
+private lateinit var Email: EditText
+private lateinit var Password: EditText
+private lateinit var User: EditText
 
 class Register : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,11 +30,11 @@ class Register : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
 
-        val btnback = findViewById<Button>(R.id.buttonBackR)
-        val btnRegister = findViewById<Button>(R.id.RegButton)
-        val Email = findViewById<EditText>(R.id.mailR)
-        val Password = findViewById<EditText>(R.id.passwordR)
-        val User = findViewById<EditText>(R.id.usernameR)
+        btnback = findViewById<Button>(R.id.buttonBackR)
+        btnRegister = findViewById<Button>(R.id.RegButton)
+        Email = findViewById<EditText>(R.id.mailR)
+        Password = findViewById<EditText>(R.id.passwordR)
+        User = findViewById<EditText>(R.id.usernameR)
 
 
 
