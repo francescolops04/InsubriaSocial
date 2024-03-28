@@ -58,6 +58,8 @@ class Register : AppCompatActivity() {
             val user = User.text.toString()
             val pass2 = PasswordC.text.toString()
             val selectedFaculty = Faculty.selectedItem.toString()
+            val name = Nome.text.toString()
+            val lastName = Cognome.text.toString()
 
             if (!mail.isNotEmpty() && !pass.isNotEmpty()) {
                 Toast.makeText(this, "Inserire email e password", Toast.LENGTH_SHORT).show()
@@ -67,13 +69,15 @@ class Register : AppCompatActivity() {
                 Toast.makeText(this, "Inserire username", Toast.LENGTH_SHORT).show()
             } else if(!validateFacultySelection(selectedFaculty)){
                 Toast.makeText(this, "Non hai selezionato nessuna facoltà", Toast.LENGTH_SHORT).show()
-            } else{
-                registerUser(mail, pass, user)
+            } else if(!name.isNotEmpty() && !lastName.isNotEmpty()){
+                Toast.makeText(this, "Inserire nome e cognome", Toast.LENGTH_SHORT).show()
+            }else{
+                registerUser(mail, pass, user, name, lastName, selectedFaculty)
             }
         }
     }
 
-    private fun registerUser(email: String, password: String, username: String) {
+    private fun registerUser(email: String, password: String, username: String, name: String, lastName: String, selectedFaculty: String) {
         if (!isValidEmail(email)) {
             Toast.makeText(this, "Inserire mail valida", Toast.LENGTH_SHORT).show()
             return
@@ -101,7 +105,10 @@ class Register : AppCompatActivity() {
                                     val userData = hashMapOf(
                                         "email" to email,
                                         "username" to username,
-                                        "password" to password
+                                        "password" to password,
+                                        "nome" to name,
+                                        "cognome" to lastName,
+                                        "facoltà" to selectedFaculty
                                     )
                                     firestore.collection("utenti").document(user.uid)
                                         .set(userData)
