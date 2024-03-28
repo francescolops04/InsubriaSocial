@@ -67,7 +67,7 @@ class Register : AppCompatActivity() {
                 Toast.makeText(this, "Le password non coincidono", Toast.LENGTH_SHORT).show()
             }else if(!user.isNotEmpty()){
                 Toast.makeText(this, "Inserire username", Toast.LENGTH_SHORT).show()
-            } else if(!validateFacultySelection(selectedFaculty)){
+            } else if(!validateFacultySelection(selectedFaculty) || selectedFaculty.equals("Seleziona la facoltà")){
                 Toast.makeText(this, "Non hai selezionato nessuna facoltà", Toast.LENGTH_SHORT).show()
             } else if(!name.isNotEmpty() && !lastName.isNotEmpty()){
                 Toast.makeText(this, "Inserire nome e cognome", Toast.LENGTH_SHORT).show()

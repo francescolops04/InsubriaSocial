@@ -62,19 +62,20 @@
 
     <EditText
         android:id="@+id/mailR"
-        android:layout_width="278dp"
-        android:layout_height="45dp"
+        android:layout_width="276dp"
+        android:layout_height="43dp"
         android:hint="Email"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="273dp"
-        android:layout_height="42dp"
+        android:layout_width="281dp"
+        android:layout_height="46dp"
+        android:background="@drawable/rounded_corner"
         android:entries="@array/opzioni_spinner"
         app:layout_constraintBaseline_toBottomOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
