@@ -14,6 +14,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import android.widget.Spinner
+import java.util.regex.Pattern
 
 private lateinit var auth: FirebaseAuth
 private lateinit var firestore: FirebaseFirestore
@@ -83,8 +84,23 @@ class Register : AppCompatActivity() {
             return
         }
 
-        if (!isValidPassword(password)) {
-            Toast.makeText(this, "La password deve essere lunga almeno 8 caratteri", Toast.LENGTH_SHORT).show()
+        val isPasswordLengthValid = password.length >= 8
+        val containsUpperCase = password.any { it.isUpperCase() }
+        val containsLowerCase = password.any { it.isLowerCase() }
+        val containsSpecialChar = password.any { !it.isLetterOrDigit() }
+
+        if (!isPasswordLengthValid || !(containsUpperCase && containsLowerCase && containsSpecialChar)) {
+            var errorMessage = "La password deve essere "
+            if (!isPasswordLengthValid) {
+                errorMessage += "lunga almeno 8 caratteri"
+            }
+            if (!(containsUpperCase && containsLowerCase && containsSpecialChar)) {
+                if (!isPasswordLengthValid) {
+                    errorMessage += " e "
+                }
+                errorMessage += "contenere almeno una maiuscola, una minuscola e un carattere speciale"
+            }
+            Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -144,7 +160,14 @@ class Register : AppCompatActivity() {
     }
 
     private fun isValidPassword(password: String): Boolean {
-        return password.length >= 8
+        val pattern = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\\p{Punct}).+\$")
+        val containsUpperCase = password.any { it.isUpperCase() }
+        val containsLowerCase = password.any { it.isLowerCase() }
+        val containsSpecialChar = password.any { !it.isLetterOrDigit() }
+
+
+        return password.length >= 8 && pattern.matcher(password).find() &&
+                containsUpperCase && containsLowerCase && containsSpecialChar
     }
 
     private fun isValidUsername(user: String): Boolean {
