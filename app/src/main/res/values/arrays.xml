@@ -2,7 +2,7 @@
 
 <resources>
 <string-array name="opzioni_spinner">
-    <item></item> <!-- Etichetta vuota per la selezione vuota -->
+    <item>Seleziona la facoltà</item> <!-- Etichetta vuota per la selezione vuota -->
     <item>Informatica</item>
     <item>Ingegneria informatica</item>
     <item>Scienze della comunicazione</item>
@@ -10,5 +10,8 @@
     <item>Fisica</item>
     <item>Lettere</item>
     <item>Storia</item>
+    <item>Giurisprudenza</item>
+    <item>Storia</item>
+    <item>Economia</item>
 </string-array>
 </resources>
