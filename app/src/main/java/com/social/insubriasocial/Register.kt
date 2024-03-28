@@ -109,7 +109,6 @@ class Register : AppCompatActivity() {
                                     val userData = hashMapOf(
                                         "email" to email,
                                         "username" to username,
-                                        "password" to password,
                                         "nome" to name,
                                         "cognome" to lastName,
                                         "facoltà" to selectedFaculty
