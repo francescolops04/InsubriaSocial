@@ -1,5 +1,6 @@
 package com.social.insubriasocial
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.provider.ContactsContract.CommonDataKinds.Email
@@ -23,8 +24,11 @@ private lateinit var Password: EditText
 private lateinit var User: EditText
 private lateinit var PasswordC: EditText
 private lateinit var Faculty: Spinner
+private lateinit var Nome: EditText
+private lateinit var Cognome: EditText
 
 class Register : AppCompatActivity() {
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
@@ -39,6 +43,8 @@ class Register : AppCompatActivity() {
         User = findViewById<EditText>(R.id.usernameR)
         PasswordC = findViewById<EditText>(R.id.passwordR2)
         Faculty = findViewById<Spinner>(R.id.spinner)
+        Nome = findViewById<EditText>(R.id.nomeR)
+        Cognome = findViewById<EditText>(R.id.cognomeR)
 
         btnback.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
