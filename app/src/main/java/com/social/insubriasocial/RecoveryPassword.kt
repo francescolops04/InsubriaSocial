@@ -22,7 +22,6 @@ class RecoveryPassword : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
 
 
-
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
