@@ -14,7 +14,6 @@ import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import android.widget.Spinner
-import java.util.regex.Pattern
 
 private lateinit var auth: FirebaseAuth
 private lateinit var firestore: FirebaseFirestore
