@@ -84,24 +84,8 @@ class Register : AppCompatActivity() {
             return
         }
 
-        val isPasswordLengthValid = password.length >= 8
-        val containsUpperCase = password.any { it.isUpperCase() }
-        val containsLowerCase = password.any { it.isLowerCase() }
-        val containsSpecialChar = password.any { !it.isLetterOrDigit() }
-
-        if (!isPasswordLengthValid || !(containsUpperCase && containsLowerCase && containsSpecialChar)) {
-            var errorMessage = "La password deve essere "
-            if (!isPasswordLengthValid) {
-                errorMessage += "lunga almeno 8 caratteri"
-            }
-            if (!(containsUpperCase && containsLowerCase && containsSpecialChar)) {
-                if (!isPasswordLengthValid) {
-                    errorMessage += " e "
-                }
-                errorMessage += "contenere almeno una maiuscola, una minuscola e un carattere speciale"
-            }
-            Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show()
-            return
+        if(!isValidPassword(password)){
+            Toast.makeText(this, "La password deve essere lunga almeno 8 caratteri", Toast.LENGTH_SHORT).show()
         }
 
         if (!isValidUsername(username)) {
@@ -160,14 +144,7 @@ class Register : AppCompatActivity() {
     }
 
     private fun isValidPassword(password: String): Boolean {
-        val pattern = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\\p{Punct}).+\$")
-        val containsUpperCase = password.any { it.isUpperCase() }
-        val containsLowerCase = password.any { it.isLowerCase() }
-        val containsSpecialChar = password.any { !it.isLetterOrDigit() }
-
-
-        return password.length >= 8 && pattern.matcher(password).find() &&
-                containsUpperCase && containsLowerCase && containsSpecialChar
+        return password.length >= 8
     }
 
     private fun isValidUsername(user: String): Boolean {
