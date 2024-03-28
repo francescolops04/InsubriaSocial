@@ -88,6 +88,11 @@ class Register : AppCompatActivity() {
             return
         }
 
+        if (!isValidUsername(username)) {
+            Toast.makeText(this, "Lo username deve essere lungo almeno 6 caratteri", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         firestore.collection("utenti")
             .whereEqualTo("username", username)
             .get()
@@ -140,6 +145,10 @@ class Register : AppCompatActivity() {
 
     private fun isValidPassword(password: String): Boolean {
         return password.length >= 8
+    }
+
+    private fun isValidUsername(user: String): Boolean {
+        return user.length >= 6
     }
 
     private fun samePassword(pass1: String, pass2: String):Boolean{
