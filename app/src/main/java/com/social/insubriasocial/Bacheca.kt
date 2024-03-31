@@ -1,6 +1,7 @@
 package com.social.insubriasocial
 
 import android.content.Intent
+import android.graphics.Insets
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
@@ -14,18 +15,25 @@ import com.social.insubriasocial.Announcement
 class Bacheca : AppCompatActivity() {
 
     private var selectedAnnouncement: Announcement? = null
+    private lateinit var systemBars: WindowInsetsCompat
+    private lateinit var buttonAggiuntaAnnuncio: Button
+    private lateinit var intent: Intent
+
+    init {
+        systemBars = WindowInsetsCompat.Builder().build()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_bacheca)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            systemBars = insets
+            v.setPadding(systemBars.systemWindowInsetLeft, systemBars.systemWindowInsetTop, systemBars.systemWindowInsetRight, systemBars.systemWindowInsetBottom)
             insets
         }
 
-        val buttonAggiuntaAnnuncio = findViewById<Button>(R.id.buttonAggiuntaAnnuncio)
+        buttonAggiuntaAnnuncio = findViewById<Button>(R.id.buttonAggiuntaAnnuncio)
         buttonAggiuntaAnnuncio.setOnClickListener {
             selectedAnnouncement?.let {
                 showConfirmationDialog()
@@ -34,7 +42,7 @@ class Bacheca : AppCompatActivity() {
                     .show()
             }
 
-            val intent = Intent(this, AddAnnouncementActivity::class.java)
+            intent = Intent(this, AddAnnouncementActivity::class.java)
             startActivity(intent)
         }
     }
