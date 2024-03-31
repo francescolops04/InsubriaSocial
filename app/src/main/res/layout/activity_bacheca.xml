@@ -49,7 +49,7 @@
         android:id="@+id/buttonRimuoviAnnuncio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="316dp"
+        android:layout_marginEnd="304dp"
         android:layout_marginBottom="680dp"
         android:text="x"
         app:layout_constraintBottom_toBottomOf="parent"
