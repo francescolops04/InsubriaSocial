@@ -7,4 +7,40 @@
     android:layout_height="match_parent"
     tools:context=".Profilo">
 
+    <Button
+        android:id="@+id/buttonBachecaP"
+        android:layout_width="124dp"
+        android:layout_height="53dp"
+        android:text="Bacheca"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.994" />
+
+    <Button
+        android:id="@+id/buttonChatP"
+        android:layout_width="98dp"
+        android:layout_height="54dp"
+        android:text="Profilo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.948"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.994" />
+
+    <Button
+        android:id="@+id/buttonSearchP"
+        android:layout_width="102dp"
+        android:layout_height="54dp"
+        android:text="Cerca"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.061"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.994" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
