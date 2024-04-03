@@ -116,7 +116,7 @@ class Register : AppCompatActivity() {
                                     firestore.collection("utenti").document(user.uid)
                                         .set(userData)
                                         .addOnSuccessListener {
-                                            val intent = Intent(this, CreazioneProfilo::class.java)
+                                            val intent = Intent(this, Bacheca::class.java)
                                             this.startActivity(intent)
                                             this.finish()
                                         }

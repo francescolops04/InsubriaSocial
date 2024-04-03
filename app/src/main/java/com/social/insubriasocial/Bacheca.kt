@@ -13,35 +13,22 @@ import com.social.insubriasocial.Announcement
 class Bacheca : AppCompatActivity() {
 
     private var selectedAnnouncement: Announcement? = null
-    private lateinit var systemBars: WindowInsetsCompat
     private lateinit var buttonAggiuntaAnnuncio: Button
     private lateinit var intent: Intent
 
-    init {
-        systemBars = WindowInsetsCompat.Builder().build()
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_bacheca)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            systemBars = insets
-            v.setPadding(systemBars.systemWindowInsetLeft, systemBars.systemWindowInsetTop, systemBars.systemWindowInsetRight, systemBars.systemWindowInsetBottom)
-            insets
-        }
+
 
         buttonAggiuntaAnnuncio = findViewById<Button>(R.id.buttonAggiuntaAnnuncio)
-        buttonAggiuntaAnnuncio.setOnClickListener {
-            selectedAnnouncement?.let {
-                showConfirmationDialog()
-            } ?: run {
-                Toast.makeText(this, "Seleziona un annuncio da rimuovere", Toast.LENGTH_SHORT)
-                    .show()
-            }
 
+        buttonAggiuntaAnnuncio.setOnClickListener {
             intent = Intent(this, AddAnnouncementActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 
