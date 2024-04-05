@@ -14,7 +14,8 @@ import java.sql.RowId
 
 lateinit var nameProfile: TextView
 lateinit var lastnameProfile: TextView
-lateinit var userName: TextView
+lateinit var userNameProfile: TextView
+lateinit var facultyProfile: TextView
 
 
 
@@ -27,7 +28,8 @@ class Profilo : AppCompatActivity() {
 
         nameProfile = findViewById<TextView>(R.id.nameProfile)
         lastnameProfile = findViewById<TextView>(R.id.lastnameProfile)
-        userName = findViewById<TextView>(R.id.userProfile)
+        userNameProfile = findViewById<TextView>(R.id.userProfile)
+        facultyProfile = findViewById<TextView>(R.id.facultyProfile)
 
 
         val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
@@ -43,10 +45,13 @@ class Profilo : AppCompatActivity() {
                         val name = document.getString("nome")
                         val lastName = document.getString("cognome")
                         val username = document.getString("username")
+                        val faculty = document.getString("facoltà")
 
                         nameProfile.text = "$name"
                         lastnameProfile.text = "$lastName"
-                        userName.text = "$username"
+                        userNameProfile.text = "$username"
+                        facultyProfile.text = "$faculty"
+
                     } else {
                         Toast.makeText(this, "Nessun documento trovato", Toast.LENGTH_SHORT).show()
                     }
