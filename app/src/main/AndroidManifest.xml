@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.InsubriaSocial"
         tools:targetApi="31">
-
+        <activity
+            android:name=".Profilo"
+            android:exported="false" />
         <activity
             android:name=".RecoveryPassword"
             android:exported="false" />
