@@ -13,7 +13,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 import java.sql.RowId
 
 lateinit var nameProfile: TextView
-lateinit var lastnameProfile: TextView
 lateinit var userNameProfile: TextView
 lateinit var facultyProfile: TextView
 
@@ -27,7 +26,6 @@ class Profilo : AppCompatActivity() {
         setContentView(R.layout.activity_profilo)
 
         nameProfile = findViewById<TextView>(R.id.nameProfile)
-        lastnameProfile = findViewById<TextView>(R.id.lastnameProfile)
         userNameProfile = findViewById<TextView>(R.id.userProfile)
         facultyProfile = findViewById<TextView>(R.id.facultyProfile)
 
@@ -47,10 +45,9 @@ class Profilo : AppCompatActivity() {
                         val username = document.getString("username")
                         val faculty = document.getString("facoltà")
 
-                        nameProfile.text = "$name"
-                        lastnameProfile.text = "$lastName"
+                        nameProfile.text = "$name $lastName"
                         userNameProfile.text = "$username"
-                        facultyProfile.text = "$faculty"
+                        facultyProfile.text = "Facoltà: $faculty"
 
                     } else {
                         Toast.makeText(this, "Nessun documento trovato", Toast.LENGTH_SHORT).show()

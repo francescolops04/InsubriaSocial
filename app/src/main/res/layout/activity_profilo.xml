@@ -9,29 +9,71 @@
 
     <TextView
         android:id="@+id/nameProfile"
-        android:layout_width="157dp"
-        android:layout_height="43dp"
+        android:layout_width="309dp"
+        android:layout_height="41dp"
+        android:fontFamily="@font/sfpro2"
         android:text=""
-        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.381"
+        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.062" />
+        app:layout_constraintVertical_bias="0.228" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="339dp"
+        android:layout_height="69dp"
+        android:background="@drawable/buttons"
+        android:foregroundGravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.037" />
 
     <TextView
-        android:id="@+id/lastnameProfile"
-        android:layout_width="157dp"
-        android:layout_height="43dp"
-        android:gravity="center"
-        android:text=""
+        android:layout_width="186dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="4dp"
+        android:fontFamily="@font/sfpro2"
+        android:hint="Inserisci una descrizione"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.381"
+        app:layout_constraintHorizontal_bias="0.099"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.156" />
+        app:layout_constraintVertical_bias="0.504" />
+
+    <View
+        android:id="@+id/textView"
+        android:layout_width="377dp"
+        android:layout_height="211dp"
+        android:background="@drawable/shape_border"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.736"/>
+
+    <EditText
+        android:layout_width="346dp"
+        android:layout_height="188dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.446"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="start"
+        app:layout_constraintVertical_bias="0.721"
+        android:fontFamily="@font/sfpro2"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        android:background="@android:color/transparent"/>
 
     <TextView
         android:id="@+id/userProfile"
@@ -39,25 +81,29 @@
         android:layout_height="43dp"
         android:gravity="center"
         android:text=""
+        android:textColor="@color/white"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.381"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.252" />
+        app:layout_constraintVertical_bias="0.053" />
+
 
     <TextView
         android:id="@+id/facultyProfile"
-        android:layout_width="157dp"
-        android:layout_height="43dp"
-        android:gravity="center"
+        android:layout_width="313dp"
+        android:layout_height="36dp"
+        android:fontFamily="@font/sfpro2"
         android:text=""
+        android:textColor="@color/black"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.381"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.341" />
+        app:layout_constraintVertical_bias="0.31" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
