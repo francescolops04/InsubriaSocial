@@ -9,6 +9,26 @@
     android:layout_height="match_parent"
     tools:context=".Login">
 
+
+    <View
+        android:layout_width="284dp"
+        android:layout_height="55dp"
+        android:background="@drawable/shape_border"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.519"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="329dp"
+        tools:ignore="MissingConstraints" />
+
+    <View
+        android:layout_width="284dp"
+        android:layout_height="55dp"
+        android:layout_marginEnd="60dp"
+        android:background="@drawable/shape_border"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="408dp" />
+
     <TextView
         android:id="@+id/textViewL"
         android:layout_width="192dp"
@@ -33,29 +53,32 @@
         android:hint="Email"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.541"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewL"
-        app:layout_constraintVertical_bias="0.359" />
+        app:layout_constraintVertical_bias="0.34" />
+
 
     <EditText
         android:id="@+id/passwordL"
         android:layout_width="278dp"
         android:layout_height="45dp"
         android:hint="Password"
+        android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.541"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mailL"
-        app:layout_constraintVertical_bias="0.096"
-        android:inputType="textPassword"/>
+        app:layout_constraintVertical_bias="0.108" />
 
     <Button
         android:id="@+id/LogButton"
         android:layout_width="220dp"
         android:layout_height="61dp"
         android:text="Conferma"
+        android:background="@drawable/buttons"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -67,13 +90,15 @@
         android:id="@+id/buttonBackL"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/buttons"
         android:text="Back"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintHorizontal_bias="0.021"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.04" />
+        app:layout_constraintVertical_bias="0.023" />
 
     <TextView
         android:id="@+id/linkRec"
