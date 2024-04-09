@@ -110,13 +110,17 @@
         android:id="@+id/btnSubmitDesc"
         android:layout_width="239dp"
         android:layout_height="63dp"
+        android:background="@drawable/buttons"
+        android:fontFamily="@font/sfpro2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.79"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.928"
-        android:hint="Modifica descrizione"/>
+        android:text="Modifica la descrizione"
+        android:textColor="@color/white"
+        android:textAllCaps="false"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
