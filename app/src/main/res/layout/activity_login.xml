@@ -37,9 +37,9 @@
 
     <TextView
         android:id="@+id/textViewL"
-        android:layout_width="192dp"
-        android:layout_height="70dp"
-        android:fontFamily="serif"
+        android:layout_width="201dp"
+        android:layout_height="84dp"
+        android:fontFamily="@font/arial"
         android:gravity="center"
         android:text="Login"
         android:textSize="50dp"
@@ -59,12 +59,13 @@
         android:layout_height="51dp"
         android:background="@android:color/transparent"
         android:hint="Email"
+        android:fontFamily="@font/sfpro2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.607"
+        app:layout_constraintHorizontal_bias="0.629"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewL"
-        app:layout_constraintVertical_bias="0.343" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.483" />
 
     <EditText
         android:id="@+id/passwordL"
@@ -72,6 +73,7 @@
         android:layout_height="51dp"
         android:background="@android:color/transparent"
         android:hint="Password"
+        android:fontFamily="@font/sfpro2"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -85,6 +87,7 @@
         android:layout_width="220dp"
         android:layout_height="61dp"
         android:text="Conferma"
+        android:fontFamily="@font/sfpro2"
         android:background="@drawable/buttons"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -99,6 +102,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/buttons"
+        android:fontFamily="@font/sfpro2"
         android:text="Back"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -114,6 +118,7 @@
         android:layout_height="27dp"
         android:gravity="center"
         android:text="Hai dimenticato la password?"
+        android:fontFamily="@font/sfpro2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
