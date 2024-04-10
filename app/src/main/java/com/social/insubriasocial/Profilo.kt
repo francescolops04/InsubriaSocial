@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.SpannableStringBuilder
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -15,6 +16,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isVisible
+import androidx.core.widget.doAfterTextChanged
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import java.sql.RowId
@@ -24,8 +27,6 @@ lateinit var userNameProfile: TextView
 lateinit var facultyProfile: TextView
 lateinit var descriptionProfile: EditText
 lateinit var btnSubmit: Button
-
-
 
 
 @SuppressLint("MissingInflatedId")
@@ -40,16 +41,44 @@ class Profilo : AppCompatActivity() {
         descriptionProfile = findViewById<EditText>(R.id.profileDesc)
         btnSubmit = findViewById<Button>(R.id.btnSubmitDesc)
 
+
         profileData()
         profileDesc()
 
-        btnSubmit.setOnClickListener {
-            collectDesc(descriptionProfile)
+        descriptionProfile.doAfterTextChanged { editable ->
+            checkDescriptionAndUpdateButton(editable.toString())
         }
 
-
+        btnSubmit.setOnClickListener {
+            collectDesc(descriptionProfile)
+            btnSubmit.visibility = View.GONE
+        }
 
     }
+
+
+    private fun checkDescriptionAndUpdateButton(currentDescription: String) {
+        val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
+        val db = FirebaseFirestore.getInstance()
+        if (currentUserID != null) {
+            db.collection("descrizioni")
+                .document(currentUserID)
+                .get()
+                .addOnSuccessListener { document ->
+                    if (document != null) {
+                        val descriptionInDb = document.getString("Description") ?: ""
+                        btnSubmit.visibility = if (descriptionInDb != currentDescription) View.VISIBLE else View.GONE
+                    } else {
+                        Toast.makeText(this, "Nessun documento trovato", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Toast.makeText(this, "Errore durante il recupero dei dati: $exception", Toast.LENGTH_SHORT).show()
+                }
+        }
+    }
+
+
 
     private fun profileData(){
         val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
