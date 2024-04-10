@@ -28,6 +28,7 @@
         android:fontFamily="@font/arial"
         android:gravity="center"
         android:text="Registrati"
+        android:textColor="#066858"
         android:textSize="50dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
