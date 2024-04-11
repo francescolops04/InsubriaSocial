@@ -32,16 +32,19 @@ class Settings : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
         btnProfile.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, EditProfile::class.java)
             startActivity(intent)
             finish()
         }
+
         btnPassword.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }
+
         btnLogout.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
