@@ -4,29 +4,25 @@ import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
 import android.text.SpannableStringBuilder
 import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import java.sql.RowId
 
 lateinit var nameProfile: TextView
 lateinit var userNameProfile: TextView
 lateinit var facultyProfile: TextView
 lateinit var descriptionProfile: EditText
 lateinit var btnSubmit: Button
+lateinit var btnSettings: ImageView
 
 
 @SuppressLint("MissingInflatedId")
@@ -40,7 +36,7 @@ class Profilo : AppCompatActivity() {
         facultyProfile = findViewById<TextView>(R.id.facultyProfile)
         descriptionProfile = findViewById<EditText>(R.id.profileDesc)
         btnSubmit = findViewById<Button>(R.id.btnSubmitDesc)
-
+        btnSettings = findViewById<ImageView>(R.id.settingsP)
 
         profileData()
         profileDesc()
@@ -53,6 +49,12 @@ class Profilo : AppCompatActivity() {
             collectDesc(descriptionProfile)
             btnSubmit.visibility = View.GONE
         }
+
+        btnSettings.setOnClickListener {
+            val intent = Intent(this, Settings::class.java)
+            startActivity(intent)
+            finish()
+        };
 
     }
 
