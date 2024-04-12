@@ -2,8 +2,10 @@ package com.social.insubriasocial
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
 import android.text.SpannableStringBuilder
 import android.view.View
+import android.widget.AdapterView
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
@@ -38,6 +40,10 @@ class EditProfile : AppCompatActivity() {
 
         userProfile()
 
+        updateButtonVisible(nameChanged, lastnameChanged, userChanged, FacultyChanged)
+
+
+
 
         btnBackEP.setOnClickListener {
             val intent = Intent(this, Settings::class.java)
@@ -49,6 +55,119 @@ class EditProfile : AppCompatActivity() {
         }
 
     }
+
+    private fun updateButtonVisible(name:EditText, lastname: EditText, username: EditText, faculty: Spinner){
+        nameChanged.doAfterTextChanged { editable ->
+            checkNameAndUpdateButton(editable.toString())
+        }
+
+        lastnameChanged.doAfterTextChanged { editable ->
+            checkLastNameAndUpdateButton(editable.toString())
+        }
+
+        userChanged.doAfterTextChanged { editable ->
+            checkUserNameAndUpdateButton(editable.toString())
+        }
+
+        FacultyChanged.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val selectedItem = parent?.getItemAtPosition(position).toString()
+                checkFacultyAndUpdateButton(selectedItem)
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+        }
+    }
+
+    private fun checkFacultyAndUpdateButton(currentFaculty: String) {
+        val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
+        val db = FirebaseFirestore.getInstance()
+        if (currentUserID != null) {
+            db.collection("utenti")
+                .document(currentUserID)
+                .get()
+                .addOnSuccessListener { document ->
+                    if (document != null) {
+                        val facultyDb = document.getString("facoltà") ?: ""
+                        btnConfirm.visibility = if (facultyDb != currentFaculty) View.VISIBLE else View.GONE
+                    } else {
+                        Toast.makeText(this, "Nessun documento trovato", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Toast.makeText(this, "Errore durante il recupero dei dati: $exception", Toast.LENGTH_SHORT).show()
+                }
+        }
+    }
+
+    private fun checkNameAndUpdateButton(currentName: String) {
+        val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
+        val db = FirebaseFirestore.getInstance()
+        if (currentUserID != null) {
+            db.collection("utenti")
+                .document(currentUserID)
+                .get()
+                .addOnSuccessListener { document ->
+                    if (document != null) {
+                        val nameDb = document.getString("nome") ?: ""
+                        btnConfirm.visibility = if (nameDb != currentName) View.VISIBLE else View.GONE
+                    } else {
+                        Toast.makeText(this, "Nessun documento trovato", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Toast.makeText(this, "Errore durante il recupero dei dati: $exception", Toast.LENGTH_SHORT).show()
+                }
+        }
+    }
+
+    private fun checkLastNameAndUpdateButton(currentLastName: String) {
+        val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
+        val db = FirebaseFirestore.getInstance()
+        if (currentUserID != null) {
+            db.collection("utenti")
+                .document(currentUserID)
+                .get()
+                .addOnSuccessListener { document ->
+                    if (document != null) {
+                        val lastnameDb = document.getString("cognome") ?: ""
+                        btnConfirm.visibility = if (lastnameDb != currentLastName) View.VISIBLE else View.GONE
+                    } else {
+                        Toast.makeText(this, "Nessun documento trovato", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Toast.makeText(this, "Errore durante il recupero dei dati: $exception", Toast.LENGTH_SHORT).show()
+                }
+        }
+    }
+
+    private fun checkUserNameAndUpdateButton(currentUsername: String) {
+        val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
+        val db = FirebaseFirestore.getInstance()
+        if (currentUserID != null) {
+            db.collection("utenti")
+                .document(currentUserID)
+                .get()
+                .addOnSuccessListener { document ->
+                    if (document != null) {
+                        val usernameDb = document.getString("username") ?: ""
+                        btnConfirm.visibility = if (usernameDb != currentUsername) View.VISIBLE else View.GONE
+                    } else {
+                        Toast.makeText(this, "Nessun documento trovato", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Toast.makeText(this, "Errore durante il recupero dei dati: $exception", Toast.LENGTH_SHORT).show()
+                }
+        }
+    }
+
+
+
+
+
 
     private fun userProfile() {
             val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
