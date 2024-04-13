@@ -40,7 +40,7 @@ class EditProfile : AppCompatActivity() {
 
         userProfile()
 
-        updateButtonVisible(nameChanged, lastnameChanged, userChanged, FacultyChanged)
+        updateButtonVisible()
 
 
 
@@ -56,7 +56,7 @@ class EditProfile : AppCompatActivity() {
 
     }
 
-    private fun updateButtonVisible(name:EditText, lastname: EditText, username: EditText, faculty: Spinner){
+    private fun updateButtonVisible(){
         nameChanged.doAfterTextChanged { editable ->
             checkNameAndUpdateButton(editable.toString())
         }
@@ -89,8 +89,11 @@ class EditProfile : AppCompatActivity() {
                 .get()
                 .addOnSuccessListener { document ->
                     if (document != null) {
+                        val nameDb = document.getString("nome") ?: ""
+                        val lastnameDb = document.getString("cognome") ?: ""
                         val facultyDb = document.getString("facoltà") ?: ""
-                        btnConfirm.visibility = if (facultyDb != currentFaculty) View.VISIBLE else View.GONE
+                        val usernameDb = document.getString("username") ?: ""
+                        btnConfirm.visibility = if (facultyDb != currentFaculty || lastnameDb != lastnameChanged.text.toString() || usernameDb != userChanged.text.toString() || nameDb != nameChanged.text.toString()) View.VISIBLE else View.GONE
                     } else {
                         Toast.makeText(this, "Nessun documento trovato", Toast.LENGTH_SHORT).show()
                     }
@@ -111,7 +114,11 @@ class EditProfile : AppCompatActivity() {
                 .addOnSuccessListener { document ->
                     if (document != null) {
                         val nameDb = document.getString("nome") ?: ""
-                        btnConfirm.visibility = if (nameDb != currentName) View.VISIBLE else View.GONE
+                        val lastnameDb = document.getString("cognome") ?: ""
+                        val facultyDb = document.getString("facoltà") ?: ""
+                        val usernameDb = document.getString("username") ?: ""
+
+                        btnConfirm.visibility = if (nameDb != currentName || lastnameDb != lastnameChanged.text.toString() || facultyDb != FacultyChanged.selectedItem.toString() || usernameDb != userChanged.text.toString()) View.VISIBLE else View.GONE
                     } else {
                         Toast.makeText(this, "Nessun documento trovato", Toast.LENGTH_SHORT).show()
                     }
@@ -131,8 +138,12 @@ class EditProfile : AppCompatActivity() {
                 .get()
                 .addOnSuccessListener { document ->
                     if (document != null) {
+                        val nameDb = document.getString("nome") ?: ""
                         val lastnameDb = document.getString("cognome") ?: ""
-                        btnConfirm.visibility = if (lastnameDb != currentLastName) View.VISIBLE else View.GONE
+                        val facultyDb = document.getString("facoltà") ?: ""
+                        val usernameDb = document.getString("username") ?: ""
+
+                        btnConfirm.visibility = if (lastnameDb != currentLastName || nameDb != nameChanged.text.toString() || facultyDb != FacultyChanged.selectedItem.toString() || usernameDb != userChanged.text.toString()) View.VISIBLE else View.GONE
                     } else {
                         Toast.makeText(this, "Nessun documento trovato", Toast.LENGTH_SHORT).show()
                     }
@@ -152,8 +163,11 @@ class EditProfile : AppCompatActivity() {
                 .get()
                 .addOnSuccessListener { document ->
                     if (document != null) {
+                        val nameDb = document.getString("nome") ?: ""
+                        val lastnameDb = document.getString("cognome") ?: ""
+                        val facultyDb = document.getString("facoltà") ?: ""
                         val usernameDb = document.getString("username") ?: ""
-                        btnConfirm.visibility = if (usernameDb != currentUsername) View.VISIBLE else View.GONE
+                        btnConfirm.visibility = if (usernameDb != currentUsername || lastnameDb != lastnameChanged.text.toString() || facultyDb != FacultyChanged.selectedItem.toString() || nameDb != nameChanged.text.toString()) View.VISIBLE else View.GONE
                     } else {
                         Toast.makeText(this, "Nessun documento trovato", Toast.LENGTH_SHORT).show()
                     }
