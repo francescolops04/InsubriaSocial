@@ -27,11 +27,17 @@ class CambioPassword : AppCompatActivity() {
         passwordChangedConfirm = findViewById<EditText>(R.id.ConfermaPasswordCP)
 
         btnConfirmCP.setOnClickListener{
-            confrontaPasswordFirebase(oldpassword){ CorrectPassword ->
-                if(CorrectPassword){
-                    Toast.makeText(this, "giusto", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(this, "La password è sbagliata", Toast.LENGTH_SHORT).show()
+            if(passwordChanged.text.toString() != passwordChangedConfirm.text.toString()){
+                Toast.makeText(this, "Le password non coincidono", Toast.LENGTH_SHORT).show()
+            } else if (!isValidPassword(passwordChanged.text.toString())){
+                Toast.makeText(this, "La password deve essere lunga almeno 8 caratteri", Toast.LENGTH_SHORT).show()
+            } else {
+                confrontaPasswordFirebase(oldpassword){ CorrectPassword ->
+                    if(CorrectPassword){
+                        Toast.makeText(this, "La password è stata cambiata correttamente", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(this, "La password è sbagliata", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
         }
@@ -54,5 +60,9 @@ class CambioPassword : AppCompatActivity() {
                     }
                 }
         }
+    }
+
+    private fun isValidPassword(password: String): Boolean {
+        return password.length >= 8
     }
 }
