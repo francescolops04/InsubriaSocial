@@ -51,7 +51,12 @@ class EditProfile : AppCompatActivity() {
             finish()
         }
         btnConfirm.setOnClickListener {
+            if(!isValidUsername(userChanged.text.toString())){
+                Toast.makeText(this, "Lo username deve contenere almeno 6 caratteri", Toast.LENGTH_SHORT).show()
+            }else{
                 collectNewData(nameChanged, lastnameChanged, userChanged, FacultyChanged)
+
+            }
         }
 
     }
@@ -303,7 +308,9 @@ class EditProfile : AppCompatActivity() {
         }
     }
 
-
+    private fun isValidUsername(user: String): Boolean {
+        return user.length >= 6
+    }
 
 
 }
