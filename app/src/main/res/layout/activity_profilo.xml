@@ -34,21 +34,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.037" />
 
-    <TextView
-        android:layout_width="186dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="4dp"
-        android:fontFamily="@font/sfpro2"
-        android:hint="Inserisci una descrizione"
-        android:textColor="@color/black"
-        android:textSize="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.144"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.405" />
-
     <EditText
         android:id="@+id/profileDesc"
         android:layout_width="346dp"
@@ -56,16 +41,17 @@
         android:background="@drawable/shape_border"
         android:fontFamily="@font/sfpro2"
         android:gravity="start"
-        android:textColor="@color/black"
-        android:textSize="13sp"
+        android:hint="Inserisci una descrizione"
         android:paddingLeft="12dp"
         android:paddingTop="5dp"
+        android:textColor="@color/black"
+        android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.446"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.576" />
+        app:layout_constraintVertical_bias="0.499" />
 
     <View
         android:id="@+id/view2"
@@ -121,8 +107,8 @@
 
     <Button
         android:id="@+id/btnSubmitDesc"
-        android:layout_width="239dp"
-        android:layout_height="63dp"
+        android:layout_width="198dp"
+        android:layout_height="52dp"
         android:background="@drawable/buttons"
         android:fontFamily="@font/sfpro2"
         android:text="Modifica la descrizione"
@@ -130,10 +116,10 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.79"
+        app:layout_constraintHorizontal_bias="0.83"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.806" />
+        app:layout_constraintVertical_bias="0.718" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
