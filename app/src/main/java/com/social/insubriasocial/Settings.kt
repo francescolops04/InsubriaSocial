@@ -40,7 +40,7 @@ class Settings : AppCompatActivity() {
         }
 
         btnPassword.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, CambioPassword::class.java)
             startActivity(intent)
             finish()
         }
