@@ -84,7 +84,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/buttons"
         android:fontFamily="@font/sfpro2"
-        android:text="Back"
+        android:text="Indietro"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
