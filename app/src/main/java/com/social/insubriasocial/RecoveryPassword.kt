@@ -53,8 +53,6 @@ class RecoveryPassword : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     Toast.makeText(this, "Abbiamo mandato una mail di recupero password", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(this, "Indirizzo email non trovato", Toast.LENGTH_SHORT).show()
                 }
             }
     }
