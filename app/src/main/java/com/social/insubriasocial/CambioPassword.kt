@@ -1,6 +1,7 @@
 package com.social.insubriasocial
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -34,16 +35,22 @@ class CambioPassword : AppCompatActivity() {
             } else {
                 confrontaPasswordFirebase(oldpassword){ CorrectPassword ->
                     if(CorrectPassword){
-                        Toast.makeText(this, "La password è stata cambiata correttamente", Toast.LENGTH_SHORT).show()
+                        changePassword(passwordChanged.text.toString())
                     } else {
                         Toast.makeText(this, "La password è sbagliata", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
         }
+
+        btnBackCP.setOnClickListener {
+            val intent = Intent(this, Settings::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
-    fun confrontaPasswordFirebase(passwordEditText: EditText, onComplete: (Boolean) -> Unit) {
+    private fun confrontaPasswordFirebase(passwordEditText: EditText, onComplete: (Boolean) -> Unit) {
         val auth = FirebaseAuth.getInstance()
 
         val email = auth.currentUser?.email
@@ -64,5 +71,18 @@ class CambioPassword : AppCompatActivity() {
 
     private fun isValidPassword(password: String): Boolean {
         return password.length >= 8
+    }
+
+    private fun changePassword (newpassword: String){
+        val user = FirebaseAuth.getInstance().currentUser
+        user?.updatePassword(newpassword)
+            ?.addOnCompleteListener { task ->
+                if(task.isSuccessful){
+                    Toast.makeText(this, "La password è stata cambiata correttamente", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, Login::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+            }
     }
 }
