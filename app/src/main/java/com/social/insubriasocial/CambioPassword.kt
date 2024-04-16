@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -14,6 +15,7 @@ lateinit var btnConfirmCP: Button
 lateinit var passwordChanged: EditText
 lateinit var oldpassword: EditText
 lateinit var passwordChangedConfirm: EditText
+lateinit var linkRecEP: TextView
 
 class CambioPassword : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -26,6 +28,7 @@ class CambioPassword : AppCompatActivity() {
         oldpassword = findViewById<EditText>(R.id.PasswordAttualeCP)
         passwordChanged = findViewById<EditText>(R.id.NuovaPasswordCP)
         passwordChangedConfirm = findViewById<EditText>(R.id.ConfermaPasswordCP)
+        linkRecEP = findViewById<TextView>(R.id.linkRecEP)
 
         btnConfirmCP.setOnClickListener{
             if(passwordChanged.text.toString() != passwordChangedConfirm.text.toString()){
@@ -50,7 +53,14 @@ class CambioPassword : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+        linkRecEP.setOnClickListener{
+            val intent = Intent(this, RecoveryPasswordEP::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
+
 
     private fun confrontaPasswordFirebase(passwordEditText: EditText, onComplete: (Boolean) -> Unit) {
         val auth = FirebaseAuth.getInstance()
