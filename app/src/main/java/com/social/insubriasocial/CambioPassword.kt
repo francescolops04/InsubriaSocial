@@ -32,12 +32,12 @@ class CambioPassword : AppCompatActivity() {
                 Toast.makeText(this, "Le password non coincidono", Toast.LENGTH_SHORT).show()
             } else if (!isValidPassword(passwordChanged.text.toString())){
                 Toast.makeText(this, "La password deve essere lunga almeno 8 caratteri", Toast.LENGTH_SHORT).show()
-            } else if(passwordChanged.text.toString() == oldpassword.text.toString()){
-                Toast.makeText(this, "La password non può essere uguale a quella precedente", Toast.LENGTH_SHORT).show()
             } else {
                 confrontaPasswordFirebase(oldpassword){ CorrectPassword ->
-                    if(CorrectPassword){
+                    if(CorrectPassword && (passwordChanged.text.toString() != oldpassword.text.toString())){
                         changePassword(passwordChanged.text.toString())
+                    } else if (CorrectPassword && (passwordChanged.text.toString() == oldpassword.text.toString())){
+                        Toast.makeText(this, "La password non può essere uguale a quella precedente", Toast.LENGTH_SHORT).show()
                     } else {
                         Toast.makeText(this, "La password è sbagliata", Toast.LENGTH_SHORT).show()
                     }

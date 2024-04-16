@@ -55,7 +55,6 @@ class EditProfile : AppCompatActivity() {
                 Toast.makeText(this, "Lo username deve contenere almeno 6 caratteri", Toast.LENGTH_SHORT).show()
             }else{
                 collectNewData(nameChanged, lastnameChanged, userChanged, FacultyChanged)
-
             }
         }
 
