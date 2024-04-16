@@ -46,6 +46,7 @@ class Settings : AppCompatActivity() {
             finish()
         }
 
+
         btnLogout.setOnClickListener {
             val auth = FirebaseAuth.getInstance()
             auth!!.signOut()
