@@ -66,7 +66,7 @@
     <ImageView
         android:id="@+id/settingsP"
         android:layout_width="42dp"
-        android:layout_height="37dp"
+        android:layout_height="42dp"
         android:layout_marginBottom="16dp"
         android:clickable="true"
         android:src="@drawable/gearwhite"
@@ -79,20 +79,20 @@
     <ImageView
         android:id="@+id/ProfileP"
         android:layout_width="42dp"
-        android:layout_height="37dp"
+        android:layout_height="42dp"
         android:layout_marginBottom="16dp"
         android:clickable="true"
         android:src="@drawable/user_black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.747"
+        app:layout_constraintHorizontal_bias="0.728"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/BachecaP"
         android:layout_width="42dp"
-        android:layout_height="37dp"
+        android:layout_height="42dp"
         android:layout_marginBottom="16dp"
         android:clickable="true"
         android:src="@drawable/bacheca"
@@ -105,8 +105,8 @@
     <ImageView
         android:id="@+id/ChatP"
         android:layout_width="42dp"
-        android:layout_height="37dp"
-        android:layout_marginBottom="24dp"
+        android:layout_height="42dp"
+        android:layout_marginBottom="16dp"
         android:clickable="true"
         android:src="@drawable/chat"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -118,7 +118,7 @@
     <ImageView
         android:id="@+id/SearchP"
         android:layout_width="42dp"
-        android:layout_height="37dp"
+        android:layout_height="42dp"
         android:layout_marginBottom="16dp"
         android:clickable="true"
         android:src="@drawable/search"

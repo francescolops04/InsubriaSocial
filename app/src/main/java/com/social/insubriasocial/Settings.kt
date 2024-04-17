@@ -2,8 +2,10 @@ package com.social.insubriasocial
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.media.Image
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -11,10 +13,10 @@ import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.auth.FirebaseAuth
 
 
-lateinit var btnBack: Button
 lateinit var btnProfile: Button
 lateinit var btnPassword: Button
 lateinit var btnLogout: Button
+lateinit var btnProfileBack: ImageView
 
 class Settings : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -23,16 +25,11 @@ class Settings : AppCompatActivity() {
         setContentView(R.layout.activity_settings)
 
 
-        btnBack = findViewById<Button>(R.id.buttonBackSetting)
         btnProfile= findViewById<Button>(R.id.buttonProfileSetting)
         btnPassword = findViewById<Button>(R.id.buttonPasswordSettings)
         btnLogout = findViewById<Button>(R.id.buttonLogoutSettings)
+        btnProfileBack = findViewById<ImageView>(R.id.ProfileS)
 
-        btnBack.setOnClickListener {
-            val intent = Intent(this, Profilo::class.java)
-            startActivity(intent)
-            finish()
-        }
 
         btnProfile.setOnClickListener {
             val intent = Intent(this, EditProfile::class.java)
@@ -42,6 +39,12 @@ class Settings : AppCompatActivity() {
 
         btnPassword.setOnClickListener {
             val intent = Intent(this, CambioPassword::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        btnProfileBack.setOnClickListener{
+            val intent = Intent(this, Profilo::class.java)
             startActivity(intent)
             finish()
         }
