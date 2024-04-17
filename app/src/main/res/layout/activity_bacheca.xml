@@ -5,60 +5,10 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Settings">
-
-    <Button
-        android:id="@+id/buttonLogoutSettings"
-        android:layout_width="209dp"
-        android:layout_height="53dp"
-        android:background="@drawable/buttons"
-        android:fontFamily="@font/sfpro2"
-        android:text="Log out"
-        android:paddingLeft="50dp"
-        android:paddingRight="70dp"
-        android:drawableStart="@drawable/logout"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/buttonProfileSetting"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/buttonProfileSetting"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.548" />
-
-    <Button
-        android:id="@+id/buttonProfileSetting"
-        android:layout_width="209dp"
-        android:layout_height="53dp"
-        android:background="@drawable/buttons"
-        android:fontFamily="@font/sfpro2"
-        android:text="Modifica profilo"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.258" />
-
-    <Button
-        android:id="@+id/buttonPasswordSettings"
-        android:layout_width="209dp"
-        android:layout_height="53dp"
-        android:background="@drawable/buttons"
-        android:fontFamily="@font/sfpro2"
-        android:text="Cambia password"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/buttonProfileSetting"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/buttonProfileSetting"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.404" />
+    tools:context=".Bacheca">
 
     <View
-        android:id="@+id/view3"
+        android:id="@+id/viewB"
         android:layout_width="477dp"
         android:layout_height="72dp"
         android:background="@drawable/buttons"
@@ -67,12 +17,12 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/settingsS"
+        android:id="@+id/settingsB"
         android:layout_width="42dp"
         android:layout_height="42dp"
         android:layout_marginBottom="16dp"
         android:clickable="true"
-        android:src="@drawable/gear"
+        android:src="@drawable/gearwhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.956"
@@ -80,12 +30,12 @@
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/ProfileS"
+        android:id="@+id/ProfileB"
         android:layout_width="42dp"
         android:layout_height="42dp"
         android:layout_marginBottom="16dp"
         android:clickable="true"
-        android:src="@drawable/profile"
+        android:src="@drawable/user_black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.728"
@@ -93,7 +43,7 @@
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/BachecaS"
+        android:id="@+id/BachecaB"
         android:layout_width="42dp"
         android:layout_height="42dp"
         android:layout_marginBottom="16dp"
@@ -106,7 +56,7 @@
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/ChatS"
+        android:id="@+id/ChatB"
         android:layout_width="42dp"
         android:layout_height="42dp"
         android:layout_marginBottom="16dp"
@@ -119,7 +69,7 @@
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/SearchS"
+        android:id="@+id/SearchB"
         android:layout_width="42dp"
         android:layout_height="42dp"
         android:layout_marginBottom="16dp"
@@ -130,4 +80,5 @@
         app:layout_constraintHorizontal_bias="0.262"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
