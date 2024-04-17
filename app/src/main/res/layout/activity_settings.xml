@@ -66,7 +66,7 @@
     <ImageView
         android:id="@+id/settingsS"
         android:layout_width="42dp"
-        android:layout_height="37dp"
+        android:layout_height="42dp"
         android:layout_marginBottom="16dp"
         android:clickable="true"
         android:src="@drawable/gear"

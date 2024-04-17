@@ -42,7 +42,7 @@ class Register : AppCompatActivity() {
         Password = findViewById<EditText>(R.id.passwordR)
         User = findViewById<EditText>(R.id.usernameR)
         PasswordC = findViewById<EditText>(R.id.passwordR2)
-        Faculty = findViewById<Spinner>(R.id.spinner)
+        Faculty = findViewById<Spinner>(R.id.spinnerR)
         Nome = findViewById<EditText>(R.id.nomeR)
         Cognome = findViewById<EditText>(R.id.cognomeR)
 
