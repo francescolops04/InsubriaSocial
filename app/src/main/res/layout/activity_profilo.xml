@@ -43,6 +43,7 @@
         android:gravity="start"
         android:hint="Inserisci una descrizione"
         android:paddingLeft="12dp"
+        android:paddingRight="12dp"
         android:paddingTop="5dp"
         android:textColor="@color/black"
         android:textSize="13sp"
@@ -72,6 +73,58 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.956"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/ProfileP"
+        android:layout_width="42dp"
+        android:layout_height="37dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:src="@drawable/user_black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.747"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/BachecaP"
+        android:layout_width="42dp"
+        android:layout_height="37dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:src="@drawable/bacheca"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/ChatP"
+        android:layout_width="42dp"
+        android:layout_height="37dp"
+        android:layout_marginBottom="24dp"
+        android:clickable="true"
+        android:src="@drawable/chat"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.043"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/SearchP"
+        android:layout_width="42dp"
+        android:layout_height="37dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:src="@drawable/search"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.262"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
