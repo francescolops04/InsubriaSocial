@@ -55,7 +55,6 @@ class Profilo : AppCompatActivity() {
             startActivity(intent)
             finish()
         };
-
     }
 
 
@@ -111,7 +110,6 @@ class Profilo : AppCompatActivity() {
         } else {
             Toast.makeText(this, "Utente non autenticato", Toast.LENGTH_SHORT).show()
         }
-
     }
 
     private fun profileDesc() {
