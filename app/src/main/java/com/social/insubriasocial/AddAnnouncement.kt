@@ -3,10 +3,16 @@ package com.social.insubriasocial
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 lateinit var btnBack: Button
 lateinit var btnAccept: Button
+lateinit var titleA: EditText
+lateinit var descA: EditText
 
 class AddAnnouncement : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,6 +22,8 @@ class AddAnnouncement : AppCompatActivity() {
 
         btnBack = findViewById<Button>(R.id.buttonBackA)
         btnAccept = findViewById<Button>(R.id.buttonAcceptA)
+        titleA = findViewById<EditText>(R.id.titleA)
+        descA = findViewById<EditText>(R.id.announcementA)
 
         btnBack.setOnClickListener {
             val intent = Intent(this, Bacheca::class.java)
@@ -24,9 +32,37 @@ class AddAnnouncement : AppCompatActivity() {
         }
 
         btnAccept.setOnClickListener {
+            createAnnouncement(titleA, descA)
             val intent = Intent(this, Bacheca::class.java)
             startActivity(intent)
             finish()
+        }
+    }
+
+
+    private fun createAnnouncement(title: EditText, desc: EditText){
+        val db = FirebaseFirestore.getInstance()
+        val auth = FirebaseAuth.getInstance()
+        val user = auth.currentUser
+        val titleText = title.text.toString()
+        val descText = desc.text.toString()
+
+
+        if(user!=null){
+            val ann= hashMapOf(
+                "Titolo" to titleText,
+                "Descrizione" to descText
+            )
+
+            db.collection("annunci").document(user.uid)
+                .set(ann)
+                .addOnSuccessListener { documentReference ->
+                    Toast.makeText(this, "Annuncio creato con successo", Toast.LENGTH_SHORT).show()
+                }
+                .addOnFailureListener { e ->
+                    Toast.makeText(this, "Failed to save user data: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
+
         }
     }
 }

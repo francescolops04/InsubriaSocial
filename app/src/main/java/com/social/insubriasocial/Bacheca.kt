@@ -5,7 +5,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 lateinit var btnAdding: Button
 lateinit var btnSetting: ImageView
@@ -13,6 +17,8 @@ lateinit var btnProfilo: ImageView
 lateinit var btnRicerca: ImageView
 lateinit var btnChat: ImageView
 lateinit var btnBacheca: ImageView
+
+
 
 class Bacheca : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -26,6 +32,7 @@ class Bacheca : AppCompatActivity() {
         btnRicerca = findViewById<ImageView>(R.id.SearchB)
         btnChat = findViewById<ImageView>(R.id.ChatB)
         btnBacheca = findViewById<ImageView>(R.id.BachecaB)
+
 
         btnAdding.setOnClickListener {
             val intent = Intent(this, AddAnnouncement::class.java)
@@ -45,4 +52,6 @@ class Bacheca : AppCompatActivity() {
             finish()
         }
     }
+
+
 }
