@@ -17,15 +17,15 @@
         app:layout_constraintStart_toStartOf="parent" />
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="408dp"
-        android:layout_height="468dp"
-        app:layout_constraintBottom_toBottomOf="@+id/viewB"
+    <ListView
+        android:layout_width="404dp"
+        android:layout_height="483dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.676" />
+        app:layout_constraintVertical_bias="0.673" />
 
     <View
         android:id="@+id/view"

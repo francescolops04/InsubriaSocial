@@ -23,6 +23,7 @@ lateinit var facultyProfile: TextView
 lateinit var descriptionProfile: EditText
 lateinit var btnSubmit: Button
 lateinit var btnSettings: ImageView
+lateinit var btnBachecaP: ImageView
 
 
 @SuppressLint("MissingInflatedId")
@@ -37,6 +38,7 @@ class Profilo : AppCompatActivity() {
         descriptionProfile = findViewById<EditText>(R.id.profileDesc)
         btnSubmit = findViewById<Button>(R.id.btnSubmitDesc)
         btnSettings = findViewById<ImageView>(R.id.settingsP)
+        btnBachecaP = findViewById<ImageView>(R.id.BachecaP)
 
         profileData()
         profileDesc()
@@ -55,6 +57,12 @@ class Profilo : AppCompatActivity() {
             startActivity(intent)
             finish()
         };
+
+        btnBachecaP.setOnClickListener{
+            val intent = Intent(this, Bacheca::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
 

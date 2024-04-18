@@ -40,7 +40,7 @@ class Bacheca : AppCompatActivity() {
         }
 
         btnProfilo.setOnClickListener {
-            val intent = Intent(this, Settings::class.java)
+            val intent = Intent(this, Profilo::class.java)
             startActivity(intent)
             finish()
         }
