@@ -1,5 +1,6 @@
 package com.social.insubriasocial
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -15,6 +16,7 @@ lateinit var titleA: EditText
 lateinit var descA: EditText
 
 class AddAnnouncement : AppCompatActivity() {
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_announcement)
@@ -24,6 +26,7 @@ class AddAnnouncement : AppCompatActivity() {
         btnAccept = findViewById<Button>(R.id.buttonAcceptA)
         titleA = findViewById<EditText>(R.id.titleA)
         descA = findViewById<EditText>(R.id.announcementA)
+
 
         btnBack.setOnClickListener {
             val intent = Intent(this, Bacheca::class.java)
@@ -49,13 +52,13 @@ class AddAnnouncement : AppCompatActivity() {
 
 
         if(user!=null){
-            val ann= hashMapOf(
+            val ann = hashMapOf<String, Any>(
                 "Titolo" to titleText,
                 "Descrizione" to descText
             )
 
-            db.collection("annunci").document(user.uid)
-                .set(ann)
+            db.collection("utenti").document(user.uid)
+                .update(ann)
                 .addOnSuccessListener { documentReference ->
                     Toast.makeText(this, "Annuncio creato con successo", Toast.LENGTH_SHORT).show()
                 }
