@@ -23,6 +23,7 @@ lateinit var btnChat: ImageView
 lateinit var btnBacheca: ImageView
 lateinit var announcementList: ListView
 lateinit var adapter: ArrayAdapter<String>
+lateinit var btnRemove: Button
 
 
 
@@ -38,6 +39,7 @@ class Bacheca : AppCompatActivity() {
         btnRicerca = findViewById<ImageView>(R.id.SearchB)
         btnChat = findViewById<ImageView>(R.id.ChatB)
         btnBacheca = findViewById<ImageView>(R.id.BachecaB)
+        btnRemove = findViewById<Button>(R.id.RemoveB)
 
         announcementList = findViewById<ListView>(R.id.announcementList)
         adapter = CustomListAdapter(this, ArrayList())
@@ -84,6 +86,7 @@ class Bacheca : AppCompatActivity() {
                             announcementList.add(announcement)
                         }
                     }
+                    announcementList.reverse()
                     adapter.clear()
                     adapter.addAll(announcementList)
                 }
