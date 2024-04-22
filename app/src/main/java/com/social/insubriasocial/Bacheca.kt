@@ -3,6 +3,7 @@ package com.social.insubriasocial
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ImageView
@@ -39,7 +40,7 @@ class Bacheca : AppCompatActivity() {
         btnBacheca = findViewById<ImageView>(R.id.BachecaB)
 
         announcementList = findViewById<ListView>(R.id.announcementList)
-        adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, ArrayList())
+        adapter = CustomListAdapter(this, ArrayList())
         announcementList.adapter = adapter
 
         loadAnnouncement()
