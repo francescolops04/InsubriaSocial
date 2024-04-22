@@ -42,6 +42,8 @@ class Bacheca : AppCompatActivity() {
         adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, ArrayList())
         announcementList.adapter = adapter
 
+        loadAnnouncement()
+
 
         btnAdding.setOnClickListener {
             val intent = Intent(this, AddAnnouncement::class.java)
@@ -62,7 +64,7 @@ class Bacheca : AppCompatActivity() {
         }
     }
 
-    private fun loadAnnouncemente() {
+    private fun loadAnnouncement() {
         val db = FirebaseFirestore.getInstance()
         val auth = FirebaseAuth.getInstance()
         val user = auth.currentUser
