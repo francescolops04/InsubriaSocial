@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 
 lateinit var btnBack: Button
@@ -54,7 +55,8 @@ class AddAnnouncement : AppCompatActivity() {
         if(user!=null){
             val ann = hashMapOf<String, Any>(
                 "Titolo" to titleText,
-                "Descrizione" to descText
+                "Descrizione" to descText,
+                "timestamp" to FieldValue.serverTimestamp()
             )
 
             db.collection("utenti").document(user.uid)

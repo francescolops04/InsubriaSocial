@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import java.util.ArrayList
 
 lateinit var btnAdding: Button
@@ -69,27 +70,26 @@ class Bacheca : AppCompatActivity() {
 
     private fun loadAnnouncement() {
         val db = FirebaseFirestore.getInstance()
-        val auth = FirebaseAuth.getInstance()
-        val user = auth.currentUser
 
-        if (user != null) {
-            db.collection("utenti")
-                .get()
-                .addOnSuccessListener { result ->
-                    val announcementList = ArrayList<String>()
-                    for (document in result) {
-                        val title = document.getString("Titolo")
-                        val description = document.getString("Descrizione")
-                        val user = document.getString("username")
-                        if (title != null && description != null) {
-                            val announcement = "$user\n$title\n$description"
-                            announcementList.add(announcement)
-                        }
+        db.collection("utenti")
+            .orderBy("timestamp", Query.Direction.DESCENDING)
+            .get()
+            .addOnSuccessListener { result ->
+                val announcementList = ArrayList<String>()
+                for (document in result) {
+                    val title = document.getString("Titolo")
+                    val description = document.getString("Descrizione")
+                    val user = document.getString("username")
+                    if (title != null && description != null && user != null) {
+                        val announcement = "$user\n$title\n$description"
+                        announcementList.add(announcement)
                     }
-                    announcementList.reverse()
-                    adapter.clear()
-                    adapter.addAll(announcementList)
                 }
-        }
+                adapter.clear()
+                adapter.addAll(announcementList)
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(this, "Errore durante il caricamento degli annunci", Toast.LENGTH_SHORT).show()
+            }
     }
 }
