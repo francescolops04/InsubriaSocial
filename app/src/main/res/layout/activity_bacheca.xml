@@ -21,6 +21,7 @@
     <ListView
         android:id="@+id/announcementList"
         android:layout_width="386dp"
+        android:divider="@null"
         android:layout_height="471dp"
         android:paddingTop="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
