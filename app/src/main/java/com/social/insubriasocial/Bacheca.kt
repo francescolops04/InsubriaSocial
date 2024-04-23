@@ -6,12 +6,15 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import java.util.ArrayList
@@ -49,6 +52,22 @@ class Bacheca : AppCompatActivity() {
 
         loadAnnouncement()
         checkButtons()
+
+        btnRemove.setOnClickListener {
+            val AlertDialog = AlertDialog.Builder(this@Bacheca)
+            AlertDialog.setMessage("Sei sicuro di voler cancellare l'annuncio?")
+            AlertDialog.setPositiveButton("Si"){_,_ ->
+                deleteAnnouncement()
+                val intent = Intent(this, Bacheca::class.java)
+                startActivity(intent)
+                finish()
+            }
+            AlertDialog.setNegativeButton("No"){_,_ ->
+            }
+
+            val AlertDialogBox = AlertDialog.create()
+            AlertDialogBox.show()
+        }
 
         btnAdding.setOnClickListener {
             val intent = Intent(this, AddAnnouncement::class.java)
@@ -134,5 +153,30 @@ class Bacheca : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
             }
+    }
+
+    private fun deleteAnnouncement(){
+        val db = FirebaseFirestore.getInstance()
+        val auth = FirebaseAuth.getInstance()
+        val user = auth.currentUser
+
+
+        if(user!=null){
+            val ann = hashMapOf<String, Any>(
+                "Titolo" to FieldValue.delete(),
+                "Descrizione" to FieldValue.delete(),
+                "timestamp" to FieldValue.delete()
+            )
+
+            db.collection("utenti").document(user.uid)
+                .update(ann)
+                .addOnSuccessListener { documentReference ->
+                    Toast.makeText(this, "Annuncio cancellato con successo", Toast.LENGTH_SHORT).show()
+                }
+                .addOnFailureListener { e ->
+                    Toast.makeText(this, "Failed to delete user data: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
+
+        }
     }
 }
