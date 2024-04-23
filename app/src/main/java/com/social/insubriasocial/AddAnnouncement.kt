@@ -37,6 +37,7 @@ class AddAnnouncement : AppCompatActivity() {
 
         btnAccept.setOnClickListener {
             createAnnouncement(titleA, descA)
+            Thread.sleep(1000)
             val intent = Intent(this, Bacheca::class.java)
             startActivity(intent)
             finish()
