@@ -281,7 +281,7 @@ class EditProfile : AppCompatActivity() {
                                 }
                             }
                     } else {
-                        val desc = hashMapOf(
+                        val desc = hashMapOf<String,Any>(
                             "username" to usernameText,
                             "nome" to nameText,
                             "cognome" to lastnameText,
@@ -289,7 +289,7 @@ class EditProfile : AppCompatActivity() {
                         )
 
                         db.collection("utenti").document(user.uid)
-                            .set(desc)
+                            .update(desc)
                             .addOnSuccessListener {
                                 val intent = Intent(this, Profilo::class.java)
                                 startActivity(intent)
