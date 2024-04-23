@@ -48,7 +48,7 @@ class Bacheca : AppCompatActivity() {
         announcementList.adapter = adapter
 
         loadAnnouncement()
-
+        checkButtons()
 
         btnAdding.setOnClickListener {
             val intent = Intent(this, AddAnnouncement::class.java)
@@ -75,6 +75,38 @@ class Bacheca : AppCompatActivity() {
         }
     }
 
+    private fun checkButtons() {
+        val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
+        val db = FirebaseFirestore.getInstance()
+        if (currentUserID != null) {
+            db.collection("utenti")
+                .document(currentUserID)
+                .get()
+                .addOnSuccessListener { document ->
+                    if (document != null) {
+                        val title = document.getString("Titolo")
+                        val desc = document.getString("Descrizione")
+                        if (!title.isNullOrEmpty() && !desc.isNullOrEmpty()){
+                            btnRemove.visibility = View.VISIBLE
+                            btnAdding.text = "Modifica"
+                        } else {
+                            btnRemove.visibility = View.GONE
+                        }
+                    } else {
+                        Toast.makeText(this, "Nessun documento trovato", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Toast.makeText(
+                        this,
+                        "Errore durante il recupero dei dati: $exception",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+        }
+
+
+    }
     private fun loadAnnouncement() {
         val db = FirebaseFirestore.getInstance()
 
@@ -96,7 +128,11 @@ class Bacheca : AppCompatActivity() {
                 adapter.addAll(announcementList)
             }
             .addOnFailureListener { e ->
-                Toast.makeText(this, "Errore durante il caricamento degli annunci", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    "Errore durante il caricamento degli annunci",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
     }
 }
