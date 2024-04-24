@@ -77,7 +77,7 @@ class SistemaDiRicerca : AppCompatActivity() {
                     val cognome = document.getString("cognome")
                     val username = document.getString("username")
                     if (nome != null && cognome != null && username != null) {
-                        if (username.contains(user.trim())) {
+                        if (username.contains(user.trim()) || nome.contains(user.trim()) || cognome.contains(user.trim())) {
                             val searchitemlist = "$username\n$nome $cognome"
                             searchList.add(searchitemlist)
                         }
