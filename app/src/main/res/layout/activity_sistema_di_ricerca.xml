@@ -22,7 +22,7 @@
         android:layout_height="42dp"
         android:layout_marginBottom="16dp"
         android:clickable="true"
-        android:src="@drawable/board"
+        android:src="@drawable/bachecabianca"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -48,7 +48,7 @@
         android:layout_height="42dp"
         android:layout_marginBottom="16dp"
         android:clickable="true"
-        android:src="@drawable/search1"
+        android:src="@drawable/searchblack"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.277"
@@ -106,6 +106,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:divider="@null"
+        android:dividerHeight="20dp"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
