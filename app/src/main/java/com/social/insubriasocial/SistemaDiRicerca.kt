@@ -38,7 +38,7 @@ class SistemaDiRicerca : AppCompatActivity() {
 
 
         searchList = findViewById<ListView>(R.id.list_user)
-        adapterSearch = ArrayAdapter(this, android.R.layout.simple_list_item_1, ArrayList())
+        adapterSearch = UserSearchAdapter(this, ArrayList())
         searchList.adapter = adapterSearch
 
         searchText.doAfterTextChanged { editable ->
@@ -68,6 +68,7 @@ class SistemaDiRicerca : AppCompatActivity() {
         val db = FirebaseFirestore.getInstance()
 
         db.collection("utenti")
+            .whereEqualTo("username", user.trim())
             .get()
             .addOnSuccessListener { result ->
                 val searchList = ArrayList<String>()
