@@ -67,18 +67,20 @@ class SistemaDiRicerca : AppCompatActivity() {
     private fun searchUser(user: String) {
         val db = FirebaseFirestore.getInstance()
 
+
         db.collection("utenti")
-            .whereEqualTo("username", user.trim())
             .get()
             .addOnSuccessListener { result ->
                 val searchList = ArrayList<String>()
                 for (document in result) {
                     val nome = document.getString("nome")
                     val cognome = document.getString("cognome")
-                    val user = document.getString("username")
-                    if (nome != null && cognome != null && user != null) {
-                        val searchitemlist = "$user\n$nome$cognome"
-                        searchList.add(searchitemlist)
+                    val username = document.getString("username")
+                    if (nome != null && cognome != null && username != null) {
+                        if (username.contains(user.trim())) {
+                            val searchitemlist = "$username\n$nome $cognome"
+                            searchList.add(searchitemlist)
+                        }
                     }
                 }
                 adapterSearch.clear()
