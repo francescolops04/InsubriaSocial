@@ -36,11 +36,15 @@ class AddAnnouncement : AppCompatActivity() {
         }
 
         btnAccept.setOnClickListener {
-            createAnnouncement(titleA, descA)
-            Thread.sleep(1000)
-            val intent = Intent(this, Bacheca::class.java)
-            startActivity(intent)
-            finish()
+            if(titleA.text.toString().isEmpty() || descA.text.toString().isEmpty()){
+                Toast.makeText(this, "Inserire titolo e/o descrizione", Toast.LENGTH_SHORT).show()
+            } else {
+                createAnnouncement(titleA, descA)
+                Thread.sleep(1000)
+                val intent = Intent(this, Bacheca::class.java)
+                startActivity(intent)
+                finish()
+            }
         }
     }
 
