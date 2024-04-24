@@ -25,6 +25,7 @@ lateinit var btnProfilo: ImageView
 lateinit var btnRicerca: ImageView
 lateinit var btnChat: ImageView
 lateinit var btnBacheca: ImageView
+lateinit var btnSearch: ImageView
 lateinit var announcementList: ListView
 lateinit var adapter: ArrayAdapter<String>
 lateinit var btnRemove: Button
@@ -43,6 +44,7 @@ class Bacheca : AppCompatActivity() {
         btnRicerca = findViewById<ImageView>(R.id.SearchB)
         btnChat = findViewById<ImageView>(R.id.ChatB)
         btnBacheca = findViewById<ImageView>(R.id.BachecaB)
+        btnSearch = findViewById<ImageView>(R.id.SearchB)
         btnRemove = findViewById<Button>(R.id.RemoveB)
         btnRefresh = findViewById<Button>(R.id.btnRefresh)
 
@@ -89,6 +91,12 @@ class Bacheca : AppCompatActivity() {
 
         btnRefresh.setOnClickListener {
             val intent = Intent(this, Bacheca::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        btnSearch.setOnClickListener {
+            val intent = Intent(this, SistemaDiRicerca::class.java)
             startActivity(intent)
             finish()
         }

@@ -18,6 +18,7 @@ lateinit var btnPassword: Button
 lateinit var btnLogout: Button
 lateinit var btnProfileBack: ImageView
 lateinit var btnBachecaS: ImageView
+lateinit var btnSearchS: ImageView
 
 class Settings : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -31,6 +32,7 @@ class Settings : AppCompatActivity() {
         btnLogout = findViewById<Button>(R.id.buttonLogoutSettings)
         btnProfileBack = findViewById<ImageView>(R.id.ProfileS)
         btnBachecaS = findViewById<ImageView>(R.id.BachecaS)
+        btnSearchS = findViewById<ImageView>(R.id.SearchS)
 
 
         btnProfile.setOnClickListener {
@@ -53,6 +55,12 @@ class Settings : AppCompatActivity() {
 
         btnBachecaS.setOnClickListener {
             val intent = Intent(this, Bacheca::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        btnSearch.setOnClickListener {
+            val intent = Intent(this, SistemaDiRicerca::class.java)
             startActivity(intent)
             finish()
         }

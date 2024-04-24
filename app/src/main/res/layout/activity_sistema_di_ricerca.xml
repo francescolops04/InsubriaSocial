@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SistemaDiRicerca">
+
+    <View
+        android:id="@+id/viewSe"
+        android:layout_width="477dp"
+        android:layout_height="72dp"
+        android:background="@drawable/buttons"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/BachecaSe"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:src="@drawable/board"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/ChatSe"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:src="@drawable/chat1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.043"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/SearchSe"
+        android:layout_width="40dp"
+        android:layout_height="42dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:src="@drawable/search1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.277"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/ProfileSe"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:src="@drawable/profile"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.728"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/SettingsSe"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:src="@drawable/gearwhite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.956"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

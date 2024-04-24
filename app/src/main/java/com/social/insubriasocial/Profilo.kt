@@ -22,8 +22,9 @@ lateinit var userNameProfile: TextView
 lateinit var facultyProfile: TextView
 lateinit var descriptionProfile: EditText
 lateinit var btnSubmit: Button
-lateinit var btnSettings: ImageView
+lateinit var btnSettingsP: ImageView
 lateinit var btnBachecaP: ImageView
+lateinit var btnSearchP: ImageView
 
 
 @SuppressLint("MissingInflatedId")
@@ -37,8 +38,9 @@ class Profilo : AppCompatActivity() {
         facultyProfile = findViewById<TextView>(R.id.facultyProfile)
         descriptionProfile = findViewById<EditText>(R.id.profileDesc)
         btnSubmit = findViewById<Button>(R.id.btnSubmitDesc)
-        btnSettings = findViewById<ImageView>(R.id.settingsP)
+        btnSettingsP = findViewById<ImageView>(R.id.settingsP)
         btnBachecaP = findViewById<ImageView>(R.id.BachecaP)
+        btnSearchP = findViewById<ImageView>(R.id.SearchP)
 
         profileData()
         profileDesc()
@@ -52,7 +54,7 @@ class Profilo : AppCompatActivity() {
             btnSubmit.visibility = View.GONE
         }
 
-        btnSettings.setOnClickListener {
+        btnSettingsP.setOnClickListener {
             val intent = Intent(this, Settings::class.java)
             startActivity(intent)
             finish()
@@ -60,6 +62,12 @@ class Profilo : AppCompatActivity() {
 
         btnBachecaP.setOnClickListener{
             val intent = Intent(this, Bacheca::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        btnSearch.setOnClickListener {
+            val intent = Intent(this, SistemaDiRicerca::class.java)
             startActivity(intent)
             finish()
         }
