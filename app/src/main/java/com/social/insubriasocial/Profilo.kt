@@ -66,7 +66,7 @@ class Profilo : AppCompatActivity() {
             finish()
         }
 
-        btnSearch.setOnClickListener {
+        btnSearchP.setOnClickListener {
             val intent = Intent(this, SistemaDiRicerca::class.java)
             startActivity(intent)
             finish()

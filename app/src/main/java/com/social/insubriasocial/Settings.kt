@@ -59,7 +59,7 @@ class Settings : AppCompatActivity() {
             finish()
         }
 
-        btnSearch.setOnClickListener {
+        btnSearchS.setOnClickListener {
             val intent = Intent(this, SistemaDiRicerca::class.java)
             startActivity(intent)
             finish()
