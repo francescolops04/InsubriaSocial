@@ -28,6 +28,7 @@ class UserSearchAdapter(context: Context, data: ArrayList<String>) : ArrayAdapte
             }
         }
 
+
         return convertView
     }
 }
