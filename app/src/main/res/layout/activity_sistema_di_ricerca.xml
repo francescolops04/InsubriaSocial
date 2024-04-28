@@ -98,16 +98,30 @@
         app:layout_constraintVertical_bias="0.024"
         tools:ignore="MissingConstraints" />
 
-    <ListView
-        android:id="@+id/list_user"
-        android:layout_width="409dp"
-        android:layout_height="550dp"
+    <Spinner
+        android:id="@+id/spinnerSR"
+        android:layout_width="387dp"
+        android:layout_height="46dp"
+        android:background="@drawable/rounded_corner"
+        android:entries="@array/opzioni_spinner"
+        app:layout_constraintBaseline_toBottomOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.128" />
+
+    <ListView
+        android:id="@+id/list_user"
+        android:layout_width="403dp"
+        android:layout_height="501dp"
         android:divider="@null"
         android:dividerHeight="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.647"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
