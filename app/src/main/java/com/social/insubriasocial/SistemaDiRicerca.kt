@@ -14,7 +14,7 @@ import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
 import com.google.firebase.firestore.FirebaseFirestore
-import java.util.ArrayList
+import com.google.firebase.firestore.auth.User
 
 lateinit var btnBachecaSe: ImageView
 lateinit var btnChatSe: ImageView
@@ -70,6 +70,14 @@ class SistemaDiRicerca : AppCompatActivity() {
             override fun onNothingSelected(parent: AdapterView<*>?) {
 
             }
+        }
+
+        searchList.setOnItemClickListener { parent, view, position, id ->
+            val selectedText = parent.getItemAtPosition(position) as String
+            val username = selectedText.substringBefore("\n")
+            val i: Intent = Intent(this, UsersProfile::class.java)
+            i.putExtra("user", username)
+            startActivity(i)
         }
 
 

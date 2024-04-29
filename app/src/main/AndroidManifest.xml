@@ -13,9 +13,12 @@
         android:theme="@style/Theme.InsubriaSocial"
         tools:targetApi="31">
         <activity
+            android:name=".UsersProfile"
+            android:exported="false" />
+        <activity
             android:name=".SistemaDiRicerca"
             android:exported="false"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".AddAnnouncement"
             android:exported="false" />

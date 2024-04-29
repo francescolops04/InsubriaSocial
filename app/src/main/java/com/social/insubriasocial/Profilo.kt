@@ -76,7 +76,7 @@ class Profilo : AppCompatActivity() {
         val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
         val db = FirebaseFirestore.getInstance()
         if (currentUserID != null) {
-            db.collection("descrizioni")
+            db.collection("utenti")
                 .document(currentUserID)
                 .get()
                 .addOnSuccessListener { document ->
@@ -130,7 +130,7 @@ class Profilo : AppCompatActivity() {
         val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
         val db = FirebaseFirestore.getInstance()
         if (currentUserID != null) {
-            db.collection("descrizioni")
+            db.collection("utenti")
                 .document(currentUserID)
                 .get()
                 .addOnSuccessListener { document ->
@@ -162,12 +162,12 @@ class Profilo : AppCompatActivity() {
         val descriptionText = profileDesc.text.toString()
 
         if(user!=null){
-            val desc = hashMapOf(
+            val desc = hashMapOf<String, Any>(
                 "Description" to descriptionText
             )
 
-            db.collection("descrizioni").document(user.uid)
-                .set(desc)
+            db.collection("utenti").document(user.uid)
+                .update(desc)
                 .addOnSuccessListener { documentReference ->
                 }
                 .addOnFailureListener { e ->

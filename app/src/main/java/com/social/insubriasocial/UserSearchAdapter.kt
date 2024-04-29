@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
 
+
 class UserSearchAdapter(context: Context, data: ArrayList<String>) : ArrayAdapter<String>(context, R.layout.custom_list_search, data) {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
