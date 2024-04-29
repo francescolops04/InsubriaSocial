@@ -105,7 +105,7 @@ class SistemaDiRicerca : AppCompatActivity() {
                     val cognome = document.getString("cognome")
                     val username = document.getString("username")
                     if (nome != null && cognome != null && username != null) {
-                        if (username.contains(user.trim()) || nome.contains(user.trim()) || cognome.contains(user.trim())) {
+                        if (username.lowercase().contains(user.trim().lowercase()) || nome.lowercase().contains(user.trim().lowercase()) || cognome.lowercase().contains(user.trim().lowercase())) {
                             val searchitemlist = "$username\n$nome $cognome"
                             searchList.add(searchitemlist)
                         }
@@ -130,7 +130,7 @@ class SistemaDiRicerca : AppCompatActivity() {
                     val username = document.getString("username")
                     val facoltà = document.getString("facoltà")
                     if (nome != null && cognome != null && username != null && facoltà != null) {
-                        if ((username.contains(user.trim()) || nome.contains(user.trim()) || cognome.contains(user.trim())) && filter == facoltà) {
+                        if ((username.lowercase().contains(user.trim().lowercase()) || nome.lowercase().contains(user.trim().lowercase()) || cognome.lowercase().contains(user.trim().lowercase())) && filter == facoltà) {
                             val searchitemlist = "$username\n$nome $cognome"
                             searchList.add(searchitemlist)
                         }
