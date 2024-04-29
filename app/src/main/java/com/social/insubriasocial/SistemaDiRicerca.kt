@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.ListView
@@ -24,6 +25,7 @@ lateinit var adapterSearch: ArrayAdapter<String>
 lateinit var searchList: ListView
 lateinit var searchText: EditText
 lateinit var spinnerFilter: Spinner
+lateinit var btnRefreshSP : Button
 
 class SistemaDiRicerca : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -39,11 +41,17 @@ class SistemaDiRicerca : AppCompatActivity() {
         searchList = findViewById<ListView>(R.id.list_user)
         searchText = findViewById<EditText>(R.id.searchUser)
         spinnerFilter = findViewById<Spinner>(R.id.spinnerSR)
-
+        btnRefreshSP = findViewById<Button>(R.id.btnRefreshSP)
 
         searchList = findViewById<ListView>(R.id.list_user)
         adapterSearch = UserSearchAdapter(this, ArrayList())
         searchList.adapter = adapterSearch
+
+        btnRefreshSP.setOnClickListener {
+            val intent = Intent(this, SistemaDiRicerca::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         spinnerFilter.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
