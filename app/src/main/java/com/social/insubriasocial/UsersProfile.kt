@@ -32,9 +32,6 @@ class UsersProfile : AppCompatActivity() {
         descriptionUP = findViewById<TextView>(R.id.profileDescUP)
         btnChatUP = findViewById<Button>(R.id.chatUP)
 
-        btnChatUP.setOnClickListener {
-            avviaChat(nameUP.text.toString(), usernameUP.text.toString())
-        }
 
         btnBackUP.setOnClickListener {
             val intent = Intent(this, SistemaDiRicerca::class.java)
@@ -76,50 +73,7 @@ class UsersProfile : AppCompatActivity() {
             }
     }
 
-    private fun avviaChat(nome: String, username: String) {
-        val db = FirebaseFirestore.getInstance()
 
-        val chatId = "${FirebaseAuth.getInstance().currentUser?.uid}"
-
-        val userChatRef = db.collection("utenti")
-            .document(FirebaseAuth.getInstance().currentUser?.uid!!)
-            .collection("chat")
-            .document(chatId)
-
-        db.collection("utenti")
-            .whereEqualTo("username", username)
-            .get()
-            .addOnSuccessListener { documents ->
-                for (document in documents) {
-                    val otherUserId = document.id
-                    val otherUserChatRef = db.collection("utenti")
-                        .document(otherUserId)
-                        .collection("chat")
-                        .document(chatId)
-
-                    userChatRef.get().addOnSuccessListener { userChatSnapshot ->
-                        if (!userChatSnapshot.exists()) {
-                            val chatData = hashMapOf(
-                                "nome" to nome,
-                                "username" to username
-                            )
-
-                            userChatRef.set(chatData)
-                                .addOnSuccessListener {
-                                    Toast.makeText(this, "Chat avviata con successo!", Toast.LENGTH_SHORT).show()
-                                }
-
-
-                            otherUserChatRef.set(chatData)
-                                .addOnSuccessListener {
-                                }
-                        } else {
-                            Toast.makeText(this, "Questa chat è già stata avviata.", Toast.LENGTH_SHORT).show()
-                        }
-                    }
-                }
-            }
-    }
 
 
 }
