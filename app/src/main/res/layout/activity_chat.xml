@@ -9,8 +9,8 @@
 
     <ListView
         android:id="@+id/list_messages"
-        android:layout_width="412dp"
-        android:layout_height="574dp"
+        android:layout_width="390dp"
+        android:layout_height="576dp"
         android:stackFromBottom="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,22 +23,24 @@
         android:id="@+id/messageText"
         android:layout_width="286dp"
         android:layout_height="49dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/shape_border"
         android:hint="inserisci messaggio"
         android:paddingLeft="12dp"
         android:paddingRight="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.128"
+        app:layout_constraintHorizontal_bias="0.14"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/userContact"
         android:layout_width="194dp"
         android:layout_height="37dp"
-        android:layout_marginTop="16dp"
-        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        android:textColor="#066858"
+        android:textSize="30dp"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.663"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,14 +48,14 @@
 
     <Button
         android:id="@+id/sendBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="70dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="9dp"
+        android:background="@drawable/buttons"
         android:text="Invia"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="11dp"
-        android:background="@drawable/buttons"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
