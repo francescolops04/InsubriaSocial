@@ -28,7 +28,7 @@ private lateinit var chatID: String
 
 
 
-class SimpleChatActivity : AppCompatActivity() {
+class Chat : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
