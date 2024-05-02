@@ -39,6 +39,10 @@ class UsersProfile : AppCompatActivity() {
             finish()
         }
 
+        btnChatUP.setOnClickListener {
+            startChat(usernameUP.text.toString())
+        }
+
         val extras = intent.extras
         val user = extras?.getString("user")
         if (user != null) {
@@ -74,7 +78,49 @@ class UsersProfile : AppCompatActivity() {
     }
 
 
+    private fun startChat(contactUsername: String){
+        val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
+        val usernameText = usernameUP.text.toString()
 
+
+        val db = FirebaseFirestore.getInstance()
+        db.collection("utenti")
+            .whereEqualTo("username", contactUsername)
+            .get()
+            .addOnSuccessListener { documents ->
+                if (!documents.isEmpty) {
+                    val contactUserID = documents.documents[0].id
+
+                    val chatID = if (currentUserID!! < contactUserID) {
+                        "$currentUserID-$contactUserID"
+                    } else {
+                        "$contactUserID-$currentUserID"
+                    }
+
+                    val chatData = hashMapOf(
+                        "user1" to currentUserID,
+                        "user2" to contactUserID
+                    )
+
+                    db.collection("chats").document(chatID)
+                        .set(chatData)
+                        .addOnSuccessListener {
+                            val intent = Intent(this, Chat::class.java)
+                            intent.putExtra("chatID", chatID)
+                            intent.putExtra("username", usernameText)
+                            startActivity(intent)
+                        }
+                        .addOnFailureListener { e ->
+                            Toast.makeText(this, "Errore durante la creazione della chat: $e", Toast.LENGTH_SHORT).show()
+                        }
+                } else {
+                    Toast.makeText(this, "Utente non trovato", Toast.LENGTH_SHORT).show()
+                }
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(this, "Errore durante la ricerca dell'utente: $e", Toast.LENGTH_SHORT).show()
+            }
+    }
 
 }
 
