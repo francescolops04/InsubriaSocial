@@ -7,6 +7,21 @@
     android:layout_height="match_parent"
     tools:context=".Chat">
 
+    <Button
+        android:id="@+id/btnRefreshC"
+        android:layout_width="60dp"
+        android:layout_height="47dp"
+        android:background="@drawable/buttons"
+        android:drawableStart="@drawable/refresh"
+        android:gravity="center"
+        android:paddingLeft="19dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.966"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
+
     <ListView
         android:id="@+id/list_messages"
         android:layout_width="390dp"
@@ -37,12 +52,12 @@
         android:id="@+id/userContact"
         android:layout_width="194dp"
         android:layout_height="37dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
         android:textColor="#066858"
         android:textSize="30dp"
-        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.663"
+        app:layout_constraintHorizontal_bias="0.537"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -61,8 +76,8 @@
 
     <Button
         android:id="@+id/backBtnChat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="70dp"
+        android:layout_height="46dp"
         android:background="@drawable/buttons"
         android:text="Indietro"
         android:textAllCaps="false"

@@ -20,6 +20,7 @@ import java.util.UUID
 
 lateinit var backbtnchat: Button
 lateinit var sendbtnchat: Button
+lateinit var btnRefreshC: Button
 lateinit var messagelist: ListView
 lateinit var adapterMessage: ArrayAdapter<String>
 lateinit var messageText: EditText
@@ -36,6 +37,7 @@ class Chat : AppCompatActivity() {
 
         backbtnchat = findViewById<Button>(R.id.backBtnChat)
         sendbtnchat = findViewById<Button>(R.id.sendBtn)
+        btnRefreshC = findViewById<Button>(R.id.btnRefreshC)
         messageText = findViewById<EditText>(R.id.messageText)
         contactName = findViewById<TextView>(R.id.userContact)
         chatID = intent.getStringExtra("chatID") ?: ""
@@ -57,8 +59,9 @@ class Chat : AppCompatActivity() {
             mostraMessaggi()
         }
 
-        mostraMessaggi()
-
+        btnRefreshC.setOnClickListener {
+            mostraMessaggi()
+        }
     }
 
     private fun inviaMessaggio() {
