@@ -54,6 +54,7 @@ class Chat : AppCompatActivity() {
 
         sendbtnchat.setOnClickListener {
             inviaMessaggio()
+            mostraMessaggi()
         }
 
         mostraMessaggi()
