@@ -48,6 +48,8 @@ class Chat : AppCompatActivity() {
         adapterMessage = ArrayAdapter(this, android.R.layout.simple_list_item_1, ArrayList())
         messagelist.adapter = adapterMessage
 
+        mostraMessaggi()
+
         backbtnchat.setOnClickListener {
             val intent = Intent(this, ChatList::class.java)
             startActivity(intent)
