@@ -23,6 +23,7 @@ lateinit var btnSubmit: Button
 lateinit var btnSettingsP: ImageView
 lateinit var btnBachecaP: ImageView
 lateinit var btnSearchP: ImageView
+lateinit var btnChatP: ImageView
 
 
 @SuppressLint("MissingInflatedId")
@@ -39,6 +40,7 @@ class Profilo : AppCompatActivity() {
         btnSettingsP = findViewById<ImageView>(R.id.settingsP)
         btnBachecaP = findViewById<ImageView>(R.id.BachecaP)
         btnSearchP = findViewById<ImageView>(R.id.SearchP)
+        btnChatP = findViewById<ImageView>(R.id.ChatP)
 
         profileData()
         profileDesc()
@@ -66,6 +68,12 @@ class Profilo : AppCompatActivity() {
 
         btnSearchP.setOnClickListener {
             val intent = Intent(this, SistemaDiRicerca::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        btnChatP.setOnClickListener {
+            val intent = Intent(this, ChatList::class.java)
             startActivity(intent)
             finish()
         }

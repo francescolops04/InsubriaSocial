@@ -12,6 +12,7 @@ import com.google.firebase.auth.FirebaseAuth
 lateinit var btnProfile: Button
 lateinit var btnPassword: Button
 lateinit var btnLogout: Button
+lateinit var btnChatS: ImageView
 lateinit var btnProfileBack: ImageView
 lateinit var btnBachecaS: ImageView
 lateinit var btnSearchS: ImageView
@@ -29,6 +30,7 @@ class Settings : AppCompatActivity() {
         btnProfileBack = findViewById<ImageView>(R.id.ProfileS)
         btnBachecaS = findViewById<ImageView>(R.id.BachecaS)
         btnSearchS = findViewById<ImageView>(R.id.SearchS)
+        btnChatS = findViewById<ImageView>(R.id.ChatS)
 
 
         btnProfile.setOnClickListener {
@@ -57,6 +59,12 @@ class Settings : AppCompatActivity() {
 
         btnSearchS.setOnClickListener {
             val intent = Intent(this, SistemaDiRicerca::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        btnChatS.setOnClickListener {
+            val intent = Intent(this, ChatList::class.java)
             startActivity(intent)
             finish()
         }

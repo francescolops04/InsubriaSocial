@@ -21,7 +21,7 @@ lateinit var btnAdding: Button
 lateinit var btnSetting: ImageView
 lateinit var btnProfilo: ImageView
 lateinit var btnRicerca: ImageView
-lateinit var btnChat: ImageView
+lateinit var btnChatB: ImageView
 lateinit var btnBacheca: ImageView
 lateinit var btnSearch: ImageView
 lateinit var announcementList: ListView
@@ -40,7 +40,7 @@ class Bacheca : AppCompatActivity() {
         btnSetting = findViewById<ImageView>(R.id.settingsB)
         btnProfilo = findViewById<ImageView>(R.id.ProfileB)
         btnRicerca = findViewById<ImageView>(R.id.SearchB)
-        btnChat = findViewById<ImageView>(R.id.ChatB)
+        btnChatB = findViewById<ImageView>(R.id.ChatB)
         btnBacheca = findViewById<ImageView>(R.id.BachecaB)
         btnSearch = findViewById<ImageView>(R.id.SearchB)
         btnRemove = findViewById<Button>(R.id.RemoveB)
@@ -95,6 +95,12 @@ class Bacheca : AppCompatActivity() {
 
         btnSearch.setOnClickListener {
             val intent = Intent(this, SistemaDiRicerca::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        btnChatB.setOnClickListener {
+            val intent = Intent(this, ChatList::class.java)
             startActivity(intent)
             finish()
         }

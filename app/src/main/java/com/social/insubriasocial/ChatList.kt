@@ -3,6 +3,7 @@ package com.social.insubriasocial
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.provider.ContactsContract.Profile
 import android.util.Log
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -41,6 +42,24 @@ class ChatList : AppCompatActivity() {
 
         btnRicercaChat.setOnClickListener {
             val intent = Intent(this, SistemaDiRicerca::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        btnSettingChat.setOnClickListener {
+            val intent = Intent(this, Settings::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        btnProfiloChat.setOnClickListener {
+            val intent = Intent(this, Profilo::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        btnBachecaChat.setOnClickListener {
+            val intent = Intent(this, Bacheca::class.java)
             startActivity(intent)
             finish()
         }
