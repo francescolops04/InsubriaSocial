@@ -80,7 +80,6 @@ class UsersProfile : AppCompatActivity() {
 
     private fun startChat(contactUsername: String){
         val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
-        val usernameText = usernameUP.text.toString()
 
 
         val db = FirebaseFirestore.getInstance()
@@ -105,10 +104,8 @@ class UsersProfile : AppCompatActivity() {
                     db.collection("chats").document(chatID)
                         .set(chatData)
                         .addOnSuccessListener {
-                            val intent = Intent(this, Chat::class.java)
-                            intent.putExtra("chatID", chatID)
-                            intent.putExtra("username", usernameText)
-                            startActivity(intent)
+                            Toast.makeText(this, "Chat creata con successo", Toast.LENGTH_SHORT).show()
+
                         }
                         .addOnFailureListener { e ->
                             Toast.makeText(this, "Errore durante la creazione della chat: $e", Toast.LENGTH_SHORT).show()

@@ -39,9 +39,7 @@ class Chat : AppCompatActivity() {
         messageText = findViewById<EditText>(R.id.messageText)
         contactName = findViewById<TextView>(R.id.userContact)
         chatID = intent.getStringExtra("chatID") ?: ""
-        contactName.text = intent.getStringExtra("username")
-
-
+        contactName.text = intent.getStringExtra("contactUsername")
 
 
         messagelist = findViewById<ListView>(R.id.list_messages)
@@ -49,7 +47,7 @@ class Chat : AppCompatActivity() {
         messagelist.adapter = adapterMessage
 
         backbtnchat.setOnClickListener {
-            val intent = Intent(this, SistemaDiRicerca::class.java)
+            val intent = Intent(this, ChatList::class.java)
             startActivity(intent)
             finish()
         }

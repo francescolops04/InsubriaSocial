@@ -47,6 +47,14 @@ class SistemaDiRicerca : AppCompatActivity() {
         adapterSearch = UserSearchAdapter(this, ArrayList())
         searchList.adapter = adapterSearch
 
+
+
+        btnChatSe.setOnClickListener {
+            val intent = Intent(this, ChatList::class.java)
+            startActivity(intent)
+            finish()
+        }
+
         btnRefreshSP.setOnClickListener {
             val intent = Intent(this, SistemaDiRicerca::class.java)
             startActivity(intent)
