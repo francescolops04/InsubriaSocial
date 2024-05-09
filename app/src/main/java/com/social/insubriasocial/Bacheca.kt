@@ -177,8 +177,10 @@ class Bacheca : AppCompatActivity() {
             val ann = hashMapOf<String, Any>(
                 "Titolo" to FieldValue.delete(),
                 "Descrizione" to FieldValue.delete(),
-                "timestamp" to FieldValue.delete()
-            )
+                "timestamp" to FieldValue.delete(),
+                "latitudine" to FieldValue.delete(),
+                "longitudine" to FieldValue.delete()
+                )
 
             db.collection("utenti").document(user.uid)
                 .update(ann)

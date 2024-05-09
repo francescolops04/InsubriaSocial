@@ -27,4 +27,15 @@
         <item>Storia</item>
         <item>Economia</item>
     </string-array>
+
+
+    <string-array name="padiglioni_spinner_edit">
+        <item>Seleziona padiglione (opzionale)</item>
+        <item>Morselli</item>
+        <item>Montegeneroso</item>
+        <item>Mensa</item>
+        <item>Antonini</item>
+        <item>Seppilli</item>
+    </string-array>
+
 </resources>
