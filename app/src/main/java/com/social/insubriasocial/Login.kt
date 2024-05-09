@@ -50,7 +50,7 @@ class Login : AppCompatActivity() {
             if (email.isNotEmpty() && password.isNotEmpty()) {
                 loginUser(email, password)
             } else {
-                Toast.makeText(this, "Please enter email and password", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Inserire email e password correttamente", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -59,23 +59,23 @@ class Login : AppCompatActivity() {
 
     private fun loginUser(email: String, password: String) {
         if (!isValidEmail(email)) {
-            Toast.makeText(this, "Invalid email format", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Formato e-mail non valido", Toast.LENGTH_SHORT).show()
             return
         }
 
         if (!isValidPassword(password)) {
-            Toast.makeText(this, "Password must be at least 8 characters long", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "La password deve essere lunga almeno 8 caratteri", Toast.LENGTH_SHORT).show()
             return
         }
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Login avvenuto con successo", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, Profilo::class.java)
                     startActivity(intent)
                     finish()
                 } else {
-                    Toast.makeText(this, "Authentication failed", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Autenticazione fallita", Toast.LENGTH_SHORT).show()
                 }
             }
     }

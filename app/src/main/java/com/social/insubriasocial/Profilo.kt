@@ -179,7 +179,7 @@ class Profilo : AppCompatActivity() {
                 .addOnSuccessListener { documentReference ->
                 }
                 .addOnFailureListener { e ->
-                    Toast.makeText(this, "Failed to save user data: ${e.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Impossibile salvare i dati dell'utente: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
 
         }

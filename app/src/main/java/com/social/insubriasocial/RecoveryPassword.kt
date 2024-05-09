@@ -42,7 +42,7 @@ class RecoveryPassword : AppCompatActivity() {
 
     private fun recPassword(email:String){
         if (!isValidEmail(email)) {
-            Toast.makeText(this, "Invalid email format", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Il formato dell'email non è valido", Toast.LENGTH_SHORT).show()
             return
         }
         auth.sendPasswordResetEmail(email)

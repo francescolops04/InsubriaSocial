@@ -14,7 +14,6 @@ import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.auth.User
 
 lateinit var btnBachecaSe: ImageView
 lateinit var btnChatSe: ImageView

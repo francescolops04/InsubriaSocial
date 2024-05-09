@@ -188,7 +188,7 @@ class Bacheca : AppCompatActivity() {
                     Toast.makeText(this, "Annuncio cancellato con successo", Toast.LENGTH_SHORT).show()
                 }
                 .addOnFailureListener { e ->
-                    Toast.makeText(this, "Failed to delete user data: ${e.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Cancellazione dei dati dell'utente non riuscita: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
 
         }

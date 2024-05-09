@@ -270,7 +270,7 @@ class EditProfile : AppCompatActivity() {
                                         .addOnFailureListener { e ->
                                             Toast.makeText(
                                                 this,
-                                                "Failed to save user data: ${e.message}",
+                                                "Impossibile salvare i dati dell'utente: ${e.message}",
                                                 Toast.LENGTH_SHORT
                                             ).show()
                                         }

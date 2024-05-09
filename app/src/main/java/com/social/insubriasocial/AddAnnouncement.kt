@@ -108,7 +108,7 @@ class AddAnnouncement : AppCompatActivity() {
                     Toast.makeText(this, "Annuncio creato con successo", Toast.LENGTH_SHORT).show()
                 }
                 .addOnFailureListener { e ->
-                    Toast.makeText(this, "Failed to save user data: ${e.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Impossibile salvare i dati dell'utente: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
 
         }
@@ -135,7 +135,7 @@ class AddAnnouncement : AppCompatActivity() {
                     Toast.makeText(this, "Annuncio creato con successo", Toast.LENGTH_SHORT).show()
                 }
                 .addOnFailureListener { e ->
-                    Toast.makeText(this, "Failed to save user data: ${e.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Impossibile salvare i dati dell'utente: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
 
         }
