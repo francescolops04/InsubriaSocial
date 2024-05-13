@@ -106,7 +106,11 @@ class ChatList : AppCompatActivity() {
             .addOnSuccessListener { documents ->
                 val searchListChat = ArrayList<String>()
                 for (document in documents) {
-                    val contactUserID = document.getString("user2")
+                    val contactUserID = if (document.getString("user1") == currentUserID)
+                        document.getString("user2")
+                    else
+                        document.getString("user1")
+
                     if (contactUserID != null) {
                         db.collection("utenti").document(contactUserID)
                             .get()
@@ -120,13 +124,10 @@ class ChatList : AppCompatActivity() {
                                     adapterChatlist.clear()
                                     adapterChatlist.addAll(searchListChat)
                                 }
-
                             }
-
                     }
                 }
-
             }
-
     }
+
 }
