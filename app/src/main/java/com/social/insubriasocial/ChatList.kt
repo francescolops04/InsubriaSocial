@@ -75,24 +75,40 @@ class ChatList : AppCompatActivity() {
                         val contactUserID = document.id
 
                         val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
+
                         db.collection("chats")
                             .whereEqualTo("user1", currentUserID)
                             .whereEqualTo("user2", contactUserID)
                             .get()
                             .addOnSuccessListener { chatDocuments ->
-                                for (chatDocument in chatDocuments) {
-                                    val chatID = chatDocument.id
-                                    val intent = Intent(this, Chat::class.java)
-                                    intent.putExtra("chatID", chatID)
-                                    intent.putExtra("contactUsername", contactUsername)
-                                    startActivity(intent)
+                                if (chatDocuments.isEmpty) {
+                                    db.collection("chats")
+                                        .whereEqualTo("user1", contactUserID)
+                                        .whereEqualTo("user2", currentUserID)
+                                        .get()
+                                        .addOnSuccessListener { chat2Documents ->
+                                            for (chatDocument in chat2Documents) {
+                                                val chatID = chatDocument.id
+                                                val intent = Intent(this, Chat::class.java)
+                                                intent.putExtra("chatID", chatID)
+                                                intent.putExtra("contactUsername", contactUsername)
+                                                startActivity(intent)
+                                            }
+                                        }
+                                } else {
+                                    for (chatDocument in chatDocuments) {
+                                        val chatID = chatDocument.id
+                                        val intent = Intent(this, Chat::class.java)
+                                        intent.putExtra("chatID", chatID)
+                                        intent.putExtra("contactUsername", contactUsername)
+                                        startActivity(intent)
+                                    }
                                 }
                             }
-
                     }
                 }
-
         }
+
 
     }
 
@@ -101,7 +117,7 @@ class ChatList : AppCompatActivity() {
         val db = FirebaseFirestore.getInstance()
 
         db.collection("chats")
-            .whereEqualTo("user1", currentUserID)
+            .whereIn("user1", listOf(currentUserID))
             .get()
             .addOnSuccessListener { documents ->
                 val searchListChat = ArrayList<String>()
@@ -120,14 +136,13 @@ class ChatList : AppCompatActivity() {
                                     adapterChatlist.clear()
                                     adapterChatlist.addAll(searchListChat)
                                 }
-
                             }
                     }
                 }
             }
 
         db.collection("chats")
-            .whereEqualTo("user2", currentUserID)
+            .whereIn("user2", listOf(currentUserID))
             .get()
             .addOnSuccessListener { documents ->
                 val searchListChat = ArrayList<String>()
@@ -146,12 +161,10 @@ class ChatList : AppCompatActivity() {
                                     adapterChatlist.clear()
                                     adapterChatlist.addAll(searchListChat)
                                 }
-
                             }
                     }
                 }
             }
     }
-
 
 }
