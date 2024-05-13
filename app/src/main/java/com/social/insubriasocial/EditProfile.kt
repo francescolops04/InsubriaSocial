@@ -14,12 +14,12 @@ import androidx.core.widget.doAfterTextChanged
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
-lateinit var btnBackEP: Button
-lateinit var btnConfirm: Button
-lateinit var nameChanged: EditText
-lateinit var lastnameChanged: EditText
-lateinit var userChanged: EditText
-lateinit var FacultyChanged: Spinner
+private lateinit var btnBackEP: Button
+private lateinit var btnConfirm: Button
+private lateinit var nameChanged: EditText
+private lateinit var lastnameChanged: EditText
+private lateinit var userChanged: EditText
+private lateinit var FacultyChanged: Spinner
 
 
 class EditProfile : AppCompatActivity() {

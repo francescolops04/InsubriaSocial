@@ -13,9 +13,9 @@ import com.google.firebase.auth.FirebaseAuth
 class Login : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var btnLogin: Button
+    private lateinit var btnback:Button
     private lateinit var Email:EditText
     private lateinit var Password:EditText
-    private lateinit var btnback:Button
     private lateinit var linkRec:TextView
 
     @SuppressLint("MissingInflatedId")
@@ -26,9 +26,9 @@ class Login : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
 
         btnLogin = findViewById<Button>(R.id.LogButton)
+        btnback = findViewById<Button>(R.id.buttonBackL)
         Email = findViewById<EditText>(R.id.mailL)
         Password = findViewById<EditText>(R.id.passwordL)
-        btnback = findViewById<Button>(R.id.buttonBackL)
         linkRec = findViewById<TextView>(R.id.linkRec)
 
         linkRec.setOnClickListener{

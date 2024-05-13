@@ -12,12 +12,12 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 
-lateinit var btnSettingChat: ImageView
-lateinit var btnProfiloChat: ImageView
-lateinit var btnRicercaChat: ImageView
-lateinit var btnBachecaChat: ImageView
-lateinit var Chatlist: ListView
-lateinit var adapterChatlist: ArrayAdapter<String>
+private lateinit var btnSettingChat: ImageView
+private lateinit var btnProfiloChat: ImageView
+private lateinit var btnRicercaChat: ImageView
+private lateinit var btnBachecaChat: ImageView
+private lateinit var Chatlist: ListView
+private lateinit var adapterChatlist: ArrayAdapter<String>
 
 class ChatList : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")

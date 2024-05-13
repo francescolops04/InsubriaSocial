@@ -24,8 +24,6 @@ lateinit var messageText: EditText
 lateinit var contactName: TextView
 private lateinit var chatID: String
 
-
-
 class Chat : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -9,13 +9,13 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 
 
-lateinit var btnProfile: Button
-lateinit var btnPassword: Button
-lateinit var btnLogout: Button
-lateinit var btnChatS: ImageView
-lateinit var btnProfileBack: ImageView
-lateinit var btnBachecaS: ImageView
-lateinit var btnSearchS: ImageView
+private lateinit var btnProfile: Button
+private lateinit var btnPassword: Button
+private lateinit var btnLogout: Button
+private lateinit var btnChatS: ImageView
+private lateinit var btnProfileBack: ImageView
+private lateinit var btnBachecaS: ImageView
+private lateinit var btnSearchS: ImageView
 
 class Settings : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")

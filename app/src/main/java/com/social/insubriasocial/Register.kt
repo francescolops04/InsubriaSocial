@@ -19,9 +19,9 @@ private lateinit var Email: EditText
 private lateinit var Password: EditText
 private lateinit var User: EditText
 private lateinit var PasswordC: EditText
-private lateinit var Faculty: Spinner
 private lateinit var Nome: EditText
 private lateinit var Cognome: EditText
+private lateinit var Faculty: Spinner
 
 class Register : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -38,9 +38,9 @@ class Register : AppCompatActivity() {
         Password = findViewById<EditText>(R.id.passwordR)
         User = findViewById<EditText>(R.id.usernameR)
         PasswordC = findViewById<EditText>(R.id.passwordR2)
-        Faculty = findViewById<Spinner>(R.id.spinnerR)
         Nome = findViewById<EditText>(R.id.nomeR)
         Cognome = findViewById<EditText>(R.id.cognomeR)
+        Faculty = findViewById<Spinner>(R.id.spinnerR)
 
         btnback.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)

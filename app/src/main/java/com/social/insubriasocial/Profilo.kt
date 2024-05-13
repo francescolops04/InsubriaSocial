@@ -15,15 +15,15 @@ import androidx.core.widget.doAfterTextChanged
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
-lateinit var nameProfile: TextView
-lateinit var userNameProfile: TextView
-lateinit var facultyProfile: TextView
-lateinit var descriptionProfile: EditText
-lateinit var btnSubmit: Button
-lateinit var btnSettingsP: ImageView
-lateinit var btnBachecaP: ImageView
-lateinit var btnSearchP: ImageView
-lateinit var btnChatP: ImageView
+private lateinit var nameProfile: TextView
+private lateinit var userNameProfile: TextView
+private lateinit var facultyProfile: TextView
+private lateinit var descriptionProfile: EditText
+private lateinit var btnSubmit: Button
+private lateinit var btnSettingsP: ImageView
+private lateinit var btnBachecaP: ImageView
+private lateinit var btnSearchP: ImageView
+private lateinit var btnChatP: ImageView
 
 
 @SuppressLint("MissingInflatedId")

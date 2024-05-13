@@ -15,16 +15,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
 import com.google.firebase.firestore.FirebaseFirestore
 
-lateinit var btnBachecaSe: ImageView
-lateinit var btnChatSe: ImageView
-lateinit var btnSearchSe: ImageView
-lateinit var btnProfileSe: ImageView
-lateinit var btnSettingsSe: ImageView
-lateinit var adapterSearch: ArrayAdapter<String>
-lateinit var searchList: ListView
-lateinit var searchText: EditText
-lateinit var spinnerFilter: Spinner
-lateinit var btnRefreshSP : Button
+private lateinit var btnBachecaSe: ImageView
+private lateinit var btnChatSe: ImageView
+private lateinit var btnSearchSe: ImageView
+private lateinit var btnProfileSe: ImageView
+private lateinit var btnSettingsSe: ImageView
+private lateinit var adapterSearch: ArrayAdapter<String>
+private lateinit var searchList: ListView
+private lateinit var searchText: EditText
+private lateinit var spinnerFilter: Spinner
+private lateinit var btnRefreshSP : Button
 
 class SistemaDiRicerca : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")

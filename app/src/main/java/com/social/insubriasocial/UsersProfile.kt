@@ -41,6 +41,9 @@ class UsersProfile : AppCompatActivity() {
 
         btnChatUP.setOnClickListener {
             startChat(usernameUP.text.toString())
+            val intent = Intent(this, ChatList::class.java)
+            startActivity(intent)
+            finish()
         }
 
         val extras = intent.extras

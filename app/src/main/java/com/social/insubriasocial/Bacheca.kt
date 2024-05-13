@@ -17,17 +17,17 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import java.util.ArrayList
 
-lateinit var btnAdding: Button
-lateinit var btnSetting: ImageView
-lateinit var btnProfilo: ImageView
-lateinit var btnRicerca: ImageView
-lateinit var btnChatB: ImageView
-lateinit var btnBacheca: ImageView
-lateinit var btnSearch: ImageView
-lateinit var announcementList: ListView
-lateinit var adapter: ArrayAdapter<String>
-lateinit var btnRemove: Button
-lateinit var btnRefresh: Button
+private lateinit var btnAdding: Button
+private lateinit var btnRemove: Button
+private lateinit var btnRefresh: Button
+private lateinit var btnSetting: ImageView
+private lateinit var btnProfilo: ImageView
+private lateinit var btnRicerca: ImageView
+private lateinit var btnChatB: ImageView
+private lateinit var btnBacheca: ImageView
+private lateinit var btnSearch: ImageView
+private lateinit var announcementList: ListView
+private lateinit var adapter: ArrayAdapter<String>
 
 
 class Bacheca : AppCompatActivity() {
@@ -37,14 +37,14 @@ class Bacheca : AppCompatActivity() {
         setContentView(R.layout.activity_bacheca)
 
         btnAdding = findViewById<Button>(R.id.AddingB)
+        btnRemove = findViewById<Button>(R.id.RemoveB)
+        btnRefresh = findViewById<Button>(R.id.btnRefresh)
         btnSetting = findViewById<ImageView>(R.id.settingsB)
         btnProfilo = findViewById<ImageView>(R.id.ProfileB)
         btnRicerca = findViewById<ImageView>(R.id.SearchB)
         btnChatB = findViewById<ImageView>(R.id.ChatB)
         btnBacheca = findViewById<ImageView>(R.id.BachecaB)
         btnSearch = findViewById<ImageView>(R.id.SearchB)
-        btnRemove = findViewById<Button>(R.id.RemoveB)
-        btnRefresh = findViewById<Button>(R.id.btnRefresh)
 
         announcementList = findViewById<ListView>(R.id.announcementList)
         adapter = CustomListAdapter(this, ArrayList())

@@ -10,12 +10,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 
-lateinit var btnBackCP: Button
-lateinit var btnConfirmCP: Button
-lateinit var passwordChanged: EditText
-lateinit var oldpassword: EditText
-lateinit var passwordChangedConfirm: EditText
-lateinit var linkRecEP: TextView
+private lateinit var btnBackCP: Button
+private lateinit var btnConfirmCP: Button
+private lateinit var passwordChanged: EditText
+private lateinit var oldpassword: EditText
+private lateinit var passwordChangedConfirm: EditText
+private lateinit var linkRecEP: TextView
 
 class CambioPassword : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")

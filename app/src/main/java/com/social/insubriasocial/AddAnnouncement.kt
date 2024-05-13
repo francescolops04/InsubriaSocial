@@ -12,11 +12,11 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 
-lateinit var btnBack: Button
-lateinit var btnAccept: Button
-lateinit var titleA: EditText
-lateinit var descA: EditText
-lateinit var padSpinner: Spinner
+private lateinit var btnBack: Button
+private lateinit var btnAccept: Button
+private lateinit var titleA: EditText
+private lateinit var descA: EditText
+private lateinit var padSpinner: Spinner
 
 class AddAnnouncement : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
