@@ -124,21 +124,12 @@ class ChatList : AppCompatActivity() {
                 for (document in documents) {
                     val contactUserID = document.getString("user2")
                     if (contactUserID != null) {
-                        db.collection("utenti").document(contactUserID)
-                            .get()
-                            .addOnSuccessListener { userDocument ->
-                                val contactUsername = userDocument.getString("username")
-                                val contactName = userDocument.getString("nome")
-                                val contactLastName = userDocument.getString("cognome")
-                                if (contactUsername != null && contactName != null && contactLastName != null) {
-                                    val infoContact = "$contactUsername\n$contactName $contactLastName"
-                                    searchListChat.add(infoContact)
-                                    adapterChatlist.clear()
-                                    adapterChatlist.addAll(searchListChat)
-                                }
-                            }
+                        loadChatDetails(contactUserID, searchListChat)
                     }
                 }
+            }
+            .addOnFailureListener { exception ->
+                // Gestisci eventuali errori
             }
 
         db.collection("chats")
@@ -149,23 +140,35 @@ class ChatList : AppCompatActivity() {
                 for (document in documents) {
                     val contactUserID = document.getString("user1")
                     if (contactUserID != null) {
-                        db.collection("utenti").document(contactUserID)
-                            .get()
-                            .addOnSuccessListener { userDocument ->
-                                val contactUsername = userDocument.getString("username")
-                                val contactName = userDocument.getString("nome")
-                                val contactLastName = userDocument.getString("cognome")
-                                if (contactUsername != null && contactName != null && contactLastName != null) {
-                                    val infoContact = "$contactUsername\n$contactName $contactLastName"
-                                    searchListChat.add(infoContact)
-                                    adapterChatlist.clear()
-                                    adapterChatlist.addAll(searchListChat)
-                                }
-                            }
+                        loadChatDetails(contactUserID, searchListChat)
                     }
                 }
             }
+            .addOnFailureListener { exception ->
+                // Gestisci eventuali errori
+            }
     }
+
+    private fun loadChatDetails(contactUserID: String, searchListChat: ArrayList<String>) {
+        val db = FirebaseFirestore.getInstance()
+        db.collection("utenti").document(contactUserID)
+            .get()
+            .addOnSuccessListener { userDocument ->
+                val contactUsername = userDocument.getString("username")
+                val contactName = userDocument.getString("nome")
+                val contactLastName = userDocument.getString("cognome")
+                if (contactUsername != null && contactName != null && contactLastName != null) {
+                    val infoContact = "$contactUsername\n$contactName $contactLastName"
+                    searchListChat.add(infoContact)
+                    adapterChatlist.clear()
+                    adapterChatlist.addAll(searchListChat)
+                }
+            }
+            .addOnFailureListener { exception ->
+                // Gestisci eventuali errori
+            }
+    }
+
 
 
 }
