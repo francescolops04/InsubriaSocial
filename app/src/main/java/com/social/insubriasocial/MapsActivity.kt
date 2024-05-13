@@ -3,6 +3,7 @@ package com.social.insubriasocial
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.Toast
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -20,16 +21,20 @@ import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
 
 import com.social.insubriasocial.databinding.ActivityMapsBinding
 
+
+
 class MapsActivity : AppCompatActivity() {
 
     private lateinit var map: MapView
     private lateinit var binding: ActivityMapsBinding
+    private lateinit var btnBackM: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        btnBackM = findViewById<Button>(R.id.buttonBackM)
 
         Configuration.getInstance().load(this, getSharedPreferences("OpenStreetMap", MODE_PRIVATE))
 
@@ -46,6 +51,13 @@ class MapsActivity : AppCompatActivity() {
         if (username != null) {
             findLatLong(username)
         }
+
+        btnBackM.setOnClickListener {
+            val intent = Intent(this, Bacheca::class.java)
+            startActivity(intent)
+            finish()
+        }
+
     }
 
     private fun findLatLong(username: String) {
