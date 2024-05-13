@@ -50,7 +50,7 @@ class UsersProfile : AppCompatActivity() {
         }
     }
 
-    private fun profileData(user: String){
+    private fun profileData(user: String) {
         val db = FirebaseFirestore.getInstance()
 
         db.collection("utenti")
@@ -67,9 +67,9 @@ class UsersProfile : AppCompatActivity() {
                     nameUP.text = "$nome $cognome"
                     usernameUP.text = "$username"
                     facultyUP.text = "Facoltà: $facoltà"
-                    if(descrizione.isNullOrEmpty()){
+                    if (descrizione.isNullOrEmpty()) {
                         descriptionUP.text = ""
-                    }else{
+                    } else {
                         descriptionUP.text = "$descrizione"
 
                     }
@@ -78,7 +78,7 @@ class UsersProfile : AppCompatActivity() {
     }
 
 
-    private fun startChat(contactUsername: String){
+    private fun startChat(contactUsername: String) {
         val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
 
 
@@ -95,30 +95,60 @@ class UsersProfile : AppCompatActivity() {
                     } else {
                         "$contactUserID-$currentUserID"
                     }
-
-                    val chatData = hashMapOf(
-                        "user1" to currentUserID,
-                        "user2" to contactUserID
-                    )
-
                     db.collection("chats").document(chatID)
-                        .set(chatData)
-                        .addOnSuccessListener {
-                            Toast.makeText(this, "Chat creata con successo", Toast.LENGTH_SHORT).show()
+                        .get()
+                        .addOnSuccessListener { documentSnapshot ->
+                            if (documentSnapshot.exists()) {
+                                Toast.makeText(
+                                    this,
+                                    "La chat è già stata avviata",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            } else {
+                                val chatData = hashMapOf(
+                                    "user1" to currentUserID,
+                                    "user2" to contactUserID
+                                )
 
+                                db.collection("chats").document(chatID)
+                                    .set(chatData)
+                                    .addOnSuccessListener {
+                                        Toast.makeText(
+                                            this,
+                                            "Chat creata con successo",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+
+                                    }
+                                    .addOnFailureListener { e ->
+                                        Toast.makeText(
+                                            this,
+                                            "Errore durante la creazione della chat: $e",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                    }
+                            }
                         }
                         .addOnFailureListener { e ->
-                            Toast.makeText(this, "Errore durante la creazione della chat: $e", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                this,
+                                "Errore durante il controllo della chat: $e",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                 } else {
                     Toast.makeText(this, "Utente non trovato", Toast.LENGTH_SHORT).show()
                 }
             }
             .addOnFailureListener { e ->
-                Toast.makeText(this, "Errore durante la ricerca dell'utente: $e", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    "Errore durante la ricerca dell'utente: $e",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
-    }
 
+    }
 }
 
 

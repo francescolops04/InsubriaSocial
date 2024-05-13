@@ -53,6 +53,14 @@ class Bacheca : AppCompatActivity() {
         loadAnnouncement()
         checkButtons()
 
+        announcementList.setOnItemClickListener { parent, view, position, id ->
+            val selectedItem = parent.getItemAtPosition(position) as String
+            val username = selectedItem.split("\n")[0]
+            val intent = Intent(this, MapsActivity::class.java)
+            intent.putExtra("usernameMaps", username)
+            startActivity(intent)
+        }
+
         btnRemove.setOnClickListener {
             val AlertDialog = AlertDialog.Builder(this@Bacheca)
             AlertDialog.setMessage("Sei sicuro di voler cancellare l'annuncio?")
