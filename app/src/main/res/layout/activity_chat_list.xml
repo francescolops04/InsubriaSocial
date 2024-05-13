@@ -43,6 +43,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <View
+        android:id="@+id/view"
+        android:layout_width="339dp"
+        android:layout_height="69dp"
+        android:background="@drawable/buttons"
+        android:foregroundGravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.037" />
+
     <ImageView
         android:id="@+id/ProfileChat"
         android:layout_width="42dp"
@@ -108,18 +120,6 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="339dp"
-        android:layout_height="69dp"
-        android:background="@drawable/buttons"
-        android:foregroundGravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.037" />
-
     <TextView
         android:layout_width="181dp"
         android:layout_height="69dp"
@@ -135,14 +135,14 @@
 
     <ListView
         android:id="@+id/listChatList"
+        android:layout_width="395dp"
+        android:layout_height="573dp"
         android:divider="@null"
         android:dividerHeight="25dp"
-        android:layout_width="389dp"
-        android:layout_height="589dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.632" />
+        app:layout_constraintVertical_bias="0.566" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
