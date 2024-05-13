@@ -106,11 +106,7 @@ class ChatList : AppCompatActivity() {
             .addOnSuccessListener { documents ->
                 val searchListChat = ArrayList<String>()
                 for (document in documents) {
-                    val contactUserID = if (document.getString("user1") == currentUserID)
-                        document.getString("user2")
-                    else
-                        document.getString("user1")
-
+                    val contactUserID = document.getString("user2")
                     if (contactUserID != null) {
                         db.collection("utenti").document(contactUserID)
                             .get()
@@ -124,10 +120,38 @@ class ChatList : AppCompatActivity() {
                                     adapterChatlist.clear()
                                     adapterChatlist.addAll(searchListChat)
                                 }
+
+                            }
+                    }
+                }
+            }
+
+        db.collection("chats")
+            .whereEqualTo("user2", currentUserID)
+            .get()
+            .addOnSuccessListener { documents ->
+                val searchListChat = ArrayList<String>()
+                for (document in documents) {
+                    val contactUserID = document.getString("user1")
+                    if (contactUserID != null) {
+                        db.collection("utenti").document(contactUserID)
+                            .get()
+                            .addOnSuccessListener { userDocument ->
+                                val contactUsername = userDocument.getString("username")
+                                val contactName = userDocument.getString("nome")
+                                val contactLastName = userDocument.getString("cognome")
+                                if (contactUsername != null && contactName != null && contactLastName != null) {
+                                    val infoContact = "$contactUsername\n$contactName $contactLastName"
+                                    searchListChat.add(infoContact)
+                                    adapterChatlist.clear()
+                                    adapterChatlist.addAll(searchListChat)
+                                }
+
                             }
                     }
                 }
             }
     }
+
 
 }
