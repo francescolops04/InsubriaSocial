@@ -49,31 +49,31 @@ class AddAnnouncement : AppCompatActivity() {
                     startActivity(intent)
                     finish()
                 }else if (padSpinner.selectedItem.toString().equals("Mensa")){
-                    createAnnouncementCoordinates(titleA, descA,"45.798601", "8.853576")
+                    createAnnouncementCoordinates(titleA, descA,45.798601, 8.853576)
                     Thread.sleep(1000)
                     val intent = Intent(this, Bacheca::class.java)
                     startActivity(intent)
                     finish()
                 }else if (padSpinner.selectedItem.toString().equals("Montegeneroso")){
-                    createAnnouncementCoordinates(titleA, descA,"45.798185", "8.852733")
+                    createAnnouncementCoordinates(titleA, descA,45.798185, 8.852733)
                     Thread.sleep(1000)
                     val intent = Intent(this, Bacheca::class.java)
                     startActivity(intent)
                     finish()
                 }else if (padSpinner.selectedItem.toString().equals("Antonini")){
-                    createAnnouncementCoordinates(titleA, descA,"45.798866","8.850094")
+                    createAnnouncementCoordinates(titleA, descA,45.798866,8.850094)
                     Thread.sleep(1000)
                     val intent = Intent(this, Bacheca::class.java)
                     startActivity(intent)
                     finish()
                 }else if (padSpinner.selectedItem.toString().equals("Morselli")){
-                    createAnnouncementCoordinates(titleA, descA,"45.798795", "8.849096")
+                    createAnnouncementCoordinates(titleA, descA,45.798795, 8.849096)
                     Thread.sleep(1000)
                     val intent = Intent(this, Bacheca::class.java)
                     startActivity(intent)
                     finish()
                 }else if (padSpinner.selectedItem.toString().equals("Seppilli")){
-                    createAnnouncementCoordinates(titleA, descA,"45.799311", "8.847229")
+                    createAnnouncementCoordinates(titleA, descA,45.799311, 8.847229)
                     Thread.sleep(1000)
                     val intent = Intent(this, Bacheca::class.java)
                     startActivity(intent)
@@ -85,7 +85,7 @@ class AddAnnouncement : AppCompatActivity() {
     }
 
 
-    private fun createAnnouncementCoordinates(title: EditText, desc: EditText, lat: String, long: String){
+    private fun createAnnouncementCoordinates(title: EditText, desc: EditText, lat: Double, long: Double){
         val db = FirebaseFirestore.getInstance()
         val auth = FirebaseAuth.getInstance()
         val user = auth.currentUser
