@@ -79,7 +79,6 @@ class AddAnnouncement : AppCompatActivity() {
                     startActivity(intent)
                     finish()
                 }
-
             }
         }
     }
