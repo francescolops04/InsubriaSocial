@@ -15,13 +15,13 @@ import com.google.firebase.firestore.FirebaseFirestore
 import java.util.ArrayList
 import java.util.UUID
 
-lateinit var backbtnchat: Button
-lateinit var sendbtnchat: Button
-lateinit var btnRefreshC: Button
-lateinit var messagelist: ListView
-lateinit var adapterMessage: ArrayAdapter<String>
-lateinit var messageText: EditText
-lateinit var contactName: TextView
+private lateinit var backbtnchat: Button
+private lateinit var sendbtnchat: Button
+private lateinit var btnRefreshC: Button
+private lateinit var messagelist: ListView
+private lateinit var adapterMessage: ArrayAdapter<String>
+private lateinit var messageText: EditText
+private lateinit var contactName: TextView
 private lateinit var chatID: String
 
 class Chat : AppCompatActivity() {

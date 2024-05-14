@@ -21,6 +21,7 @@
         <TextView
             android:id="@+id/textViewUser"
             android:layout_width="match_parent"
+            android:fontFamily="@font/sfpro2"
             android:layout_height="wrap_content"
             android:textColor="@android:color/white"
             android:textSize="20sp"
@@ -28,6 +29,7 @@
 
         <TextView
             android:id="@+id/textViewTitle"
+            android:fontFamily="@font/sfpro2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -37,6 +39,7 @@
 
         <TextView
             android:id="@+id/textViewDescription"
+            android:fontFamily="@font/sfpro2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"

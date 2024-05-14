@@ -13,7 +13,7 @@
         android:id="@+id/textViewL"
         android:layout_width="201dp"
         android:layout_height="84dp"
-        android:fontFamily="@font/arial"
+        android:fontFamily="@font/sfpro2"
         android:gravity="center"
         android:text="Login"
         android:textColor="#066858"
@@ -112,7 +112,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.857"
-        android:textColor="#007ABF"
+        android:textColor="#066858"
         android:clickable="true"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

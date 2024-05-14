@@ -11,12 +11,12 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 
-lateinit var btnBackUP: Button
-lateinit var btnChatUP: Button
-lateinit var usernameUP: TextView
-lateinit var nameUP: TextView
-lateinit var facultyUP: TextView
-lateinit var descriptionUP: TextView
+private lateinit var btnBackUP: Button
+private lateinit var btnChatUP: Button
+private lateinit var usernameUP: TextView
+private lateinit var nameUP: TextView
+private lateinit var facultyUP: TextView
+private lateinit var descriptionUP: TextView
 
 
 class UsersProfile : AppCompatActivity() {
@@ -41,6 +41,7 @@ class UsersProfile : AppCompatActivity() {
 
         btnChatUP.setOnClickListener {
             startChat(usernameUP.text.toString())
+            Thread.sleep(1000)
             val intent = Intent(this, ChatList::class.java)
             startActivity(intent)
             finish()
