@@ -39,48 +39,34 @@ class AddAnnouncement : AppCompatActivity() {
         }
 
         btnAccept.setOnClickListener {
-            if(titleA.text.toString().isEmpty() || descA.text.toString().isEmpty()){
+            val title = titleA.text.toString()
+            val description = descA.text.toString()
+
+            if (title.isEmpty() || description.isEmpty()) {
                 Toast.makeText(this, "Inserire titolo e/o descrizione", Toast.LENGTH_SHORT).show()
             } else {
-                if(padSpinner.selectedItem.toString().equals("Seleziona padiglione (opzionale)")){
-                    createAnnouncement(titleA, descA)
-                    Thread.sleep(1000)
-                    val intent = Intent(this, Bacheca::class.java)
-                    startActivity(intent)
-                    finish()
-                }else if (padSpinner.selectedItem.toString().equals("Mensa")){
-                    createAnnouncementCoordinates(titleA, descA,45.798601, 8.853576)
-                    Thread.sleep(1000)
-                    val intent = Intent(this, Bacheca::class.java)
-                    startActivity(intent)
-                    finish()
-                }else if (padSpinner.selectedItem.toString().equals("Montegeneroso")){
-                    createAnnouncementCoordinates(titleA, descA,45.798185, 8.852733)
-                    Thread.sleep(1000)
-                    val intent = Intent(this, Bacheca::class.java)
-                    startActivity(intent)
-                    finish()
-                }else if (padSpinner.selectedItem.toString().equals("Antonini")){
-                    createAnnouncementCoordinates(titleA, descA,45.798866,8.850094)
-                    Thread.sleep(1000)
-                    val intent = Intent(this, Bacheca::class.java)
-                    startActivity(intent)
-                    finish()
-                }else if (padSpinner.selectedItem.toString().equals("Morselli")){
-                    createAnnouncementCoordinates(titleA, descA,45.798795, 8.849096)
-                    Thread.sleep(1000)
-                    val intent = Intent(this, Bacheca::class.java)
-                    startActivity(intent)
-                    finish()
-                }else if (padSpinner.selectedItem.toString().equals("Seppilli")){
-                    createAnnouncementCoordinates(titleA, descA,45.799311, 8.847229)
-                    Thread.sleep(1000)
-                    val intent = Intent(this, Bacheca::class.java)
-                    startActivity(intent)
-                    finish()
+                val coordinates = when (padSpinner.selectedItem.toString()) {
+                    "Mensa" -> Pair(45.798601, 8.853576)
+                    "Montegeneroso" -> Pair(45.798185, 8.852733)
+                    "Antonini" -> Pair(45.798866, 8.850094)
+                    "Morselli" -> Pair(45.798795, 8.849096)
+                    "Seppilli" -> Pair(45.799311, 8.847229)
+                    else -> null
                 }
+
+                if (coordinates == null) {
+                    createAnnouncement(titleA, descA)
+                } else {
+                    createAnnouncementCoordinates(titleA, descA, coordinates.first, coordinates.second)
+                }
+
+                Thread.sleep(1000)
+                val intent = Intent(this, Bacheca::class.java)
+                startActivity(intent)
+                finish()
             }
         }
+
     }
 
 
