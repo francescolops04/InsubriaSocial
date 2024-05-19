@@ -47,6 +47,7 @@ class UsersProfile : AppCompatActivity() {
             finish()
         }
 
+        //Recupera i dati dell'utente passati tramite intent
         val extras = intent.extras
         val user = extras?.getString("user")
         if (user != null) {
@@ -54,9 +55,11 @@ class UsersProfile : AppCompatActivity() {
         }
     }
 
+    //Recupera e visualizza i dati del profilo di un utente specifico.
     private fun profileData(user: String) {
         val db = FirebaseFirestore.getInstance()
 
+        // Cerca l'utente nel database Firestore
         db.collection("utenti")
             .whereEqualTo("username", user)
             .get()
@@ -68,6 +71,7 @@ class UsersProfile : AppCompatActivity() {
                     val facoltà = document.getString("facoltà")
                     val descrizione = document.getString("Description")
 
+                    // Aggiorna i campi dell'interfaccia utente con i dati recuperati
                     nameUP.text = "$nome $cognome"
                     usernameUP.text = "$username"
                     facultyUP.text = "Facoltà: $facoltà"
@@ -81,12 +85,13 @@ class UsersProfile : AppCompatActivity() {
             }
     }
 
-
+    //Avvia una chat con un utente specifico
     private fun startChat(contactUsername: String) {
         val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
 
 
         val db = FirebaseFirestore.getInstance()
+        // Cerca l'utente con l'username specificato nel database Firestore
         db.collection("utenti")
             .whereEqualTo("username", contactUsername)
             .get()
@@ -94,6 +99,7 @@ class UsersProfile : AppCompatActivity() {
                 if (!documents.isEmpty) {
                     val contactUserID = documents.documents[0].id
 
+                    // Crea un ID univoco per la chat
                     val chatID = if (currentUserID!! < contactUserID) {
                         "$currentUserID-$contactUserID"
                     } else {
@@ -110,6 +116,7 @@ class UsersProfile : AppCompatActivity() {
                                 ).show()
                             } else {
                                 val chatData = hashMapOf(
+                                    // Crea una nuova chat se non esiste già
                                     "user1" to currentUserID,
                                     "user2" to contactUserID
                                 )
@@ -117,6 +124,7 @@ class UsersProfile : AppCompatActivity() {
                                 db.collection("chats").document(chatID)
                                     .set(chatData)
                                     .addOnSuccessListener {
+                                        // Questo blocco viene eseguito se i dati della chat vengono salvati correttamente nel database
                                         Toast.makeText(
                                             this,
                                             "Chat creata con successo",
@@ -125,6 +133,7 @@ class UsersProfile : AppCompatActivity() {
 
                                     }
                                     .addOnFailureListener { e ->
+                                        // Questo blocco viene eseguito se c'è un errore nel salvare i dati della chat nel database
                                         Toast.makeText(
                                             this,
                                             "Errore durante la creazione della chat: $e",
@@ -134,6 +143,7 @@ class UsersProfile : AppCompatActivity() {
                             }
                         }
                         .addOnFailureListener { e ->
+                            // Questo blocco viene eseguito se c'è un errore nel controllare l'esistenza del documento della chat nel database
                             Toast.makeText(
                                 this,
                                 "Errore durante il controllo della chat: $e",

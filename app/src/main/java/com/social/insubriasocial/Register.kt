@@ -57,6 +57,7 @@ class Register : AppCompatActivity() {
             val name = Nome.text.toString()
             val lastName = Cognome.text.toString()
 
+            // Controlla se qualche campo non è vuoto
             if (!mail.isNotEmpty() && !pass.isNotEmpty()) {
                 Toast.makeText(this, "Inserire email e password", Toast.LENGTH_SHORT).show()
             } else if (samePassword(pass, pass2)){
@@ -68,26 +69,32 @@ class Register : AppCompatActivity() {
             } else if(!name.isNotEmpty() && !lastName.isNotEmpty()){
                 Toast.makeText(this, "Inserire nome e cognome", Toast.LENGTH_SHORT).show()
             }else{
+                // Se tutti i campi sono stati compilato, registra l'utente
                 registerUser(mail, pass, user, name, lastName, selectedFaculty)
             }
         }
     }
 
+    // Metodo per registrare l'utente su Firebase
     private fun registerUser(email: String, password: String, username: String, name: String, lastName: String, selectedFaculty: String) {
         if (!isValidEmail(email)) {
+            // Verifica se l'email è valida
             Toast.makeText(this, "Inserire mail valida", Toast.LENGTH_SHORT).show()
             return
         }
 
         if(!isValidPassword(password)){
+            //Verifica se la password è valida
             Toast.makeText(this, "La password deve essere lunga almeno 8 caratteri", Toast.LENGTH_SHORT).show()
         }
 
         if (!isValidUsername(username)) {
+            //Verifica se lo username è valido
             Toast.makeText(this, "Lo username deve essere lungo almeno 6 caratteri", Toast.LENGTH_SHORT).show()
             return
         }
 
+        // Controlla se l'username è già in uso nel database Firestore
         firestore.collection("utenti")
             .whereEqualTo("username", username)
             .get()
@@ -95,11 +102,13 @@ class Register : AppCompatActivity() {
                 if (!documents.isEmpty) {
                     Toast.makeText(this, "Username già in uso", Toast.LENGTH_SHORT).show()
                 } else {
+                    // Crea un nuovo utente con Firebase Authentication
                     auth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(this) { task ->
                             if (task.isSuccessful) {
                                 Toast.makeText(this, "Registrazione completata", Toast.LENGTH_SHORT).show()
 
+                                // Salva i dati dell'utente nel database Firestore
                                 val user = auth.currentUser
                                 if (user != null) {
                                     val userData = hashMapOf(
@@ -132,19 +141,22 @@ class Register : AppCompatActivity() {
             }
     }
 
-
+    //Metodo per verificare se è valida l'email
     private fun isValidEmail(email: String): Boolean {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 
+    //Metodo per verificare se la passowrd contiene almeno 8 caratteri
     private fun isValidPassword(password: String): Boolean {
         return password.length >= 8
     }
 
+    //Metodo per verificare se l'username ha almeno 6 caratteri
     private fun isValidUsername(user: String): Boolean {
         return user.length >= 6
     }
 
+    //Metodo per vedere se le due password coincidono
     private fun samePassword(pass1: String, pass2: String):Boolean{
         return pass1 != pass2
     }
