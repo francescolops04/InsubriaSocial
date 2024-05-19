@@ -57,6 +57,9 @@ class AddAnnouncement : AppCompatActivity() {
                     else -> null
                 }
 
+                // Controlla se le coordinate sono nulle. Se sì,
+                // chiama il metodo per creare un annuncio senza coordinate, altrimenti chiama il metodo
+                // per creare un annuncio con le coordinate specificate
                 if (coordinates == null) {
                     createAnnouncement(titleA, descA)
                 } else {
@@ -80,7 +83,7 @@ class AddAnnouncement : AppCompatActivity() {
         val titleText = title.text.toString()
         val descText = desc.text.toString()
 
-
+        //Se l'utente è valido, crea un nuovo annuncio con i dati forniti
         if(user!=null){
             val ann = hashMapOf<String, Any>(
                 "Titolo" to titleText,
@@ -90,6 +93,7 @@ class AddAnnouncement : AppCompatActivity() {
                 "longitudine" to long
             )
 
+            // Aggiorna i dati dell'utente nel database con il nuovo annuncio
             db.collection("utenti").document(user.uid)
                 .update(ann)
                 .addOnSuccessListener { documentReference ->
@@ -110,14 +114,16 @@ class AddAnnouncement : AppCompatActivity() {
         val titleText = title.text.toString()
         val descText = desc.text.toString()
 
-
+        // Se l'utente attualmente autenticato non è nullo, procede con la creazione dell'annuncio
         if(user!=null){
+            // Crea un nuovo annuncio con i dati forniti
             val ann = hashMapOf<String, Any>(
                 "Titolo" to titleText,
                 "Descrizione" to descText,
                 "timestamp" to FieldValue.serverTimestamp(),
             )
 
+            // Aggiorna i dati dell'utente nel database con il nuovo annuncio
             db.collection("utenti").document(user.uid)
                 .update(ann)
                 .addOnSuccessListener { documentReference ->
