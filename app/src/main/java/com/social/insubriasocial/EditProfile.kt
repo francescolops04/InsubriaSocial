@@ -85,6 +85,8 @@ class EditProfile : AppCompatActivity() {
         }
     }
 
+    //Questo metodo controlla se ci sono stati cambiamenti nel campo della facoltà e aggiorna
+    //la visibilità del pulsante di conferma delle modifiche nel profilo
     private fun checkFacultyAndUpdateButton(currentFaculty: String) {
         val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
         val db = FirebaseFirestore.getInstance()
