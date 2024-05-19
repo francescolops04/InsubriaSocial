@@ -42,9 +42,12 @@ class AddAnnouncement : AppCompatActivity() {
             val title = titleA.text.toString()
             val description = descA.text.toString()
 
+            // Controlla se il titolo o la descrizione sono vuoti e mostra un toast se lo sono
             if (title.isEmpty() || description.isEmpty()) {
                 Toast.makeText(this, "Inserire titolo e/o descrizione", Toast.LENGTH_SHORT).show()
             } else {
+
+                // Ottieni le coordinate in base all'elemento selezionato nello spinner
                 val coordinates = when (padSpinner.selectedItem.toString()) {
                     "Mensa" -> Pair(45.798601, 8.853576)
                     "Montegeneroso" -> Pair(45.798185, 8.852733)
@@ -69,7 +72,7 @@ class AddAnnouncement : AppCompatActivity() {
 
     }
 
-
+    // Funzione per creare un annuncio con coordinate
     private fun createAnnouncementCoordinates(title: EditText, desc: EditText, lat: Double, long: Double){
         val db = FirebaseFirestore.getInstance()
         val auth = FirebaseAuth.getInstance()
@@ -99,6 +102,7 @@ class AddAnnouncement : AppCompatActivity() {
         }
     }
 
+    // Funzione per creare un annuncio senza coordinate
     private fun createAnnouncement(title: EditText, desc: EditText){
         val db = FirebaseFirestore.getInstance()
         val auth = FirebaseAuth.getInstance()
