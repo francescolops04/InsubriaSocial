@@ -47,6 +47,7 @@ class Login : AppCompatActivity() {
             val email = Email.text.toString()
             val password = Password.text.toString()
 
+            // Verifica che l'email e la password non siano vuote
             if (email.isNotEmpty() && password.isNotEmpty()) {
                 loginUser(email, password)
             } else {
@@ -56,20 +57,25 @@ class Login : AppCompatActivity() {
     }
 
 
-
+    // Funzione per eseguire il login dell'utente con l'email e la password fornite
     private fun loginUser(email: String, password: String) {
+        // Verifica che l'email sia valida
         if (!isValidEmail(email)) {
             Toast.makeText(this, "Formato e-mail non valido", Toast.LENGTH_SHORT).show()
             return
         }
 
+        //Verifica che la password abbia almeno 8 caratteri
         if (!isValidPassword(password)) {
             Toast.makeText(this, "La password deve essere lunga almeno 8 caratteri", Toast.LENGTH_SHORT).show()
             return
         }
+
+        //Login dell'utente con e-mail e password
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
+                    // Se il login ha successo, avvia l'activity del profilo e chiudi questa activity
                     Toast.makeText(this, "Login avvenuto con successo", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, Profilo::class.java)
                     startActivity(intent)
@@ -82,11 +88,12 @@ class Login : AppCompatActivity() {
 
 
 
-
+    // Funzione per verificare se un'email è valida
     private fun isValidEmail(email: String): Boolean {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 
+    // Funzione per verificare se una password è lunga almeno 8 caratteri
     private fun isValidPassword(password: String): Boolean {
         return password.length >= 8
     }

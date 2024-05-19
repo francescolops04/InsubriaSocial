@@ -42,9 +42,11 @@ class Profilo : AppCompatActivity() {
         btnSearchP = findViewById<ImageView>(R.id.SearchP)
         btnChatP = findViewById<ImageView>(R.id.ChatP)
 
+        // Popola i campi del profilo con i dati dell'utente
         profileData()
         profileDesc()
 
+        // Aggiorna il pulsante di invio della descrizione durante l'immissione del testo
         descriptionProfile.doAfterTextChanged { editable ->
             checkDescriptionAndUpdateButton(editable.toString())
         }
@@ -79,7 +81,7 @@ class Profilo : AppCompatActivity() {
         }
     }
 
-
+    // Controlla se la descrizione è stata modificata e aggiorna la visibilità del pulsante di invio
     private fun checkDescriptionAndUpdateButton(currentDescription: String) {
         val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
         val db = FirebaseFirestore.getInstance()
@@ -102,7 +104,7 @@ class Profilo : AppCompatActivity() {
     }
 
 
-
+    // Popola i campi del profilo con i dati dell'utente
     private fun profileData(){
         val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
         val db = FirebaseFirestore.getInstance()
@@ -134,6 +136,7 @@ class Profilo : AppCompatActivity() {
         }
     }
 
+    // Popola il campo della descrizione del profilo con i dati dell'utente
     private fun profileDesc() {
         val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
         val db = FirebaseFirestore.getInstance()
@@ -163,6 +166,7 @@ class Profilo : AppCompatActivity() {
         }
     }
 
+    // Aggiorna la descrizione dell'utente nel database Firestore
     private fun collectDesc (profileDesc:EditText){
         val db = FirebaseFirestore.getInstance()
         val auth = FirebaseAuth.getInstance()

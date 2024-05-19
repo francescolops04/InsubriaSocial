@@ -31,18 +31,23 @@ class MapsActivity : AppCompatActivity() {
         setContentView(binding.root)
         btnBackM = findViewById<Button>(R.id.buttonBackM)
 
+        // Configurazione delle impostazioni dell'OpenStreetMap
         Configuration.getInstance().load(this, getSharedPreferences("OpenStreetMap", MODE_PRIVATE))
 
+        // Collegamento del widget MapView
         map = findViewById(R.id.map)
         map.setTileSource(TileSourceFactory.MAPNIK)
         map.setMultiTouchControls(true)
 
+        // Impostazione del controller per lo zoom sulla mappa
         val controller: IMapController = map.controller
         controller.setZoom(18.0)
 
+        // Recupero dell'username passato come extra
         val extras = intent.extras
         val username = extras?.getString("usernameMaps")
 
+        // Recupero dell'username passato come extra
         if (username != null) {
             findLatLong(username)
         }
@@ -55,6 +60,7 @@ class MapsActivity : AppCompatActivity() {
 
     }
 
+    // Funzione per trovare le coordinate associate all'username specificato
     private fun findLatLong(username: String) {
         val db = FirebaseFirestore.getInstance()
 
@@ -66,6 +72,7 @@ class MapsActivity : AppCompatActivity() {
                     val latitude = document.getDouble("latitudine")
                     val longitude = document.getDouble("longitudine")
 
+                    // Se latitude e longitude non sono nulli, aggiunge un marker sulla mappa
                     if (latitude != null && longitude != null) {
                         val startPoint = GeoPoint(latitude, longitude)
                         val marker = Marker(map)

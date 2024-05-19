@@ -40,11 +40,14 @@ class RecoveryPassword : AppCompatActivity() {
         }
     }
 
+    // Metodo per il recupero della password
     private fun recPassword(email:String){
+        // Verifica se l'email è valida
         if (!isValidEmail(email)) {
             Toast.makeText(this, "Il formato dell'email non è valido", Toast.LENGTH_SHORT).show()
             return
         }
+        // Invio dell'email per il recupero della password
         auth.sendPasswordResetEmail(email)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
@@ -53,6 +56,7 @@ class RecoveryPassword : AppCompatActivity() {
             }
     }
 
+    // Metodo per la validazione dell'email
     private fun isValidEmail(email: String): Boolean {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
