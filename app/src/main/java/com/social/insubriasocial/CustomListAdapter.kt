@@ -11,6 +11,8 @@ class CustomListAdapter(context: Context, data: ArrayList<String>) : ArrayAdapte
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         var convertView = convertView
+
+        // Se convertView è nullo, infla la vista dal layout custom_list
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.custom_list, parent, false)
         }
@@ -23,6 +25,7 @@ class CustomListAdapter(context: Context, data: ArrayList<String>) : ArrayAdapte
 
         val parts = item?.split("\n")
         if (parts != null) {
+            // Se ci sono almeno tre parti (utente, titolo e descrizione), imposta i testi delle TextView
             if (parts.size >= 3) {
                 textViewUser.text = parts[0]
                 textViewTitle.text = parts[1]

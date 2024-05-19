@@ -61,11 +61,13 @@ class Chat : AppCompatActivity() {
         }
     }
 
+    //Funzione per inviare un messaggio nella chat corrente
     private fun inviaMessaggio() {
         val currentUserID = FirebaseAuth.getInstance().currentUser?.uid ?: ""
         val db = FirebaseFirestore.getInstance()
         val testoMessaggio = messageText.text.toString().trim()
 
+        // Verifica se il testo del messaggio non è vuoto
         if (testoMessaggio.isNotEmpty()) {
             val messageID = UUID.randomUUID().toString()
 
@@ -89,6 +91,7 @@ class Chat : AppCompatActivity() {
         }
     }
 
+    // Funzione per caricare e visualizzare i messaggi della chat
     private fun mostraMessaggi() {
         val db = FirebaseFirestore.getInstance()
         val messagesRef = db.collection("chats").document(chatID).collection("messages")
@@ -99,11 +102,13 @@ class Chat : AppCompatActivity() {
 
                 val messaggiNonOrdinati = ArrayList<Pair<Long, String>>()
 
+                // Itera attraverso i documenti dei messaggi
                 for (document in snapshot.documents) {
                     val messaggio = document.getString("testo")
                     val mittente = document.getString("mittente")
                     val timestamp = document.getLong("timestamp")
 
+                    // Verifica se il messaggio, il mittente e il timestamp non sono nulli
                     if (messaggio != null && mittente != null && timestamp != null) {
                         db.collection("utenti").document(mittente).get()
                             .addOnSuccessListener { userSnapshot ->
@@ -112,6 +117,8 @@ class Chat : AppCompatActivity() {
                                     val formattedMessage = "$username: $messaggio"
                                     messaggiNonOrdinati.add(Pair(timestamp, formattedMessage))
 
+                                    // Se tutti i messaggi sono stati aggiunti alla lista temporanea,
+                                    // ordina i messaggi per timestamp e aggiorna l'adapter della ListView
                                     if (messaggiNonOrdinati.size == snapshot.size()) {
                                         messaggiNonOrdinati.sortBy { it.first }
 

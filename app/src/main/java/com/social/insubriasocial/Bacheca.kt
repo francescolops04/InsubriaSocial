@@ -114,6 +114,7 @@ class Bacheca : AppCompatActivity() {
         }
     }
 
+    // Verifica lo stato dei pulsanti in base ai dati utente
     private fun checkButtons() {
         val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
         val db = FirebaseFirestore.getInstance()
@@ -122,9 +123,13 @@ class Bacheca : AppCompatActivity() {
                 .document(currentUserID)
                 .get()
                 .addOnSuccessListener { document ->
+                    // Verifica se il documento esiste nel database Firestore
                     if (document != null) {
                         val title = document.getString("Titolo")
                         val desc = document.getString("Descrizione")
+
+                        // Se sia il titolo che la descrizione non sono vuoti,
+                        //rende visibile il pulsante di rimozione e cambia il testo del pulsante di aggiunta in "Modifica"
                         if (!title.isNullOrEmpty() && !desc.isNullOrEmpty()){
                             btnRemove.visibility = View.VISIBLE
                             btnAdding.text = "Modifica"
@@ -146,6 +151,8 @@ class Bacheca : AppCompatActivity() {
 
 
     }
+
+    // Carica gli annunci dal database
     private fun loadAnnouncement() {
         val db = FirebaseFirestore.getInstance()
 
@@ -158,6 +165,9 @@ class Bacheca : AppCompatActivity() {
                     val title = document.getString("Titolo")
                     val description = document.getString("Descrizione")
                     val user = document.getString("username")
+
+                    // Se i campi "Titolo", "Descrizione" e "username" non sono nulli,
+                    // crea una stringa formattata che combina il nome utente, il titolo e la descrizione dell'annuncio,
                     if (title != null && description != null && user != null) {
                         val announcement = "$user\n$title\n$description"
                         announcementList.add(announcement)
@@ -175,6 +185,7 @@ class Bacheca : AppCompatActivity() {
             }
     }
 
+    // Elimina l'annuncio dell'utente corrente
     private fun deleteAnnouncement(){
         val db = FirebaseFirestore.getInstance()
         val auth = FirebaseAuth.getInstance()
@@ -182,6 +193,7 @@ class Bacheca : AppCompatActivity() {
 
 
         if(user!=null){
+            // Crea una mappa (hashMap) con i campi dell'annuncio da cancellare
             val ann = hashMapOf<String, Any>(
                 "Titolo" to FieldValue.delete(),
                 "Descrizione" to FieldValue.delete(),

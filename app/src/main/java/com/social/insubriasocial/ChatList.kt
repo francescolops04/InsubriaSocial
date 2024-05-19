@@ -61,12 +61,14 @@ class ChatList : AppCompatActivity() {
 
         loadChatList()
 
+        // Gestione del click sugli elementi della lista delle chat
         Chatlist.onItemClickListener = AdapterView.OnItemClickListener { parent, _, position, _ ->
             val selectedUser = parent.getItemAtPosition(position) as String
             val contactUsername = selectedUser.substringBefore("\n")
 
             val db = FirebaseFirestore.getInstance()
 
+            // Cerca nel database il contatto selezionato per ottenere il suo ID
             db.collection("utenti")
                 .whereEqualTo("username", contactUsername)
                 .get()
@@ -76,12 +78,14 @@ class ChatList : AppCompatActivity() {
 
                         val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
 
+                        // Cerca nel database la chat tra l'utente corrente e il contatto selezionato
                         db.collection("chats")
                             .whereEqualTo("user1", currentUserID)
                             .whereEqualTo("user2", contactUserID)
                             .get()
                             .addOnSuccessListener { chatDocuments ->
                                 if (chatDocuments.isEmpty) {
+                                    // Se la chat non esiste, cerca la chat inversa
                                     db.collection("chats")
                                         .whereEqualTo("user1", contactUserID)
                                         .whereEqualTo("user2", currentUserID)
@@ -89,6 +93,7 @@ class ChatList : AppCompatActivity() {
                                         .addOnSuccessListener { chat2Documents ->
                                             for (chatDocument in chat2Documents) {
                                                 val chatID = chatDocument.id
+                                                // Avvia l'attività della chat con l'ID della chat e il nome del contatto
                                                 val intent = Intent(this, Chat::class.java)
                                                 intent.putExtra("chatID", chatID)
                                                 intent.putExtra("contactUsername", contactUsername)
@@ -96,6 +101,7 @@ class ChatList : AppCompatActivity() {
                                             }
                                         }
                                 } else {
+                                    // Se la chat esiste, ottieni l'ID della chat e avvia l'attività della chat
                                     for (chatDocument in chatDocuments) {
                                         val chatID = chatDocument.id
                                         val intent = Intent(this, Chat::class.java)

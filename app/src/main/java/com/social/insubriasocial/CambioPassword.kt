@@ -31,11 +31,14 @@ class CambioPassword : AppCompatActivity() {
         linkRecEP = findViewById<TextView>(R.id.linkRecEP)
 
         btnConfirmCP.setOnClickListener{
+            //Controlla se le due password non corrispondono e in questo caso mostra un Toast con un messaggio di errore
             if(passwordChanged.text.toString() != passwordChangedConfirm.text.toString()){
                 Toast.makeText(this, "Le password non coincidono", Toast.LENGTH_SHORT).show()
             } else if (!isValidPassword(passwordChanged.text.toString())){
+                //Altrimenti se non è lunga almeno 8 caratteri mostra un Toast con un messaggio di avviso
                 Toast.makeText(this, "La password deve essere lunga almeno 8 caratteri", Toast.LENGTH_SHORT).show()
             } else {
+                // Se le password coincidono e la nuova password è valida, procede con la verifica della password attuale
                 confrontaPasswordFirebase(oldpassword){ CorrectPassword ->
                     if(CorrectPassword && (passwordChanged.text.toString() != oldpassword.text.toString())){
                         changePassword(passwordChanged.text.toString())
@@ -61,7 +64,7 @@ class CambioPassword : AppCompatActivity() {
         }
     }
 
-
+    // Confronta la password fornita dall'utente con quella memorizzata nel database Firebase
     private fun confrontaPasswordFirebase(passwordEditText: EditText, onComplete: (Boolean) -> Unit) {
         val auth = FirebaseAuth.getInstance()
 
@@ -69,9 +72,11 @@ class CambioPassword : AppCompatActivity() {
 
         val passwordInserita = passwordEditText.text.toString()
 
+        // Verifica se l'email è valida e la password inserita non è vuota
         if (email != null && passwordInserita.isNotEmpty()) {
             auth.signInWithEmailAndPassword(email, passwordInserita)
                 .addOnCompleteListener { task ->
+                    // Se l'autenticazione è riuscita, chiama la callback con il valore true
                     if (task.isSuccessful) {
                         onComplete(true)
                     } else {
@@ -81,10 +86,12 @@ class CambioPassword : AppCompatActivity() {
         }
     }
 
+    // Verifica se la password soddisfa i requisiti minimi di lunghezza
     private fun isValidPassword(password: String): Boolean {
         return password.length >= 8
     }
 
+    // Cambia la password dell'utente nel database Firebase
     private fun changePassword (newpassword: String){
         val user = FirebaseAuth.getInstance().currentUser
         user?.updatePassword(newpassword)
