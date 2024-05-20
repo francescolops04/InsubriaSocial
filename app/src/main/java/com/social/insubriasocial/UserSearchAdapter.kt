@@ -14,7 +14,7 @@ class UserSearchAdapter(context: Context, data: ArrayList<String>) : ArrayAdapte
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         var convertView = convertView
 
-        // Se la vista riciclata è null, inflaziona una nuova vista da custom_list_search.xml
+        // Se la vista è null, inflaziona una nuova vista da custom_list_search.xml
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.custom_list_search, parent, false)
         }

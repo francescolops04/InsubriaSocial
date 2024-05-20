@@ -59,7 +59,7 @@ class UsersProfile : AppCompatActivity() {
     private fun profileData(user: String) {
         val db = FirebaseFirestore.getInstance()
 
-        // Cerca l'utente nel database Firestore
+        // Cerca l'utente nel Firestore
         db.collection("utenti")
             .whereEqualTo("username", user)
             .get()
@@ -91,7 +91,7 @@ class UsersProfile : AppCompatActivity() {
 
 
         val db = FirebaseFirestore.getInstance()
-        // Cerca l'utente con l'username specificato nel database Firestore
+        // Cerca l'utente con l'username specificato nel Firestore
         db.collection("utenti")
             .whereEqualTo("username", contactUsername)
             .get()

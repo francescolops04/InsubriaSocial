@@ -60,7 +60,7 @@ class EditProfile : AppCompatActivity() {
 
     }
 
-    // Funzione per controllare e aggiornare la visibilità del pulsante in base alle modifiche nel campo del nome, cognome e user-name
+    // Funzione per controllare e aggiornare la visibilità del pulsante in base alle modifiche nel campo del nome, cognome e username
     private fun updateButtonVisible(){
         nameChanged.doAfterTextChanged { editable ->
             checkNameAndUpdateButton(editable.toString())

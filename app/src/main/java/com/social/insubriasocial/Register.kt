@@ -69,7 +69,7 @@ class Register : AppCompatActivity() {
             } else if(!name.isNotEmpty() && !lastName.isNotEmpty()){
                 Toast.makeText(this, "Inserire nome e cognome", Toast.LENGTH_SHORT).show()
             }else{
-                // Se tutti i campi sono stati compilato, registra l'utente
+                // Se tutti i campi sono stati compilati, registra l'utente
                 registerUser(mail, pass, user, name, lastName, selectedFaculty)
             }
         }
@@ -94,7 +94,7 @@ class Register : AppCompatActivity() {
             return
         }
 
-        // Controlla se l'username è già in uso nel database Firestore
+        // Controlla se l'username è già in uso nel Firestore
         firestore.collection("utenti")
             .whereEqualTo("username", username)
             .get()
@@ -108,7 +108,7 @@ class Register : AppCompatActivity() {
                             if (task.isSuccessful) {
                                 Toast.makeText(this, "Registrazione completata", Toast.LENGTH_SHORT).show()
 
-                                // Salva i dati dell'utente nel database Firestore
+                                // Salva i dati dell'utente nel Firestore
                                 val user = auth.currentUser
                                 if (user != null) {
                                     val userData = hashMapOf(

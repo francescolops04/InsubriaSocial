@@ -60,7 +60,7 @@ class SistemaDiRicerca : AppCompatActivity() {
             finish()
         }
 
-        // Configurazione del listener per il filtro nel spinner
+        // Configurazione del listener per lo spinner
         spinnerFilter.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                 val selectedItem = parent.getItemAtPosition(position).toString()
@@ -115,7 +115,7 @@ class SistemaDiRicerca : AppCompatActivity() {
     private fun searchUser(user: String) {
         val db = FirebaseFirestore.getInstance()
 
-        //Viene eseguita una query sulla collezione "utenti" nel database Firestore
+        //Viene eseguita una query sulla collezione "utenti" nel Firestore
         //get recupera tutti i documenti all'interno della collezione
         db.collection("utenti")
             .get()
@@ -127,7 +127,7 @@ class SistemaDiRicerca : AppCompatActivity() {
                     val cognome = document.getString("cognome")
                     val username = document.getString("username")
 
-                    //Verifica se i campi non siano nulli
+                    //Verifica se i campi non sono nulli
                     if (nome != null && cognome != null && username != null) {
                         if (username.lowercase().contains(user.trim().lowercase()) || nome.lowercase().contains(user.trim().lowercase()) || cognome.lowercase().contains(user.trim().lowercase())) {
                             val searchitemlist = "$username\n$nome $cognome"

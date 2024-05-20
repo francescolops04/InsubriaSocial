@@ -56,7 +56,7 @@ class RecoveryPasswordEP : AppCompatActivity() {
             }
     }
 
-    // Metodo per la validazione dell'email
+    // Metodo per controllare se l'email è valida
     private fun isValidEmail(email: String): Boolean {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }

@@ -118,6 +118,7 @@ class ChatList : AppCompatActivity() {
 
     }
 
+    //Funzione per caricare la lista dei contatti
     private fun loadChatList() {
         val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
         val db = FirebaseFirestore.getInstance()
