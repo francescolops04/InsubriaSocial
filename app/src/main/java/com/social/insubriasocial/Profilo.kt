@@ -60,7 +60,7 @@ class Profilo : AppCompatActivity() {
             val intent = Intent(this, Settings::class.java)
             startActivity(intent)
             finish()
-        };
+        }
 
         btnBachecaP.setOnClickListener{
             val intent = Intent(this, Bacheca::class.java)
@@ -174,10 +174,12 @@ class Profilo : AppCompatActivity() {
         val descriptionText = profileDesc.text.toString()
 
         if(user!=null){
+            // Crea una mappa (hashMap) che contiene il campo "Description" con il valore di "descriptionText"
             val desc = hashMapOf<String, Any>(
                 "Description" to descriptionText
             )
 
+            // Ottiene la collezione "utenti" e seleziona il documento dell'utente corrente usando il suo ID
             db.collection("utenti").document(user.uid)
                 .update(desc)
                 .addOnSuccessListener { documentReference ->

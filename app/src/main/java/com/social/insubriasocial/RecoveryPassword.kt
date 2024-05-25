@@ -47,6 +47,7 @@ class RecoveryPassword : AppCompatActivity() {
             Toast.makeText(this, "Il formato dell'email non è valido", Toast.LENGTH_SHORT).show()
             return
         }
+
         // Invio dell'email per il recupero della password
         auth.sendPasswordResetEmail(email)
             .addOnCompleteListener(this) { task ->
@@ -60,4 +61,5 @@ class RecoveryPassword : AppCompatActivity() {
     private fun isValidEmail(email: String): Boolean {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
+    // Utilizza il pattern predefinito di Android per gli indirizzi email
 }

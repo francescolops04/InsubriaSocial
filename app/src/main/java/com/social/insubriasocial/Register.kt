@@ -118,6 +118,7 @@ class Register : AppCompatActivity() {
                                         "cognome" to lastName,
                                         "facoltà" to selectedFaculty
                                     )
+
                                     firestore.collection("utenti").document(user.uid)
                                         .set(userData)
                                         .addOnSuccessListener {

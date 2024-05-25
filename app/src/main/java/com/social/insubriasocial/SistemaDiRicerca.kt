@@ -78,7 +78,7 @@ class SistemaDiRicerca : AppCompatActivity() {
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
-
+                //Non fa niente
             }
         }
 
@@ -115,8 +115,8 @@ class SistemaDiRicerca : AppCompatActivity() {
     private fun searchUser(user: String) {
         val db = FirebaseFirestore.getInstance()
 
-        //Viene eseguita una query sulla collezione "utenti" nel Firestore
-        //get recupera tutti i documenti all'interno della collezione
+        /* Viene eseguita una query sulla collezione "utenti" nel Firestore
+         * get recupera tutti i documenti all'interno della collezione */
         db.collection("utenti")
             .get()
             .addOnSuccessListener { result ->
