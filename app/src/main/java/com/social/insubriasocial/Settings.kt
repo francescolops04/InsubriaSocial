@@ -78,6 +78,7 @@ class Settings : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+        // Chiama il metodo signOut() sull'istanza di FirebaseAuth per disconnettere l'utente corrente
 
 
 

@@ -57,9 +57,9 @@ class AddAnnouncement : AppCompatActivity() {
                     else -> null
                 }
 
-                // Controlla se le coordinate sono nulle. Se sì,
-                // chiama il metodo per creare un annuncio senza coordinate, altrimenti chiama il metodo
-                // per creare un annuncio con le coordinate specificate
+                /* Controlla se le coordinate sono nulle. Se sì,
+                * chiama il metodo per creare un annuncio senza coordinate, altrimenti chiama il metodo
+                * per creare un annuncio con le coordinate specificate */
                 if (coordinates == null) {
                     createAnnouncement(titleA, descA)
                 } else {

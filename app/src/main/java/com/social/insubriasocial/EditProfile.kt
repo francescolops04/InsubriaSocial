@@ -48,6 +48,7 @@ class EditProfile : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
         btnConfirm.setOnClickListener {
             // Verifica se lo username inserito è valido prima di procedere
             if(!isValidUsername(userChanged.text.toString())){
@@ -85,8 +86,8 @@ class EditProfile : AppCompatActivity() {
         }
     }
 
-    //Questo metodo controlla se ci sono stati cambiamenti nel campo della facoltà e aggiorna
-    //la visibilità del pulsante di conferma delle modifiche nel profilo
+    /* Questo metodo controlla se ci sono stati cambiamenti nel campo della facoltà e aggiorna
+    * la visibilità del pulsante di conferma delle modifiche nel profilo */
     private fun checkFacultyAndUpdateButton(currentFaculty: String) {
         val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
         val db = FirebaseFirestore.getInstance()
@@ -111,12 +112,12 @@ class EditProfile : AppCompatActivity() {
         }
     }
 
-    //Questo metodo controlla se ci sono stati cambiamenti nel campo del nome e aggiorna
-    //la visibilità del pulsante di conferma delle modifiche nel profilo
+    /* Questo metodo controlla se ci sono stati cambiamenti nel campo del nome e aggiorna
+    * la visibilità del pulsante di conferma delle modifiche nel profilo */
     private fun checkNameAndUpdateButton(currentName: String) {
         val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
         val db = FirebaseFirestore.getInstance()
-        // Verifica se l'ID dell'utente non è nullo.
+        // Verifica se l'ID dell'utente non è nullo
         if (currentUserID != null) {
             db.collection("utenti")
                 .document(currentUserID)
@@ -141,8 +142,8 @@ class EditProfile : AppCompatActivity() {
         }
     }
 
-    //Questo metodo controlla se ci sono stati cambiamenti nel campo del cognome e aggiorna
-    //la visibilità del pulsante di conferma delle modifiche nel profilo
+    /* Questo metodo controlla se ci sono stati cambiamenti nel campo del cognome e aggiorna
+    * la visibilità del pulsante di conferma delle modifiche nel profilo */
     private fun checkLastNameAndUpdateButton(currentLastName: String) {
         val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
         val db = FirebaseFirestore.getInstance()
@@ -171,8 +172,8 @@ class EditProfile : AppCompatActivity() {
         }
     }
 
-    //Questo metodo controlla se ci sono stati cambiamenti nel campo dello username e aggiorna
-    //la visibilità del pulsante di conferma delle modifiche nel profilo.
+    /* Questo metodo controlla se ci sono stati cambiamenti nel campo dello username e aggiorna
+    * la visibilità del pulsante di conferma delle modifiche nel profilo */
     private fun checkUserNameAndUpdateButton(currentUsername: String) {
         val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
         val db = FirebaseFirestore.getInstance()
@@ -219,8 +220,8 @@ class EditProfile : AppCompatActivity() {
                         val lastname = document.getString("cognome")
                         val faculty = document.getString("facoltà")
 
-                        // Imposta il testo negli elementi EditText dell'interfaccia utente
-                        // corrispondenti al nome, al cognome e all'username utilizzando i valori estratti dal database
+                        /* Imposta il testo negli elementi EditText dell'interfaccia utente
+                        * corrispondenti al nome, al cognome e all'username utilizzando i valori estratti dal database */
                         val editableUser = SpannableStringBuilder(user ?: "")
                         userChanged.text = editableUser
 
@@ -230,8 +231,8 @@ class EditProfile : AppCompatActivity() {
                         val editableLastname = SpannableStringBuilder(lastname ?: "")
                         lastnameChanged.text = editableLastname
 
-                        // Ottiene l'array delle opzioni per la facoltà dalle risorse e seleziona l'opzione corrispondente
-                        // nella Spinner relativa alla facoltà utilizzando l'indice della facoltà estratta dal database
+                        /* Ottiene l'array delle opzioni per la facoltà dalle risorse e seleziona l'opzione corrispondente
+                        * nella Spinner relativa alla facoltà utilizzando l'indice della facoltà estratta dal database */
                         val facultiesArray = resources.getStringArray(R.array.opzioni_spinner_edit)
                         val facultyIndex = facultiesArray.indexOf(faculty)
                         FacultyChanged.setSelection(facultyIndex)
@@ -272,7 +273,7 @@ class EditProfile : AppCompatActivity() {
                 .addOnSuccessListener { document ->
                     val oldUsername = document.getString("username")
 
-                    // Verifica se il nuovo username è diverso dal vecchio username.
+                    // Verifica se il nuovo username è diverso dal vecchio username
                     if (oldUsername != usernameText) {
                         db.collection("utenti")
                             .whereEqualTo("username", usernameText)
@@ -307,8 +308,8 @@ class EditProfile : AppCompatActivity() {
                                 }
                             }
                     } else {
-                        // Se il nuovo username è uguale al vecchio
-                        // aggiorna direttamente i dati del profilo senza eseguire la verifica
+                        /* Se il nuovo username è uguale al vecchio
+                        * aggiorna direttamente i dati del profilo senza eseguire la verifica */
                         val desc = hashMapOf<String,Any>(
                             "username" to usernameText,
                             "nome" to nameText,
@@ -335,7 +336,7 @@ class EditProfile : AppCompatActivity() {
         }
     }
 
-    //Verifica se lo username fornito ha almeno 6 caratteri.
+    //Verifica se lo username fornito ha almeno 6 caratteri
     private fun isValidUsername(user: String): Boolean {
         return user.length >= 6
     }

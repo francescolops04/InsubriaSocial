@@ -117,8 +117,8 @@ class Chat : AppCompatActivity() {
                                     val formattedMessage = "$username: $messaggio"
                                     messaggiNonOrdinati.add(Pair(timestamp, formattedMessage))
 
-                                    // Se tutti i messaggi sono stati aggiunti alla lista temporanea,
-                                    // ordina i messaggi per timestamp e aggiorna l'adapter della ListView
+                                    /* Se tutti i messaggi sono stati aggiunti alla lista temporanea,
+                                    * ordina i messaggi per timestamp e aggiorna l'adapter della ListView */
                                     if (messaggiNonOrdinati.size == snapshot.size()) {
                                         messaggiNonOrdinati.sortBy { it.first }
 

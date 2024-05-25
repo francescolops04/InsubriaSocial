@@ -128,8 +128,8 @@ class Bacheca : AppCompatActivity() {
                         val title = document.getString("Titolo")
                         val desc = document.getString("Descrizione")
 
-                        // Se sia il titolo che la descrizione non sono vuoti,
-                        //rende visibile il pulsante di rimozione e cambia il testo del pulsante di aggiunta in "Modifica"
+                        /* Se sia il titolo che la descrizione non sono vuoti,
+                        rende visibile il pulsante di rimozione e cambia il testo del pulsante di aggiunta in "Modifica" */
                         if (!title.isNullOrEmpty() && !desc.isNullOrEmpty()){
                             btnRemove.visibility = View.VISIBLE
                             btnAdding.text = "Modifica"
@@ -166,8 +166,8 @@ class Bacheca : AppCompatActivity() {
                     val description = document.getString("Descrizione")
                     val user = document.getString("username")
 
-                    // Se i campi "Titolo", "Descrizione" e "username" non sono nulli,
-                    // crea una stringa formattata che combina il nome utente, il titolo e la descrizione dell'annuncio,
+                    /* Se i campi "Titolo", "Descrizione" e "username" non sono nulli,
+                    * crea una stringa formattata che combina il nome utente, il titolo e la descrizione dell'annuncio */
                     if (title != null && description != null && user != null) {
                         val announcement = "$user\n$title\n$description"
                         announcementList.add(announcement)
@@ -202,6 +202,7 @@ class Bacheca : AppCompatActivity() {
                 "longitudine" to FieldValue.delete()
                 )
 
+            // Seleziona il documento specifico dell'utente corrente usando il suo ID
             db.collection("utenti").document(user.uid)
                 .update(ann)
                 .addOnSuccessListener { documentReference ->
