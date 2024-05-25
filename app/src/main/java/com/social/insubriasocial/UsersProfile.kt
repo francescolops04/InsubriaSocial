@@ -26,11 +26,11 @@ class UsersProfile : AppCompatActivity() {
         setContentView(R.layout.activity_users_profile)
 
         btnBackUP = findViewById<Button>(R.id.backUP)
+        btnChatUP = findViewById<Button>(R.id.chatUP)
         usernameUP = findViewById<TextView>(R.id.userProfileUP)
         nameUP = findViewById<TextView>(R.id.nameProfileUP)
         facultyUP = findViewById<TextView>(R.id.facultyProfileUP)
         descriptionUP = findViewById<TextView>(R.id.profileDescUP)
-        btnChatUP = findViewById<Button>(R.id.chatUP)
 
 
         btnBackUP.setOnClickListener {

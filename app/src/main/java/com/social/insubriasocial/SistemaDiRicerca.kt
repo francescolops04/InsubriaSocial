@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
 import com.google.firebase.firestore.FirebaseFirestore
 
+private lateinit var btnRefreshSP : Button
 private lateinit var btnBachecaSe: ImageView
 private lateinit var btnChatSe: ImageView
 private lateinit var btnSearchSe: ImageView
@@ -24,7 +25,6 @@ private lateinit var adapterSearch: ArrayAdapter<String>
 private lateinit var searchList: ListView
 private lateinit var searchText: EditText
 private lateinit var spinnerFilter: Spinner
-private lateinit var btnRefreshSP : Button
 
 class SistemaDiRicerca : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -32,6 +32,7 @@ class SistemaDiRicerca : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sistema_di_ricerca)
 
+        btnRefreshSP = findViewById<Button>(R.id.btnRefreshSP)
         btnBachecaSe = findViewById<ImageView>(R.id.BachecaSe)
         btnChatSe = findViewById<ImageView>(R.id.ChatSe)
         btnSearchSe = findViewById<ImageView>(R.id.SearchSe)
@@ -40,13 +41,23 @@ class SistemaDiRicerca : AppCompatActivity() {
         searchList = findViewById<ListView>(R.id.list_user)
         searchText = findViewById<EditText>(R.id.searchUser)
         spinnerFilter = findViewById<Spinner>(R.id.spinnerSR)
-        btnRefreshSP = findViewById<Button>(R.id.btnRefreshSP)
 
         searchList = findViewById<ListView>(R.id.list_user)
         adapterSearch = UserSearchAdapter(this, ArrayList())
         searchList.adapter = adapterSearch
 
 
+        btnRefreshSP.setOnClickListener {
+            val intent = Intent(this, SistemaDiRicerca::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        btnBachecaSe.setOnClickListener {
+            val intent = Intent(this, Bacheca::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         btnChatSe.setOnClickListener {
             val intent = Intent(this, ChatList::class.java)
@@ -54,8 +65,14 @@ class SistemaDiRicerca : AppCompatActivity() {
             finish()
         }
 
-        btnRefreshSP.setOnClickListener {
-            val intent = Intent(this, SistemaDiRicerca::class.java)
+        btnProfileSe.setOnClickListener {
+            val intent = Intent(this, Profilo::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        btnSettingsSe.setOnClickListener {
+            val intent = Intent(this, Settings::class.java)
             startActivity(intent)
             finish()
         }
@@ -89,25 +106,6 @@ class SistemaDiRicerca : AppCompatActivity() {
             val i: Intent = Intent(this, UsersProfile::class.java)
             i.putExtra("user", username)
             startActivity(i)
-        }
-
-
-        btnSettingsSe.setOnClickListener {
-            val intent = Intent(this, Settings::class.java)
-            startActivity(intent)
-            finish()
-        }
-
-        btnProfileSe.setOnClickListener {
-            val intent = Intent(this, Profilo::class.java)
-            startActivity(intent)
-            finish()
-        }
-
-        btnBachecaSe.setOnClickListener {
-            val intent = Intent(this, Bacheca::class.java)
-            startActivity(intent)
-            finish()
         }
     }
 

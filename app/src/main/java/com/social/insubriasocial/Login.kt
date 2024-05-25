@@ -11,12 +11,12 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class Login : AppCompatActivity() {
-    private lateinit var auth: FirebaseAuth
     private lateinit var btnLogin: Button
     private lateinit var btnback:Button
     private lateinit var Email:EditText
     private lateinit var Password:EditText
     private lateinit var linkRec:TextView
+    private lateinit var auth: FirebaseAuth
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,18 +31,6 @@ class Login : AppCompatActivity() {
         Password = findViewById<EditText>(R.id.passwordL)
         linkRec = findViewById<TextView>(R.id.linkRec)
 
-        linkRec.setOnClickListener{
-            val intent = Intent(this, RecoveryPassword::class.java)
-            startActivity(intent)
-            finish()
-        }
-
-        btnback.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
-
         btnLogin.setOnClickListener {
             val email = Email.text.toString()
             val password = Password.text.toString()
@@ -53,6 +41,18 @@ class Login : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Inserire email e password correttamente", Toast.LENGTH_SHORT).show()
             }
+        }
+
+        btnback.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        linkRec.setOnClickListener{
+            val intent = Intent(this, RecoveryPassword::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 

@@ -82,6 +82,7 @@ class EditProfile : AppCompatActivity() {
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
+                //Non fa nulla
             }
         }
     }

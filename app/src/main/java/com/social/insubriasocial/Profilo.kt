@@ -15,11 +15,11 @@ import androidx.core.widget.doAfterTextChanged
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
+private lateinit var btnSubmit: Button
 private lateinit var nameProfile: TextView
 private lateinit var userNameProfile: TextView
 private lateinit var facultyProfile: TextView
 private lateinit var descriptionProfile: EditText
-private lateinit var btnSubmit: Button
 private lateinit var btnSettingsP: ImageView
 private lateinit var btnBachecaP: ImageView
 private lateinit var btnSearchP: ImageView
@@ -32,11 +32,11 @@ class Profilo : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profilo)
 
+        btnSubmit = findViewById<Button>(R.id.btnSubmitDesc)
         nameProfile = findViewById<TextView>(R.id.nameProfile)
         userNameProfile = findViewById<TextView>(R.id.userProfile)
         facultyProfile = findViewById<TextView>(R.id.facultyProfile)
         descriptionProfile = findViewById<EditText>(R.id.profileDesc)
-        btnSubmit = findViewById<Button>(R.id.btnSubmitDesc)
         btnSettingsP = findViewById<ImageView>(R.id.settingsP)
         btnBachecaP = findViewById<ImageView>(R.id.BachecaP)
         btnSearchP = findViewById<ImageView>(R.id.SearchP)
@@ -49,11 +49,6 @@ class Profilo : AppCompatActivity() {
         // Aggiorna il pulsante di invio della descrizione durante l'immissione del testo
         descriptionProfile.doAfterTextChanged { editable ->
             checkDescriptionAndUpdateButton(editable.toString())
-        }
-
-        btnSubmit.setOnClickListener {
-            collectDesc(descriptionProfile)
-            btnSubmit.visibility = View.GONE
         }
 
         btnSettingsP.setOnClickListener {
@@ -78,6 +73,11 @@ class Profilo : AppCompatActivity() {
             val intent = Intent(this, ChatList::class.java)
             startActivity(intent)
             finish()
+        }
+
+        btnSubmit.setOnClickListener {
+            collectDesc(descriptionProfile)
+            btnSubmit.visibility = View.GONE
         }
     }
 

@@ -45,6 +45,14 @@ class Settings : AppCompatActivity() {
             finish()
         }
 
+        btnLogout.setOnClickListener {
+            val auth = FirebaseAuth.getInstance()
+            auth!!.signOut() // Chiama il metodo signOut() sull'istanza di FirebaseAuth per disconnettere l'utente corrente
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
         btnProfileBack.setOnClickListener{
             val intent = Intent(this, Profilo::class.java)
             startActivity(intent)
@@ -71,14 +79,6 @@ class Settings : AppCompatActivity() {
 
 
 
-        btnLogout.setOnClickListener {
-            val auth = FirebaseAuth.getInstance()
-            auth!!.signOut()
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
-        // Chiama il metodo signOut() sull'istanza di FirebaseAuth per disconnettere l'utente corrente
 
 
 

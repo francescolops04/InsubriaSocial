@@ -53,12 +53,10 @@ class Bacheca : AppCompatActivity() {
         loadAnnouncement()
         checkButtons()
 
-        announcementList.setOnItemClickListener { parent, view, position, id ->
-            val selectedItem = parent.getItemAtPosition(position) as String
-            val username = selectedItem.split("\n")[0]
-            val intent = Intent(this, MapsActivity::class.java)
-            intent.putExtra("usernameMaps", username)
+        btnAdding.setOnClickListener {
+            val intent = Intent(this, AddAnnouncement::class.java)
             startActivity(intent)
+            finish()
         }
 
         btnRemove.setOnClickListener {
@@ -77,8 +75,8 @@ class Bacheca : AppCompatActivity() {
             AlertDialogBox.show()
         }
 
-        btnAdding.setOnClickListener {
-            val intent = Intent(this, AddAnnouncement::class.java)
+        btnRefresh.setOnClickListener {
+            val intent = Intent(this, Bacheca::class.java)
             startActivity(intent)
             finish()
         }
@@ -95,12 +93,6 @@ class Bacheca : AppCompatActivity() {
             finish()
         }
 
-        btnRefresh.setOnClickListener {
-            val intent = Intent(this, Bacheca::class.java)
-            startActivity(intent)
-            finish()
-        }
-
         btnSearch.setOnClickListener {
             val intent = Intent(this, SistemaDiRicerca::class.java)
             startActivity(intent)
@@ -111,6 +103,14 @@ class Bacheca : AppCompatActivity() {
             val intent = Intent(this, ChatList::class.java)
             startActivity(intent)
             finish()
+        }
+
+        announcementList.setOnItemClickListener { parent, view, position, id ->
+            val selectedItem = parent.getItemAtPosition(position) as String
+            val username = selectedItem.split("\n")[0]
+            val intent = Intent(this, MapsActivity::class.java)
+            intent.putExtra("usernameMaps", username)
+            startActivity(intent)
         }
     }
 

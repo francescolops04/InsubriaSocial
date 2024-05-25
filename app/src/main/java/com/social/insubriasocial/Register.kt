@@ -11,8 +11,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import android.widget.Spinner
 
-private lateinit var auth: FirebaseAuth
-private lateinit var firestore: FirebaseFirestore
 private lateinit var btnback: Button
 private lateinit var btnRegister: Button
 private lateinit var Email: EditText
@@ -22,6 +20,8 @@ private lateinit var PasswordC: EditText
 private lateinit var Nome: EditText
 private lateinit var Cognome: EditText
 private lateinit var Faculty: Spinner
+private lateinit var auth: FirebaseAuth
+private lateinit var firestore: FirebaseFirestore
 
 class Register : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")

@@ -30,6 +30,12 @@ class CambioPassword : AppCompatActivity() {
         passwordChangedConfirm = findViewById<EditText>(R.id.ConfermaPasswordCP)
         linkRecEP = findViewById<TextView>(R.id.linkRecEP)
 
+        btnBackCP.setOnClickListener {
+            val intent = Intent(this, Settings::class.java)
+            startActivity(intent)
+            finish()
+        }
+
         btnConfirmCP.setOnClickListener{
             //Controlla se le due password non corrispondono e in questo caso mostra un Toast con un messaggio di errore
             if(passwordChanged.text.toString() != passwordChangedConfirm.text.toString()){
@@ -49,12 +55,6 @@ class CambioPassword : AppCompatActivity() {
                     }
                 }
             }
-        }
-
-        btnBackCP.setOnClickListener {
-            val intent = Intent(this, Settings::class.java)
-            startActivity(intent)
-            finish()
         }
 
         linkRecEP.setOnClickListener{

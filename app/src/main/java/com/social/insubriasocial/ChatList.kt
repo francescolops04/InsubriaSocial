@@ -35,12 +35,6 @@ class ChatList : AppCompatActivity() {
         Chatlist.adapter = adapterChatlist
 
 
-        btnRicercaChat.setOnClickListener {
-            val intent = Intent(this, SistemaDiRicerca::class.java)
-            startActivity(intent)
-            finish()
-        }
-
         btnSettingChat.setOnClickListener {
             val intent = Intent(this, Settings::class.java)
             startActivity(intent)
@@ -49,6 +43,12 @@ class ChatList : AppCompatActivity() {
 
         btnProfiloChat.setOnClickListener {
             val intent = Intent(this, Profilo::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        btnRicercaChat.setOnClickListener {
+            val intent = Intent(this, SistemaDiRicerca::class.java)
             startActivity(intent)
             finish()
         }
