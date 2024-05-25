@@ -41,7 +41,7 @@ class UsersProfile : AppCompatActivity() {
 
         btnChatUP.setOnClickListener {
             startChat(usernameUP.text.toString())
-            Thread.sleep(1000)
+            Thread.sleep(5000)
             val intent = Intent(this, ChatList::class.java)
             startActivity(intent)
             finish()
