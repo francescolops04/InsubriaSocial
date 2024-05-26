@@ -52,7 +52,7 @@ class RecoveryPassword : AppCompatActivity() {
         auth.sendPasswordResetEmail(email)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    Toast.makeText(this, "Abbiamo mandato una mail di recupero password", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Abbiamo mandato una email di recupero password", Toast.LENGTH_SHORT).show()
                 }
             }
     }

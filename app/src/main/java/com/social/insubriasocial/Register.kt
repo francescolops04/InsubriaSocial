@@ -79,7 +79,7 @@ class Register : AppCompatActivity() {
     private fun registerUser(email: String, password: String, username: String, name: String, lastName: String, selectedFaculty: String) {
         if (!isValidEmail(email)) {
             // Verifica se l'email è valida
-            Toast.makeText(this, "Inserire mail valida", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Inserire email valida", Toast.LENGTH_SHORT).show()
             return
         }
 

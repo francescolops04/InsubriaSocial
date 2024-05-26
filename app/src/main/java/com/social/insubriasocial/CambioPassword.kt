@@ -51,7 +51,7 @@ class CambioPassword : AppCompatActivity() {
                     } else if (CorrectPassword && (passwordChanged.text.toString() == oldpassword.text.toString())){
                         Toast.makeText(this, "La password non può essere uguale a quella precedente", Toast.LENGTH_SHORT).show()
                     } else {
-                        Toast.makeText(this, "La password è sbagliata", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "La password è errata", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
@@ -97,7 +97,7 @@ class CambioPassword : AppCompatActivity() {
         user?.updatePassword(newpassword)
             ?.addOnCompleteListener { task ->
                 if(task.isSuccessful){
-                    Toast.makeText(this, "La password è stata cambiata correttamente", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "La password è stata modificata correttamente", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, Login::class.java)
                     startActivity(intent)
                     finish()

@@ -87,7 +87,7 @@ class Chat : AppCompatActivity() {
                 }
 
         } else {
-            Toast.makeText(this, "Inserisci un messaggio", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Inserire un messaggio", Toast.LENGTH_SHORT).show()
         }
     }
 

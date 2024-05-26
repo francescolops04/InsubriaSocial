@@ -44,14 +44,14 @@ class RecoveryPasswordEP : AppCompatActivity() {
     private fun recPassword(email:String){
         // Verifica se l'email è valida
         if (!isValidEmail(email)) {
-            Toast.makeText(this, "Il formato dell'e-mail non è valido", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Il formato dell'email non è valido", Toast.LENGTH_SHORT).show()
             return
         }
         // Invio dell'email per il recupero della password
         auth.sendPasswordResetEmail(email)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    Toast.makeText(this, "Abbiamo mandato una mail di recupero password", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Abbiamo mandato una email di recupero password", Toast.LENGTH_SHORT).show()
                 }
             }
     }

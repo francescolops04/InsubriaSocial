@@ -61,7 +61,7 @@ class Login : AppCompatActivity() {
     private fun loginUser(email: String, password: String) {
         // Verifica che l'email sia valida
         if (!isValidEmail(email)) {
-            Toast.makeText(this, "Formato e-mail non valido", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Formato email non valido", Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -81,7 +81,7 @@ class Login : AppCompatActivity() {
                     startActivity(intent)
                     finish()
                 } else {
-                    Toast.makeText(this, "Autenticazione fallita", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Email e/o password errate", Toast.LENGTH_SHORT).show()
                 }
             }
     }
