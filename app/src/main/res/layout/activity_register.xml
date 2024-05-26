@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".Register">
 
-
     <EditText
         android:id="@+id/usernameR"
         android:layout_width="284dp"
@@ -25,23 +24,6 @@
         app:layout_constraintStart_toStartOf="@+id/mailR"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.535" />
-
-    <TextView
-        android:id="@+id/textViewR"
-        android:layout_width="305dp"
-        android:layout_height="74dp"
-        android:fontFamily="@font/sfpro2"
-        android:gravity="center"
-        android:text="Registrati"
-        android:textColor="#066858"
-        android:textSize="50dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.088"
-        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/nomeR"
@@ -97,20 +79,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.43" />
 
-    <Spinner
-        android:id="@+id/spinnerR"
-        android:layout_width="284dp"
-        android:layout_height="55dp"
-        android:background="@drawable/rounded_corner"
-        android:entries="@array/opzioni_spinner"
-        app:layout_constraintBaseline_toBottomOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/usernameR"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/usernameR"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.641" />
-
     <EditText
         android:id="@+id/passwordR"
         android:layout_width="284dp"
@@ -147,6 +115,37 @@
         app:layout_constraintStart_toStartOf="@+id/passwordR"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.851" />
+
+    <TextView
+        android:id="@+id/textViewR"
+        android:layout_width="305dp"
+        android:layout_height="74dp"
+        android:fontFamily="@font/sfpro2"
+        android:gravity="center"
+        android:text="Registrati"
+        android:textColor="#066858"
+        android:textSize="50dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.088"
+        tools:ignore="MissingConstraints" />
+
+    <Spinner
+        android:id="@+id/spinnerR"
+        android:layout_width="284dp"
+        android:layout_height="55dp"
+        android:background="@drawable/rounded_corner"
+        android:entries="@array/opzioni_spinner"
+        app:layout_constraintBaseline_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/usernameR"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/usernameR"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.641" />
 
     <Button
         android:id="@+id/RegButton"

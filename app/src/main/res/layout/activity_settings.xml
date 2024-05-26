@@ -7,6 +7,15 @@
     android:layout_height="match_parent"
     tools:context=".Settings">
 
+    <View
+        android:id="@+id/view3"
+        android:layout_width="477dp"
+        android:layout_height="72dp"
+        android:background="@drawable/buttons"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <Button
         android:id="@+id/buttonLogoutSettings"
         android:layout_width="209dp"
@@ -56,15 +65,6 @@
         app:layout_constraintStart_toStartOf="@+id/buttonProfileSetting"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.404" />
-
-    <View
-        android:id="@+id/view3"
-        android:layout_width="477dp"
-        android:layout_height="72dp"
-        android:background="@drawable/buttons"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/settingsS"
@@ -130,4 +130,5 @@
         app:layout_constraintHorizontal_bias="0.262"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

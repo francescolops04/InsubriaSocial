@@ -27,6 +27,20 @@
         app:layout_constraintVertical_bias="0.113"
         tools:ignore="MissingConstraints" />
 
+    <TextView
+        android:id="@+id/linkRec"
+        android:layout_width="221dp"
+        android:layout_height="27dp"
+        android:gravity="center"
+        android:text="Hai dimenticato la password?"
+        android:fontFamily="@font/sfpro2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.857"
+        android:textColor="#066858"
+        android:clickable="true"/>
 
     <EditText
         android:id="@+id/mailL"
@@ -99,20 +113,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023" />
-
-    <TextView
-        android:id="@+id/linkRec"
-        android:layout_width="221dp"
-        android:layout_height="27dp"
-        android:gravity="center"
-        android:text="Hai dimenticato la password?"
-        android:fontFamily="@font/sfpro2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.857"
-        android:textColor="#066858"
-        android:clickable="true"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,6 +7,27 @@
     android:layout_height="match_parent"
     tools:context=".Profilo">
 
+    <View
+        android:id="@+id/view2"
+        android:layout_width="477dp"
+        android:layout_height="72dp"
+        android:background="@drawable/buttons"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="339dp"
+        android:layout_height="69dp"
+        android:background="@drawable/buttons"
+        android:foregroundGravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.037" />
+
     <TextView
         android:id="@+id/nameProfile"
         android:layout_width="309dp"
@@ -22,17 +43,49 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.235" />
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="339dp"
-        android:layout_height="69dp"
-        android:background="@drawable/buttons"
-        android:foregroundGravity="center"
+    <TextView
+        android:layout_width="226dp"
+        android:layout_height="70dp"
+        android:fontFamily="@font/sfpro2"
+        android:gravity="center_horizontal"
+        android:text="Il tuo profilo"
+        android:textColor="@color/white"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/view"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/userProfile"
+        android:layout_width="332dp"
+        android:layout_height="43dp"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/nameProfile"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/nameProfile"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.159" />
+
+    <TextView
+        android:id="@+id/facultyProfile"
+        android:layout_width="313dp"
+        android:layout_height="36dp"
+        android:fontFamily="@font/sfpro2"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.337"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.037" />
+        app:layout_constraintVertical_bias="0.317" />
 
     <EditText
         android:id="@+id/profileDesc"
@@ -53,15 +106,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.499" />
-
-    <View
-        android:id="@+id/view2"
-        android:layout_width="477dp"
-        android:layout_height="72dp"
-        android:background="@drawable/buttons"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/settingsP"
@@ -127,51 +171,6 @@
         app:layout_constraintHorizontal_bias="0.262"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
-
-
-    <TextView
-        android:layout_width="226dp"
-        android:layout_height="70dp"
-        android:fontFamily="@font/sfpro2"
-        android:gravity="center_horizontal"
-        android:text="Il tuo profilo"
-        android:textColor="@color/white"
-        android:textSize="40dp"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toTopOf="@+id/view"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <TextView
-        android:id="@+id/userProfile"
-        android:layout_width="332dp"
-        android:layout_height="43dp"
-        android:text=""
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/nameProfile"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/nameProfile"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.159" />
-
-    <TextView
-        android:id="@+id/facultyProfile"
-        android:layout_width="313dp"
-        android:layout_height="36dp"
-        android:fontFamily="@font/sfpro2"
-        android:text=""
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.337"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.317" />
 
     <Button
         android:id="@+id/btnSubmitDesc"
