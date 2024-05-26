@@ -7,59 +7,37 @@
     android:layout_height="match_parent"
     tools:context=".Register">
 
-    <EditText
-        android:id="@+id/usernameR"
-        android:layout_width="284dp"
-        android:layout_height="55dp"
-        android:background="@drawable/shape_border"
-        android:drawableStart="@drawable/user"
-        android:drawablePadding="7dp"
+    <Button
+        android:id="@+id/buttonBackR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttons"
         android:fontFamily="@font/sfpro2"
-        android:hint="Username"
-        android:paddingLeft="15dp"
-        android:singleLine="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/mailR"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/mailR"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.535" />
-
-    <EditText
-        android:id="@+id/nomeR"
-        android:layout_width="284dp"
-        android:layout_height="55dp"
-        android:background="@drawable/shape_border"
-        android:drawableStart="@drawable/user"
-        android:drawablePadding="7dp"
-        android:fontFamily="@font/sfpro2"
-        android:hint="Nome"
-        android:paddingLeft="15dp"
-        android:singleLine="true"
+        android:text="Indietro"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.022"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.219" />
+        app:layout_constraintVertical_bias="0.021" />
 
-    <EditText
-        android:id="@+id/cognomeR"
-        android:layout_width="284dp"
-        android:layout_height="55dp"
-        android:background="@drawable/shape_border"
-        android:drawableStart="@drawable/user"
-        android:drawablePadding="7dp"
+    <Button
+        android:id="@+id/RegButton"
+        android:layout_width="220dp"
+        android:layout_height="61dp"
+        android:background="@drawable/buttons"
         android:fontFamily="@font/sfpro2"
-        android:hint="Cognome"
-        android:paddingLeft="15dp"
-        android:singleLine="true"
+        android:text="Registrati"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/nomeR"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="@+id/nomeR"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.323" />
+        app:layout_constraintVertical_bias="0.976" />
 
     <EditText
         android:id="@+id/mailR"
@@ -98,6 +76,24 @@
         app:layout_constraintVertical_bias="0.749" />
 
     <EditText
+        android:id="@+id/usernameR"
+        android:layout_width="284dp"
+        android:layout_height="55dp"
+        android:background="@drawable/shape_border"
+        android:drawableStart="@drawable/user"
+        android:drawablePadding="7dp"
+        android:fontFamily="@font/sfpro2"
+        android:hint="Username"
+        android:paddingLeft="15dp"
+        android:singleLine="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/mailR"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/mailR"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.535" />
+
+    <EditText
         android:id="@+id/passwordR2"
         android:layout_width="284dp"
         android:layout_height="55dp"
@@ -116,6 +112,56 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.851" />
 
+    <EditText
+        android:id="@+id/nomeR"
+        android:layout_width="284dp"
+        android:layout_height="55dp"
+        android:background="@drawable/shape_border"
+        android:drawableStart="@drawable/user"
+        android:drawablePadding="7dp"
+        android:fontFamily="@font/sfpro2"
+        android:hint="Nome"
+        android:paddingLeft="15dp"
+        android:singleLine="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.219" />
+
+    <EditText
+        android:id="@+id/cognomeR"
+        android:layout_width="284dp"
+        android:layout_height="55dp"
+        android:background="@drawable/shape_border"
+        android:drawableStart="@drawable/user"
+        android:drawablePadding="7dp"
+        android:fontFamily="@font/sfpro2"
+        android:hint="Cognome"
+        android:paddingLeft="15dp"
+        android:singleLine="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/nomeR"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="@+id/nomeR"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.323" />
+
+    <Spinner
+        android:id="@+id/spinnerR"
+        android:layout_width="284dp"
+        android:layout_height="55dp"
+        android:background="@drawable/rounded_corner"
+        android:entries="@array/opzioni_spinner"
+        app:layout_constraintBaseline_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/usernameR"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/usernameR"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.641" />
+
     <TextView
         android:id="@+id/textViewR"
         android:layout_width="305dp"
@@ -132,51 +178,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.088"
         tools:ignore="MissingConstraints" />
-
-    <Spinner
-        android:id="@+id/spinnerR"
-        android:layout_width="284dp"
-        android:layout_height="55dp"
-        android:background="@drawable/rounded_corner"
-        android:entries="@array/opzioni_spinner"
-        app:layout_constraintBaseline_toBottomOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/usernameR"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/usernameR"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.641" />
-
-    <Button
-        android:id="@+id/RegButton"
-        android:layout_width="220dp"
-        android:layout_height="61dp"
-        android:background="@drawable/buttons"
-        android:fontFamily="@font/sfpro2"
-        android:text="Registrati"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
-
-    <Button
-        android:id="@+id/buttonBackR"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/buttons"
-        android:fontFamily="@font/sfpro2"
-        android:text="Indietro"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.022"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.021" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

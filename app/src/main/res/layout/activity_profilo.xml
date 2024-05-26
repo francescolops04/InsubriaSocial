@@ -28,6 +28,22 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.037" />
 
+    <Button
+        android:id="@+id/btnSubmitDesc"
+        android:layout_width="198dp"
+        android:layout_height="52dp"
+        android:background="@drawable/buttons"
+        android:fontFamily="@font/sfpro2"
+        android:text="Modifica la descrizione"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.83"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.718" />
+
     <TextView
         android:id="@+id/nameProfile"
         android:layout_width="309dp"
@@ -42,21 +58,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.235" />
-
-    <TextView
-        android:layout_width="226dp"
-        android:layout_height="70dp"
-        android:fontFamily="@font/sfpro2"
-        android:gravity="center_horizontal"
-        android:text="Il tuo profilo"
-        android:textColor="@color/white"
-        android:textSize="40dp"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toTopOf="@+id/view"
-        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/userProfile"
@@ -86,6 +87,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.317" />
+
+    <TextView
+        android:layout_width="226dp"
+        android:layout_height="70dp"
+        android:fontFamily="@font/sfpro2"
+        android:gravity="center_horizontal"
+        android:text="Il tuo profilo"
+        android:textColor="@color/white"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/view"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/profileDesc"
@@ -121,19 +137,6 @@
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/ProfileP"
-        android:layout_width="42dp"
-        android:layout_height="42dp"
-        android:layout_marginBottom="16dp"
-        android:clickable="true"
-        android:src="@drawable/user_black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.728"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
-
-    <ImageView
         android:id="@+id/BachecaP"
         android:layout_width="42dp"
         android:layout_height="42dp"
@@ -143,6 +146,19 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/SearchP"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:src="@drawable/search1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.262"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
@@ -160,33 +176,17 @@
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/SearchP"
+        android:id="@+id/ProfileP"
         android:layout_width="42dp"
         android:layout_height="42dp"
         android:layout_marginBottom="16dp"
         android:clickable="true"
-        android:src="@drawable/search1"
+        android:src="@drawable/user_black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.262"
+        app:layout_constraintHorizontal_bias="0.728"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/btnSubmitDesc"
-        android:layout_width="198dp"
-        android:layout_height="52dp"
-        android:background="@drawable/buttons"
-        android:fontFamily="@font/sfpro2"
-        android:text="Modifica la descrizione"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.83"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.718" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
