@@ -8,17 +8,17 @@
     tools:context=".Chat">
 
     <Button
-        android:id="@+id/btnRefreshC"
-        android:layout_width="60dp"
-        android:layout_height="47dp"
+        android:id="@+id/backBtnChat"
+        android:layout_width="70dp"
+        android:layout_height="46dp"
         android:background="@drawable/buttons"
-        android:drawableStart="@drawable/refresh"
         android:fontFamily="@font/sfpro2"
-        android:gravity="center"
-        android:paddingLeft="19dp"
+        android:text="Indietro"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.966"
+        app:layout_constraintHorizontal_bias="0.034"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023" />
@@ -38,17 +38,17 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/backBtnChat"
-        android:layout_width="70dp"
-        android:layout_height="46dp"
+        android:id="@+id/btnRefreshC"
+        android:layout_width="60dp"
+        android:layout_height="47dp"
         android:background="@drawable/buttons"
+        android:drawableStart="@drawable/refresh"
         android:fontFamily="@font/sfpro2"
-        android:text="Indietro"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
+        android:gravity="center"
+        android:paddingLeft="19dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.034"
+        app:layout_constraintHorizontal_bias="0.966"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023" />

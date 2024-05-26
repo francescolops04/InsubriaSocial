@@ -9,38 +9,40 @@
     android:layout_height="match_parent"
     tools:context=".Login">
 
-    <TextView
-        android:id="@+id/textViewL"
-        android:layout_width="201dp"
-        android:layout_height="84dp"
+    <Button
+        android:id="@+id/LogButton"
+        android:layout_width="220dp"
+        android:layout_height="61dp"
+        android:text="Accedi"
+        android:paddingRight="70dp"
+        android:textAllCaps="false"
         android:fontFamily="@font/sfpro2"
-        android:gravity="center"
-        android:text="Login"
-        android:textColor="#066858"
-        android:textSize="50dp"
-        android:textStyle="bold"
+        android:background="@drawable/buttons"
+        android:drawableStart="@drawable/login"
+        android:paddingLeft="50dp"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.474"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.113"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordL"
+        app:layout_constraintVertical_bias="0.283"/>
 
-    <TextView
-        android:id="@+id/linkRec"
-        android:layout_width="221dp"
-        android:layout_height="27dp"
-        android:gravity="center"
-        android:text="Hai dimenticato la password?"
+    <Button
+        android:id="@+id/buttonBackL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttons"
         android:fontFamily="@font/sfpro2"
+        android:textAllCaps="false"
+        android:text="Indietro"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.021"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.857"
-        android:textColor="#066858"
-        android:clickable="true"/>
+        app:layout_constraintVertical_bias="0.023" />
 
     <EditText
         android:id="@+id/mailL"
@@ -79,39 +81,37 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.6" />
 
-    <Button
-        android:id="@+id/LogButton"
-        android:layout_width="220dp"
-        android:layout_height="61dp"
-        android:text="Accedi"
-        android:paddingRight="70dp"
-        android:textAllCaps="false"
+    <TextView
+        android:id="@+id/textViewL"
+        android:layout_width="201dp"
+        android:layout_height="84dp"
         android:fontFamily="@font/sfpro2"
-        android:background="@drawable/buttons"
-        android:drawableStart="@drawable/login"
-        android:paddingLeft="50dp"
-        android:textColor="@color/white"
+        android:gravity="center"
+        android:text="Login"
+        android:textColor="#066858"
+        android:textSize="50dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordL"
-        app:layout_constraintVertical_bias="0.283"/>
-
-    <Button
-        android:id="@+id/buttonBackL"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/buttons"
-        android:fontFamily="@font/sfpro2"
-        android:textAllCaps="false"
-        android:text="Indietro"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.021"
+        app:layout_constraintHorizontal_bias="0.474"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.113"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/linkRec"
+        android:layout_width="221dp"
+        android:layout_height="27dp"
+        android:gravity="center"
+        android:text="Hai dimenticato la password?"
+        android:fontFamily="@font/sfpro2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.857"
+        android:textColor="#066858"
+        android:clickable="true"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

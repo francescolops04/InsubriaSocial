@@ -28,30 +28,41 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.037" />
 
-    <ListView
-        android:id="@+id/announcementList"
-        android:layout_width="386dp"
-        android:divider="@null"
-        android:layout_height="471dp"
-        android:paddingTop="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.428"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.673"
-        android:dividerHeight="25dp"/>
-
-    <TextView
-        android:layout_width="181dp"
-        android:layout_height="69dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/sfpro2"
-        android:gravity="center"
-        android:text="Bacheca"
+    <Button
+        android:id="@+id/AddingB"
+        android:layout_width="80dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/buttons"
+        android:text="+"
         android:textColor="@color/white"
-        android:textSize="40dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/RemoveB"
+        android:layout_width="80dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/buttons"
+        android:text="-"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnRefresh"
+        android:layout_width="60dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/buttons"
+        android:drawableStart="@drawable/refresh"
+        android:gravity="center"
+        android:paddingLeft="19dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -120,41 +131,30 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
-    <Button
-        android:id="@+id/AddingB"
-        android:layout_width="80dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/buttons"
-        android:text="+"
-        android:textColor="@color/white"
+    <ListView
+        android:id="@+id/announcementList"
+        android:layout_width="386dp"
+        android:divider="@null"
+        android:layout_height="471dp"
+        android:paddingTop="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/RemoveB"
-        android:layout_width="80dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="120dp"
-        android:background="@drawable/buttons"
-        android:text="-"
-        android:textColor="@color/white"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.673"
+        android:dividerHeight="25dp"/>
 
-    <Button
-        android:id="@+id/btnRefresh"
-        android:layout_width="60dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="120dp"
-        android:background="@drawable/buttons"
-        android:drawableStart="@drawable/refresh"
+    <TextView
+        android:layout_width="181dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/sfpro2"
         android:gravity="center"
-        android:paddingLeft="19dp"
+        android:text="Bacheca"
+        android:textColor="@color/white"
+        android:textSize="40dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
