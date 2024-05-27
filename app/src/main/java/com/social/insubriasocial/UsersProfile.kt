@@ -79,7 +79,6 @@ class UsersProfile : AppCompatActivity() {
                         descriptionUP.text = ""
                     } else {
                         descriptionUP.text = "$descrizione"
-
                     }
                 }
             }
