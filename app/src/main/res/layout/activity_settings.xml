@@ -17,25 +17,6 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/buttonLogoutSettings"
-        android:layout_width="209dp"
-        android:layout_height="53dp"
-        android:background="@drawable/buttons"
-        android:fontFamily="@font/sfpro2"
-        android:text="Log out"
-        android:paddingLeft="50dp"
-        android:paddingRight="70dp"
-        android:drawableStart="@drawable/logout"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/buttonProfileSetting"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/buttonProfileSetting"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.548" />
-
-    <Button
         android:id="@+id/buttonProfileSetting"
         android:layout_width="209dp"
         android:layout_height="53dp"
@@ -66,16 +47,35 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.404" />
 
+    <Button
+        android:id="@+id/buttonLogoutSettings"
+        android:layout_width="209dp"
+        android:layout_height="53dp"
+        android:background="@drawable/buttons"
+        android:fontFamily="@font/sfpro2"
+        android:text="Log out"
+        android:paddingLeft="50dp"
+        android:paddingRight="70dp"
+        android:drawableStart="@drawable/logout"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/buttonProfileSetting"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/buttonProfileSetting"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.548" />
+
     <ImageView
-        android:id="@+id/settingsS"
+        android:id="@+id/ChatS"
         android:layout_width="42dp"
         android:layout_height="42dp"
         android:layout_marginBottom="16dp"
         android:clickable="true"
-        android:src="@drawable/gear"
+        android:src="@drawable/chatwhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.956"
+        app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
@@ -106,19 +106,6 @@
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/ChatS"
-        android:layout_width="42dp"
-        android:layout_height="42dp"
-        android:layout_marginBottom="16dp"
-        android:clickable="true"
-        android:src="@drawable/chatwhite"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.043"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
-
-    <ImageView
         android:id="@+id/SearchS"
         android:layout_width="42dp"
         android:layout_height="42dp"
@@ -128,6 +115,19 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.262"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/settingsS"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:src="@drawable/gear"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.956"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
