@@ -17,11 +17,11 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.034"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.023"
+        app:layout_constraintHorizontal_bias="0.034" />
 
     <Button
         android:id="@+id/sendBtn"
@@ -47,11 +47,11 @@
         android:gravity="center"
         android:paddingLeft="19dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.966"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.023"
+        app:layout_constraintHorizontal_bias="0.966" />
 
     <ListView
         android:id="@+id/list_messages"
@@ -59,11 +59,10 @@
         android:layout_height="576dp"
         android:stackFromBottom="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.6" />
 
     <EditText
         android:id="@+id/messageText"
@@ -76,9 +75,9 @@
         android:paddingLeft="12dp"
         android:paddingRight="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.102"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.102" />
 
     <TextView
         android:id="@+id/userContact"
@@ -89,8 +88,8 @@
         android:gravity="center"
         android:textColor="#066858"
         android:textSize="30dp"
-        app:layout_constraintEnd_toStartOf="@+id/btnRefreshC"
         app:layout_constraintStart_toEndOf="@+id/backBtnChat"
+        app:layout_constraintEnd_toStartOf="@+id/btnRefreshC"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

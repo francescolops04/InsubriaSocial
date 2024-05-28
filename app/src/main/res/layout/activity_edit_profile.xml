@@ -30,8 +30,8 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.885" />
 
@@ -47,11 +47,11 @@
         android:drawableStart="@drawable/user"
         android:paddingLeft="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.282" />
+        app:layout_constraintVertical_bias="0.282"
+        app:layout_constraintHorizontal_bias="0.496" />
 
     <EditText
         android:id="@+id/cognomeEP"
@@ -65,11 +65,11 @@
         android:drawableStart="@drawable/user"
         android:paddingLeft="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/nomeEP"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/nomeEP"
+        app:layout_constraintEnd_toEndOf="@+id/nomeEP"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.408" />
+        app:layout_constraintVertical_bias="0.408"
+        app:layout_constraintHorizontal_bias="0.0" />
 
     <EditText
         android:id="@+id/userEP"
@@ -83,11 +83,11 @@
         android:drawableStart="@drawable/user"
         android:paddingLeft="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/nomeEP"
-        app:layout_constraintHorizontal_bias="0.066"
         app:layout_constraintStart_toStartOf="@+id/nomeEP"
+        app:layout_constraintEnd_toEndOf="@+id/nomeEP"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.538" />
+        app:layout_constraintVertical_bias="0.538"
+        app:layout_constraintHorizontal_bias="0.066" />
 
     <Spinner
         android:id="@+id/spinnerEP"
@@ -97,10 +97,10 @@
         android:entries="@array/opzioni_spinner_edit"
         app:layout_constraintBaseline_toBottomOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/userEP"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/userEP"
+        app:layout_constraintEnd_toEndOf="@+id/userEP"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.661" />
+        app:layout_constraintVertical_bias="0.661"
+        app:layout_constraintHorizontal_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
