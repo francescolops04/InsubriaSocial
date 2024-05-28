@@ -14,8 +14,8 @@
         android:background="@drawable/buttons"
         android:foregroundGravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.135" />
 
@@ -29,11 +29,11 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.022"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.023"
+        app:layout_constraintHorizontal_bias="0.022" />
 
     <Button
         android:id="@+id/chatUP"
@@ -45,11 +45,11 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.978"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.023"
+        app:layout_constraintHorizontal_bias="0.978" />
 
     <TextView
         android:id="@+id/userProfileUP"
@@ -61,10 +61,10 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/nameProfileUP"
-        app:layout_constraintHorizontal_bias="0.549"
         app:layout_constraintStart_toStartOf="@+id/nameProfileUP"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.291" />
+        app:layout_constraintVertical_bias="0.291"
+        app:layout_constraintHorizontal_bias="0.549" />
 
     <TextView
         android:id="@+id/nameProfileUP"
@@ -75,11 +75,11 @@
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.345"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.376" />
+        app:layout_constraintVertical_bias="0.376"
+        app:layout_constraintHorizontal_bias="0.345" />
 
     <TextView
         android:id="@+id/facultyProfileUP"
@@ -90,11 +90,11 @@
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/nameProfileUP"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/nameProfileUP"
+        app:layout_constraintEnd_toEndOf="@+id/nameProfileUP"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.46" />
+        app:layout_constraintVertical_bias="0.46"
+        app:layout_constraintHorizontal_bias="0.0" />
 
     <TextView
         android:id="@+id/profileDescUP"
@@ -109,11 +109,11 @@
         android:textColor="@color/black"
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.698" />
+        app:layout_constraintVertical_bias="0.698"
+        app:layout_constraintHorizontal_bias="0.489" />
 
     <TextView
         android:layout_width="259dp"
@@ -124,8 +124,8 @@
         android:textColor="@color/white"
         android:textSize="40dp"
         app:layout_constraintBottom_toBottomOf="@+id/viewUP"
-        app:layout_constraintEnd_toEndOf="@+id/viewUP"
         app:layout_constraintStart_toStartOf="@+id/viewUP"
+        app:layout_constraintEnd_toEndOf="@+id/viewUP"
         app:layout_constraintTop_toTopOf="@+id/viewUP"
         app:layout_constraintVertical_bias="1.0" />
 

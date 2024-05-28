@@ -41,11 +41,11 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/buttonProfileSetting"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/buttonProfileSetting"
+        app:layout_constraintEnd_toEndOf="@+id/buttonProfileSetting"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.404" />
+        app:layout_constraintVertical_bias="0.404"
+        app:layout_constraintHorizontal_bias="0.0" />
 
     <Button
         android:id="@+id/buttonLogoutSettings"
@@ -60,11 +60,11 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/buttonProfileSetting"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/buttonProfileSetting"
+        app:layout_constraintEnd_toEndOf="@+id/buttonProfileSetting"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.548" />
+        app:layout_constraintVertical_bias="0.548"
+        app:layout_constraintHorizontal_bias="0.0" />
 
     <ImageView
         android:id="@+id/ChatS"
@@ -74,9 +74,9 @@
         android:clickable="true"
         android:src="@drawable/chatwhite"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.043"
-        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
     <ImageView
@@ -87,9 +87,9 @@
         android:clickable="true"
         android:src="@drawable/profile"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.728"
-        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
     <ImageView
@@ -100,9 +100,9 @@
         android:clickable="true"
         android:src="@drawable/boardwhite"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
     <ImageView
@@ -113,9 +113,9 @@
         android:clickable="true"
         android:src="@drawable/searchwhite"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.262"
-        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
     <ImageView
@@ -126,9 +126,9 @@
         android:clickable="true"
         android:src="@drawable/gear"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.956"
-        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

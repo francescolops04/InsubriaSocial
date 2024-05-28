@@ -13,8 +13,8 @@
         android:layout_height="72dp"
         android:background="@drawable/buttons"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/btnRefreshSP"
@@ -25,11 +25,11 @@
         android:gravity="center"
         android:paddingLeft="19dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.985"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.128" />
+        app:layout_constraintVertical_bias="0.128"
+        app:layout_constraintHorizontal_bias="0.985" />
 
     <ImageView
         android:id="@+id/BachecaSe"
@@ -39,9 +39,9 @@
         android:clickable="true"
         android:src="@drawable/boardwhite"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
     <ImageView
@@ -52,9 +52,9 @@
         android:clickable="true"
         android:src="@drawable/chatwhite"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.043"
-        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
     <ImageView
@@ -78,9 +78,9 @@
         android:clickable="true"
         android:src="@drawable/profile"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.728"
-        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
     <ImageView
@@ -91,9 +91,9 @@
         android:clickable="true"
         android:src="@drawable/gearwhite"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.956"
-        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
     <ListView
@@ -103,8 +103,8 @@
         android:divider="@null"
         android:dividerHeight="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.647"
         tools:ignore="MissingConstraints" />
@@ -119,11 +119,11 @@
         android:paddingRight="18dp"
         android:singleLine="true"
         app:layout_constraintBottom_toBottomOf="@+id/BachecaSe"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.407"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.024"
+        app:layout_constraintHorizontal_bias="0.407"
         tools:ignore="MissingConstraints" />
 
     <Spinner
@@ -134,10 +134,10 @@
         android:entries="@array/opzioni_spinner"
         app:layout_constraintBaseline_toBottomOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.108"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.128" />
+        app:layout_constraintVertical_bias="0.128"
+        app:layout_constraintHorizontal_bias="0.108" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
