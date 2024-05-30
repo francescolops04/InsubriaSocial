@@ -99,6 +99,7 @@ class SistemaDiRicerca : AppCompatActivity() {
                 }
             }
 
+
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 // Non fa niente
             }
