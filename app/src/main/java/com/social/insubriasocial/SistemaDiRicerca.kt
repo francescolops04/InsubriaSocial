@@ -47,6 +47,9 @@ class SistemaDiRicerca : AppCompatActivity() {
         searchList.adapter = adapterSearch
 
 
+
+
+
         btnRefreshSP.setOnClickListener {
             val intent = Intent(this, SistemaDiRicerca::class.java)
             startActivity(intent)
@@ -81,21 +84,23 @@ class SistemaDiRicerca : AppCompatActivity() {
         spinnerFilter.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                 val selectedItem = parent.getItemAtPosition(position).toString()
-                if (!selectedItem.equals("Seleziona la facoltà")) {
-                    // Filtro applicato se selezionato un elemento diverso da "Seleziona la facoltà"
-                    searchText.doAfterTextChanged { editable ->
-                        searchUserFilter(editable.toString(), selectedItem)
-                    }
-                } else {
-                    // Ricerca semplice senza filtro
-                    searchText.doAfterTextChanged { editable ->
-                        searchUser(editable.toString())
+                searchText.doAfterTextChanged { editable ->
+                    val searchText = editable.toString()
+                    if (searchText.isEmpty()) {
+                        searchList.visibility = View.GONE
+                    } else {
+                        searchList.visibility = View.VISIBLE
+                        if (selectedItem != "Seleziona la facoltà") {
+                            searchUserFilter(searchText, selectedItem)
+                        } else {
+                            searchUser(searchText)
+                        }
                     }
                 }
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                //Non fa niente
+                // Non fa niente
             }
         }
 
